@@ -1,0 +1,49 @@
+group,slot,team
+A,1,Germany
+A,2,South Korea
+A,3,Mexico
+A,4,Paraguay
+B,1,Uruguay
+B,2,Denmark
+B,3,Egypt
+B,4,Jamaica
+C,1,Spain
+C,2,Colombia
+C,3,Scotland
+C,4,Saudi Arabia
+D,1,Italy
+D,2,Ivory Coast
+D,3,Ecuador
+D,4,USA
+E,1,England
+E,2,Senegal
+E,3,Hungary
+E,4,Costa Rica
+F,1,Morocco
+F,2,Japan
+F,3,Serbia
+F,4,Panama
+G,1,Portugal
+G,2,Nigeria
+G,3,Ukraine
+G,4,Qatar
+H,1,Brazil
+H,2,Algeria
+H,3,Poland
+H,4,New Zealand
+I,1,France
+I,2,Switzerland
+I,3,Ghana
+I,4,Uzbekistan
+J,1,Netherlands
+J,2,Norway
+J,3,Iran
+J,4,Canada
+K,1,Belgium
+K,2,Austria
+K,3,Cameroon
+K,4,Iraq
+L,1,Argentina
+L,2,Croatia
+L,3,Australia
+L,4,Tunisia
