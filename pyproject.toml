@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wcpredictor"
+version = "0.1.0"
+description = "Statistical World Cup 2026 predictor using Elo and Poisson models with Monte Carlo tournament simulation."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+# nbformat drives scripts/build_notebooks.py; jupyter runs the notebooks.
+dev = ["pytest>=7.4", "jupyter>=1.0", "nbformat>=5.9"]
+
+[project.scripts]
+wcpredict = "wcpredictor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+wcpredictor = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
