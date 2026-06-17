@@ -1,4 +1,9 @@
-"""Generate bundled seed CSVs for the World Cup 2026 predictor.
+"""Generate *synthetic* seed CSVs for the World Cup 2026 predictor.
+
+.. note::
+   This is no longer the source of the bundled data -- the repo now ships real
+   World Cup results built by ``scripts/fetch_worldcup_data.py``. This script is
+   kept as a self-contained, offline fallback that needs no network access.
 
 This produces three files under ``data/raw``:
 

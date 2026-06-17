@@ -11,22 +11,30 @@ explored through Jupyter notebooks.
   third-placed teams, a 32-team knockout bracket) that produces per-team
   title and advancement probabilities.
 
-The repo ships with bundled seed data so everything runs end to end out of the
-box. The match results are **synthetic** (sampled from a realistic strength
-hierarchy) -- replace them with a real dataset for real-world predictions (see
-[Using your own data](#using-your-own-data)).
+The repo ships with **real World Cup data** so everything runs end to end out of
+the box. Match results come from
+[openfootball/worldcup.json](https://github.com/openfootball/worldcup.json) and
+cover every World Cup finals from 1930 through the already-played 2026 group
+games, and the bundled group stage is the **actual 2026 draw**.
+
+> **Coverage note:** the source only includes World Cup *finals* (no qualifiers
+> or friendlies), so a few 2026 debutants with no prior finals history (Cape
+> Verde, Curaçao, Jordan, Uzbekistan) fall back to the models' default ratings.
+> To fold in more matches, see [Using your own data](#using-your-own-data).
 
 ## Project layout
 
 ```
 world-cup-predictor/
 ├── data/
-│   ├── raw/                  bundled seed CSVs (matches, teams, groups)
+│   ├── raw/                  bundled CSVs (matches, teams, groups)
+│   ├── source/               vendored openfootball worldcup.json (per year)
 │   └── processed/            saved model artifacts (generated)
 ├── notebooks/                01-04 analysis notebooks
 ├── scripts/
-│   ├── generate_seed_data.py regenerate the seed CSVs
-│   └── build_notebooks.py    regenerate the notebooks
+│   ├── fetch_worldcup_data.py build raw CSVs from openfootball data
+│   ├── generate_seed_data.py  regenerate synthetic CSVs (offline fallback)
+│   └── build_notebooks.py     regenerate the notebooks
 ├── src/wcpredictor/
 │   ├── config.py             paths + model hyperparameters
 │   ├── data/                 loader.py, preprocess.py
@@ -132,7 +140,9 @@ in a notebook to experiment without touching the rest of the code.
 
 ## Using your own data
 
-The models only need a `matches.csv` with these columns:
+The bundled data covers World Cup finals only. For richer predictions you can
+swap in a broader dataset (qualifiers, friendlies, etc.). The models only need a
+`matches.csv` with these columns:
 
 | column      | description                              |
 |-------------|------------------------------------------|
@@ -153,11 +163,14 @@ To use real data:
    teams and team names match `matches.csv`.
 3. Re-run `wcpredict train` and `wcpredict simulate`.
 
-To regenerate the bundled synthetic data or the notebooks:
+To regenerate the bundled data (re-reads the vendored `data/source/*.json`) or
+the notebooks:
 
 ```bash
-python scripts/generate_seed_data.py
-python scripts/build_notebooks.py
+python scripts/fetch_worldcup_data.py            # real World Cup data (default)
+python scripts/fetch_worldcup_data.py --refresh  # re-download source JSON first
+python scripts/generate_seed_data.py             # synthetic data (offline fallback)
+python scripts/build_notebooks.py                # rebuild the notebooks
 ```
 
 A live football API could be wired in behind `data/loader.py` by writing a

@@ -44,8 +44,8 @@ def load_matches(config: Optional[Config] = None) -> pd.DataFrame:
     path = config.matches_path
     if not path.exists():
         raise FileNotFoundError(
-            f"Matches file not found at {path}. Run scripts/generate_seed_data.py "
-            "or place your own matches.csv there."
+            f"Matches file not found at {path}. Run scripts/fetch_worldcup_data.py "
+            "(or scripts/generate_seed_data.py) or place your own matches.csv there."
         )
     df = pd.read_csv(path)
     _require_columns(df, MATCH_COLUMNS, path)

@@ -54,7 +54,9 @@ class PoissonParams:
     # Home advantage expressed as a multiplicative factor on expected goals.
     home_factor: float = 1.15
     # Recency weighting half-life in days for fitting strengths (0 disables).
-    half_life_days: float = 540.0
+    # ~5 years suits the bundled World-Cup-finals data (one tournament every 4
+    # years), so the last 2-3 World Cups all contribute meaningfully.
+    half_life_days: float = 1825.0
     # Maximum goals considered when building the scoreline distribution.
     max_goals: int = 10
     # Ridge-style shrinkage of attack/defense strengths toward the mean.
