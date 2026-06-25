@@ -76,6 +76,19 @@ class TeamStats:
         return self.gf - self.ga
 
 
+# Mutually exclusive "how far did they get" outcomes, group stage -> champion.
+# Each maps to a display label; probabilities across these sum to 1 per team.
+EXACT_OUTCOMES = (
+    ("group_stage", "Group stage"),
+    ("lost_r32", "Reached R32"),
+    ("lost_r16", "Reached R16"),
+    ("lost_qf", "Reached QF"),
+    ("lost_sf", "Reached SF"),
+    ("runner_up", "Runner-up"),
+    ("champion", "Champion"),
+)
+
+
 @dataclass
 class SimulationReport:
     """Aggregated probabilities across Monte Carlo runs."""
@@ -85,6 +98,33 @@ class SimulationReport:
 
     def top(self, n: int = 10) -> pd.DataFrame:
         return self.table.head(n)
+
+    def outcome_distribution(self) -> pd.DataFrame:
+        """Mutually exclusive finish probabilities per team (sum to 1).
+
+        Derived from the cumulative reach-stage probabilities: the chance a team
+        is eliminated in the group stage, in each knockout round, finishes
+        runner-up, or wins the title.
+        """
+        t = self.table
+        out = pd.DataFrame({"team": t["team"], "group": t["group"]})
+        out["group_stage"] = 1.0 - t["p_advance"]
+        out["lost_r32"] = t["p_advance"] - t["p_round_of_16"]
+        out["lost_r16"] = t["p_round_of_16"] - t["p_quarterfinal"]
+        out["lost_qf"] = t["p_quarterfinal"] - t["p_semifinal"]
+        out["lost_sf"] = t["p_semifinal"] - t["p_final"]
+        out["runner_up"] = t["p_final"] - t["p_winner"]
+        out["champion"] = t["p_winner"]
+        # Clip tiny negative values from floating point subtraction.
+        cols = [key for key, _ in EXACT_OUTCOMES]
+        out[cols] = out[cols].clip(lower=0.0)
+        return out
+
+    def group_position_distribution(self) -> pd.DataFrame:
+        """Probability of finishing 1st/2nd/3rd/4th in the group, per team."""
+        cols = ["team", "group", "p_group_1st", "p_group_2nd",
+                "p_group_3rd", "p_group_4th"]
+        return self.table[cols].copy()
 
 
 class TournamentSimulator:
@@ -283,6 +323,8 @@ class TournamentSimulator:
         counts = {
             stage: {t: 0 for t in all_teams} for stage in STAGES
         }
+        # Group finishing position counts (1st..4th) per team.
+        position_counts = {t: [0, 0, 0, 0] for t in all_teams}
 
         seed_order = _bracket_seed_order(32)
 
@@ -293,6 +335,8 @@ class TournamentSimulator:
 
             for teams in self.groups.values():
                 ranking, stats = self._simulate_group_with_stats(teams, rng)
+                for pos, team in enumerate(ranking):
+                    position_counts[team][pos] += 1
                 winners.append((ranking[0], stats[ranking[0]]))
                 runners.append((ranking[1], stats[ranking[1]]))
                 thirds.append((ranking[2], stats[ranking[2]]))
@@ -320,7 +364,7 @@ class TournamentSimulator:
                     counts[stage_name][t] += 1
                 current = next_round
 
-        return self._build_report(counts, n, all_teams)
+        return self._build_report(counts, position_counts, n, all_teams)
 
     def _simulate_group_with_stats(
         self, teams: Sequence[str], rng
@@ -355,12 +399,19 @@ class TournamentSimulator:
         ranking = self._rank(list(teams), stats, played_matches, rng)
         return ranking, stats
 
-    def _build_report(self, counts, n, all_teams) -> SimulationReport:
+    def _build_report(
+        self, counts, position_counts, n, all_teams
+    ) -> SimulationReport:
         rows = []
         for t in all_teams:
             row = {"team": t, "group": self.team_group[t]}
             for stage in STAGES:
                 row[f"p_{stage}"] = counts[stage][t] / n
+            pos = position_counts[t]
+            row["p_group_1st"] = pos[0] / n
+            row["p_group_2nd"] = pos[1] / n
+            row["p_group_3rd"] = pos[2] / n
+            row["p_group_4th"] = pos[3] / n
             rows.append(row)
         table = pd.DataFrame(rows)
         table = table.rename(columns={"p_round_of_32": "p_advance"})

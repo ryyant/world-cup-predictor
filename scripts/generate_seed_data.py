@@ -32,64 +32,85 @@ import numpy as np
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = PROJECT_ROOT / "data" / "raw"
 
-# (team, confederation, latent_strength). Strength is a unitless skill index;
-# ~1.0 is a top side, ~-1.0 is a minnow. Used only to generate results.
+# (team, confederation, latent_strength).
+# Strength is a unitless skill index calibrated to the FIFA World Rankings as
+# of June 11, 2026 (the official pre-tournament ranking). ~1.0 is a top side,
+# ~-0.3 is a minnow. Used to generate synthetic historical match results so
+# Elo and Poisson learn realistic relative ratings.
 TEAMS = [
-    # CONCACAF (hosts + qualifiers)
-    ("USA", "CONCACAF", 0.25),
-    ("Mexico", "CONCACAF", 0.30),
-    ("Canada", "CONCACAF", 0.10),
-    ("Costa Rica", "CONCACAF", -0.30),
-    ("Panama", "CONCACAF", -0.40),
-    ("Jamaica", "CONCACAF", -0.45),
-    # UEFA
-    ("France", "UEFA", 1.05),
-    ("England", "UEFA", 0.95),
-    ("Spain", "UEFA", 0.98),
-    ("Germany", "UEFA", 0.85),
-    ("Portugal", "UEFA", 0.90),
-    ("Netherlands", "UEFA", 0.82),
-    ("Belgium", "UEFA", 0.72),
-    ("Italy", "UEFA", 0.78),
-    ("Croatia", "UEFA", 0.60),
-    ("Denmark", "UEFA", 0.55),
-    ("Switzerland", "UEFA", 0.48),
-    ("Austria", "UEFA", 0.45),
-    ("Ukraine", "UEFA", 0.40),
-    ("Poland", "UEFA", 0.38),
-    ("Serbia", "UEFA", 0.42),
-    ("Norway", "UEFA", 0.50),
-    ("Scotland", "UEFA", 0.30),
-    ("Hungary", "UEFA", 0.35),
-    # CONMEBOL
-    ("Brazil", "CONMEBOL", 1.00),
-    ("Argentina", "CONMEBOL", 1.08),
-    ("Uruguay", "CONMEBOL", 0.68),
-    ("Colombia", "CONMEBOL", 0.62),
-    ("Ecuador", "CONMEBOL", 0.40),
-    ("Paraguay", "CONMEBOL", 0.20),
-    # AFC
-    ("Japan", "AFC", 0.55),
-    ("South Korea", "AFC", 0.50),
-    ("Iran", "AFC", 0.42),
-    ("Australia", "AFC", 0.40),
-    ("Saudi Arabia", "AFC", 0.18),
-    ("Qatar", "AFC", 0.10),
-    ("Iraq", "AFC", 0.00),
-    ("Uzbekistan", "AFC", 0.05),
-    # CAF
-    ("Morocco", "CAF", 0.70),
-    ("Senegal", "CAF", 0.58),
-    ("Nigeria", "CAF", 0.52),
-    ("Egypt", "CAF", 0.45),
-    ("Cameroon", "CAF", 0.35),
-    ("Ghana", "CAF", 0.33),
-    ("Algeria", "CAF", 0.48),
-    ("Ivory Coast", "CAF", 0.46),
-    ("Tunisia", "CAF", 0.30),
-    # OFC
-    ("New Zealand", "OFC", -0.20),
+    # ---- CONCACAF (hosts + qualifiers) ----
+    # Hosts carry extra weight; USA/Mexico are also strong by FIFA rank.
+    ("USA", "CONCACAF", 0.58),          # FIFA 17
+    ("Mexico", "CONCACAF", 0.65),       # FIFA 14
+    ("Canada", "CONCACAF", 0.26),       # FIFA 30
+    ("Panama", "CONCACAF", 0.18),       # FIFA 34
+    ("Curaçao", "CONCACAF", -0.32),     # FIFA 82
+    ("Haiti", "CONCACAF", -0.33),       # FIFA 83
+    # ---- CONMEBOL ----
+    ("Argentina", "CONMEBOL", 1.05),    # FIFA 1
+    ("Brazil", "CONMEBOL", 0.88),       # FIFA 6
+    ("Colombia", "CONMEBOL", 0.68),     # FIFA ~12
+    ("Uruguay", "CONMEBOL", 0.60),      # FIFA 16
+    ("Ecuador", "CONMEBOL", 0.40),      # FIFA 23
+    ("Paraguay", "CONMEBOL", 0.06),     # FIFA 41
+    # ---- OFC ----
+    ("New Zealand", "OFC", -0.35),      # FIFA 85
+    # ---- AFC ----
+    ("Japan", "AFC", 0.55),             # FIFA 18
+    ("Iran", "AFC", 0.48),              # FIFA 20
+    ("South Korea", "AFC", 0.35),       # FIFA 25
+    ("Australia", "AFC", 0.38),         # FIFA 27
+    ("Saudi Arabia", "AFC", -0.16),     # FIFA 61
+    ("Qatar", "AFC", -0.12),            # FIFA 56
+    ("Uzbekistan", "AFC", -0.05),       # FIFA 50
+    ("Jordan", "AFC", -0.18),           # FIFA 63
+    ("Iraq", "AFC", -0.13),             # FIFA 57
+    # ---- CAF ----
+    ("Morocco", "CAF", 0.82),           # FIFA 7
+    ("Senegal", "CAF", 0.62),           # FIFA 15
+    ("Algeria", "CAF", 0.30),           # FIFA 28
+    ("Egypt", "CAF", 0.28),             # FIFA 29
+    ("Ivory Coast", "CAF", 0.20),       # FIFA 33
+    ("Tunisia", "CAF", 0.00),           # FIFA 45
+    ("DR Congo", "CAF", -0.02),         # FIFA 46
+    ("South Africa", "CAF", -0.15),     # FIFA 60
+    ("Cape Verde", "CAF", -0.20),       # FIFA 67
+    ("Ghana", "CAF", -0.22),            # FIFA 73
+    # ---- UEFA ----
+    ("Spain", "UEFA", 1.02),            # FIFA 2
+    ("France", "UEFA", 1.00),           # FIFA 3
+    ("England", "UEFA", 0.95),          # FIFA 4
+    ("Portugal", "UEFA", 0.92),         # FIFA 5
+    ("Netherlands", "UEFA", 0.80),      # FIFA 8
+    ("Belgium", "UEFA", 0.76),          # FIFA 9
+    ("Germany", "UEFA", 0.75),          # FIFA 10
+    ("Croatia", "UEFA", 0.70),          # FIFA 11
+    ("Switzerland", "UEFA", 0.52),      # FIFA 19
+    ("Turkey", "UEFA", 0.45),           # FIFA 22
+    ("Austria", "UEFA", 0.38),          # FIFA 24
+    ("Norway", "UEFA", 0.24),           # FIFA 31
+    ("Scotland", "UEFA", 0.05),         # FIFA 42
+    ("Sweden", "UEFA", 0.12),           # FIFA 38
+    ("Czech Republic", "UEFA", 0.08),   # FIFA 40
+    ("Bosnia & Herzegovina", "UEFA", -0.19),  # FIFA 64
 ]
+
+# Real 2026 World Cup group draw (Kennedy Center, December 5, 2025).
+# Listed in official FIFA seeding order: Pot 1 → Pot 4.
+REAL_GROUPS = {
+    "A": ["Mexico", "South Africa", "South Korea", "Czech Republic"],
+    "B": ["Canada", "Switzerland", "Qatar", "Bosnia & Herzegovina"],
+    "C": ["Brazil", "Morocco", "Haiti", "Scotland"],
+    "D": ["USA", "Paraguay", "Australia", "Turkey"],
+    "E": ["Germany", "Curaçao", "Ivory Coast", "Ecuador"],
+    "F": ["Netherlands", "Japan", "Tunisia", "Sweden"],
+    "G": ["Belgium", "Egypt", "Iran", "New Zealand"],
+    "H": ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"],
+    "I": ["France", "Senegal", "Norway", "Iraq"],
+    "J": ["Argentina", "Algeria", "Austria", "Jordan"],
+    "K": ["Portugal", "Uzbekistan", "Colombia", "DR Congo"],
+    "L": ["England", "Croatia", "Ghana", "Panama"],
+}
 
 # Goals model used to synthesize results.
 BASE_LOG_GOALS = 0.10   # exp(0.10) ~ 1.1 baseline goals
@@ -120,50 +141,9 @@ def write_teams(teams, pots):
     print(f"wrote {path} ({len(teams)} teams)")
 
 
-def draw_groups(teams, pots, rng):
-    """Build 12 groups of 4 with one team per pot, respecting a simple
-    confederation constraint (max one team per confederation per group, except
-    UEFA which may have up to two)."""
-    by_pot = {1: [], 2: [], 3: [], 4: []}
-    for name, conf, _s in teams:
-        by_pot[pots[name]].append((name, conf))
-    for pot in by_pot:
-        rng.shuffle(by_pot[pot])
-
-    group_letters = [chr(ord("A") + i) for i in range(12)]
-    groups = {g: [] for g in group_letters}
-    group_confs = {g: [] for g in group_letters}
-
-    def can_place(group, conf):
-        existing = group_confs[group]
-        if conf == "UEFA":
-            return existing.count("UEFA") < 2
-        return conf not in existing
-
-    for pot in (1, 2, 3, 4):
-        pool = by_pot[pot]
-        # Greedy assignment with backtracking-lite: try to place each team in
-        # the first group (that still needs a pot-`pot` team) it is allowed in.
-        for name, conf in pool:
-            placed = False
-            order = group_letters[:]
-            rng.shuffle(order)
-            for g in order:
-                if len(groups[g]) == pot - 1 and can_place(g, conf):
-                    groups[g].append(name)
-                    group_confs[g].append(conf)
-                    placed = True
-                    break
-            if not placed:
-                # Fallback: drop the confederation constraint to guarantee a
-                # complete draw.
-                for g in order:
-                    if len(groups[g]) == pot - 1:
-                        groups[g].append(name)
-                        group_confs[g].append(conf)
-                        placed = True
-                        break
-    return groups
+def real_groups():
+    """Return the actual 2026 World Cup group draw (no randomness needed)."""
+    return {g: list(teams) for g, teams in REAL_GROUPS.items()}
 
 
 def write_groups(groups):
@@ -222,7 +202,7 @@ def main():
     rng = np.random.default_rng(2026)
     pots = assign_pots(TEAMS)
     write_teams(TEAMS, pots)
-    groups = draw_groups(TEAMS, pots, rng)
+    groups = real_groups()
     write_groups(groups)
     write_matches(TEAMS, rng)
     print("done")

@@ -1,985 +1,1321 @@
 date,home_team,away_team,home_score,away_score,neutral,tournament
-1930-07-13,France,Mexico,4,1,1,World Cup 1930
-1930-07-13,USA,Belgium,3,0,1,World Cup 1930
-1930-07-14,Yugoslavia,Brazil,2,1,1,World Cup 1930
-1930-07-14,Romania,Peru,3,1,1,World Cup 1930
-1930-07-15,Argentina,France,1,0,1,World Cup 1930
-1930-07-16,Chile,Mexico,3,0,1,World Cup 1930
-1930-07-17,Yugoslavia,Bolivia,4,0,1,World Cup 1930
-1930-07-17,USA,Paraguay,3,0,1,World Cup 1930
-1930-07-18,Uruguay,Peru,1,0,0,World Cup 1930
-1930-07-19,Chile,France,1,0,1,World Cup 1930
-1930-07-19,Argentina,Mexico,6,3,1,World Cup 1930
-1930-07-20,Brazil,Bolivia,4,0,1,World Cup 1930
-1930-07-20,Paraguay,Belgium,1,0,1,World Cup 1930
-1930-07-21,Uruguay,Romania,4,0,0,World Cup 1930
-1930-07-22,Argentina,Chile,3,1,1,World Cup 1930
-1930-07-26,Argentina,USA,6,1,1,World Cup 1930
-1930-07-27,Uruguay,Yugoslavia,6,1,0,World Cup 1930
-1930-07-30,Uruguay,Argentina,4,2,0,World Cup 1930
-1934-05-27,Sweden,Argentina,3,2,1,World Cup 1934
-1934-05-27,Austria,France,1,1,1,World Cup 1934
-1934-05-27,Germany,Belgium,5,2,1,World Cup 1934
-1934-05-27,Spain,Brazil,3,1,1,World Cup 1934
-1934-05-27,Hungary,Egypt,4,2,1,World Cup 1934
-1934-05-27,Switzerland,Netherlands,3,2,1,World Cup 1934
-1934-05-27,Italy,USA,7,1,0,World Cup 1934
-1934-05-27,Czechoslovakia,Romania,2,1,1,World Cup 1934
-1934-05-31,Czechoslovakia,Switzerland,3,2,1,World Cup 1934
-1934-05-31,Germany,Sweden,2,1,1,World Cup 1934
-1934-05-31,Italy,Spain,1,1,0,World Cup 1934
-1934-05-31,Austria,Hungary,2,1,1,World Cup 1934
-1934-06-01,Italy,Spain,1,0,0,World Cup 1934
-1934-06-03,Italy,Austria,1,0,0,World Cup 1934
-1934-06-03,Czechoslovakia,Germany,3,1,1,World Cup 1934
-1934-06-07,Germany,Austria,3,2,1,World Cup 1934
-1934-06-10,Italy,Czechoslovakia,1,1,0,World Cup 1934
-1938-06-04,Switzerland,Germany,1,1,1,World Cup 1938
-1938-06-05,Hungary,Dutch East Indies,6,0,1,World Cup 1938
-1938-06-05,France,Belgium,3,1,0,World Cup 1938
-1938-06-05,Cuba,Romania,2,2,1,World Cup 1938
-1938-06-05,Italy,Norway,1,1,1,World Cup 1938
-1938-06-05,Brazil,Poland,4,4,1,World Cup 1938
-1938-06-05,Czechoslovakia,Netherlands,0,0,1,World Cup 1938
-1938-06-09,Cuba,Romania,2,1,1,World Cup 1938
-1938-06-09,Germany,Switzerland,2,4,1,World Cup 1938
-1938-06-12,Brazil,Czechoslovakia,1,1,1,World Cup 1938
-1938-06-12,Switzerland,Hungary,0,2,1,World Cup 1938
-1938-06-12,Sweden,Cuba,8,0,1,World Cup 1938
-1938-06-12,France,Italy,1,3,0,World Cup 1938
-1938-06-14,Brazil,Czechoslovakia,2,1,1,World Cup 1938
-1938-06-16,Hungary,Sweden,5,1,1,World Cup 1938
-1938-06-16,Italy,Brazil,2,1,1,World Cup 1938
-1938-06-19,Sweden,Brazil,2,4,1,World Cup 1938
-1938-06-19,Hungary,Italy,2,4,1,World Cup 1938
-1950-06-24,Brazil,Mexico,4,0,0,World Cup 1950
-1950-06-25,Yugoslavia,Switzerland,3,0,1,World Cup 1950
-1950-06-25,England,Chile,2,0,1,World Cup 1950
-1950-06-25,Spain,USA,3,1,1,World Cup 1950
-1950-06-25,Sweden,Italy,3,2,1,World Cup 1950
-1950-06-28,Brazil,Switzerland,2,2,0,World Cup 1950
-1950-06-28,Yugoslavia,Mexico,4,1,1,World Cup 1950
-1950-06-29,Spain,Chile,2,0,1,World Cup 1950
-1950-06-29,USA,England,1,0,1,World Cup 1950
-1950-06-29,Sweden,Paraguay,2,2,1,World Cup 1950
-1950-07-01,Brazil,Yugoslavia,2,0,0,World Cup 1950
-1950-07-02,Switzerland,Mexico,2,1,1,World Cup 1950
-1950-07-02,Spain,England,1,0,1,World Cup 1950
-1950-07-02,Chile,USA,5,2,1,World Cup 1950
-1950-07-02,Italy,Paraguay,2,0,1,World Cup 1950
-1950-07-02,Uruguay,Bolivia,8,0,1,World Cup 1950
-1950-07-09,Uruguay,Spain,2,2,1,World Cup 1950
-1950-07-09,Brazil,Sweden,7,1,0,World Cup 1950
-1950-07-13,Brazil,Spain,6,1,0,World Cup 1950
-1950-07-13,Uruguay,Sweden,3,2,1,World Cup 1950
-1950-07-16,Sweden,Spain,3,1,1,World Cup 1950
-1950-07-16,Uruguay,Brazil,2,1,0,World Cup 1950
-1954-06-16,Brazil,Mexico,5,0,1,World Cup 1954
-1954-06-16,Yugoslavia,France,1,0,1,World Cup 1954
-1954-06-16,Uruguay,Czechoslovakia,2,0,1,World Cup 1954
-1954-06-16,Austria,Scotland,1,0,1,World Cup 1954
-1954-06-17,Germany,Turkey,4,1,1,World Cup 1954
-1954-06-17,Hungary,South Korea,9,0,1,World Cup 1954
-1954-06-17,England,Belgium,3,3,1,World Cup 1954
-1954-06-17,Switzerland,Italy,2,1,0,World Cup 1954
-1954-06-19,Brazil,Yugoslavia,1,1,1,World Cup 1954
-1954-06-19,France,Mexico,3,2,1,World Cup 1954
-1954-06-19,Austria,Czechoslovakia,5,0,1,World Cup 1954
-1954-06-19,Uruguay,Scotland,7,0,1,World Cup 1954
-1954-06-20,Hungary,Germany,8,3,1,World Cup 1954
-1954-06-20,Turkey,South Korea,7,0,1,World Cup 1954
-1954-06-20,England,Switzerland,2,0,0,World Cup 1954
-1954-06-20,Italy,Belgium,4,1,1,World Cup 1954
-1954-06-23,Germany,Turkey,7,2,1,World Cup 1954
-1954-06-23,Switzerland,Italy,4,1,0,World Cup 1954
-1954-06-26,Austria,Switzerland,7,5,0,World Cup 1954
-1954-06-26,Uruguay,England,4,2,1,World Cup 1954
-1954-06-27,Yugoslavia,Germany,0,2,1,World Cup 1954
-1954-06-27,Brazil,Hungary,2,4,1,World Cup 1954
-1954-06-30,Germany,Austria,6,1,1,World Cup 1954
-1954-06-30,Hungary,Uruguay,2,2,1,World Cup 1954
-1954-07-03,Uruguay,Austria,1,3,1,World Cup 1954
-1954-07-04,Hungary,Germany,2,3,1,World Cup 1954
-1958-06-08,Germany,Argentina,3,1,1,World Cup 1958
-1958-06-08,Northern Ireland,Czechoslovakia,1,0,1,World Cup 1958
-1958-06-08,France,Paraguay,7,3,1,World Cup 1958
-1958-06-08,Yugoslavia,Scotland,1,1,1,World Cup 1958
-1958-06-08,Sweden,Mexico,3,0,0,World Cup 1958
-1958-06-08,Hungary,Wales,1,1,1,World Cup 1958
-1958-06-08,Brazil,Austria,3,0,1,World Cup 1958
-1958-06-08,Soviet Union,England,2,2,1,World Cup 1958
-1958-06-11,Argentina,Northern Ireland,3,1,1,World Cup 1958
-1958-06-11,Germany,Czechoslovakia,2,2,1,World Cup 1958
-1958-06-11,Yugoslavia,France,3,2,1,World Cup 1958
-1958-06-11,Paraguay,Scotland,3,2,1,World Cup 1958
-1958-06-11,Mexico,Wales,1,1,1,World Cup 1958
-1958-06-11,Brazil,England,0,0,1,World Cup 1958
-1958-06-11,Soviet Union,Austria,2,0,1,World Cup 1958
-1958-06-12,Sweden,Hungary,2,1,0,World Cup 1958
-1958-06-15,Germany,Northern Ireland,2,2,1,World Cup 1958
-1958-06-15,Czechoslovakia,Argentina,6,1,1,World Cup 1958
-1958-06-15,France,Scotland,2,1,1,World Cup 1958
-1958-06-15,Paraguay,Yugoslavia,3,3,1,World Cup 1958
-1958-06-15,Sweden,Wales,0,0,0,World Cup 1958
-1958-06-15,Hungary,Mexico,4,0,1,World Cup 1958
-1958-06-15,England,Austria,2,2,1,World Cup 1958
-1958-06-15,Brazil,Soviet Union,2,0,1,World Cup 1958
-1958-06-17,Northern Ireland,Czechoslovakia,1,1,1,World Cup 1958
-1958-06-17,Wales,Hungary,2,1,1,World Cup 1958
-1958-06-17,Soviet Union,England,1,0,1,World Cup 1958
-1958-06-19,France,Northern Ireland,4,0,1,World Cup 1958
-1958-06-19,Sweden,Soviet Union,2,0,0,World Cup 1958
-1958-06-19,Brazil,Wales,1,0,1,World Cup 1958
-1958-06-19,Germany,Yugoslavia,1,0,1,World Cup 1958
-1958-06-24,France,Brazil,2,5,1,World Cup 1958
-1958-06-24,Germany,Sweden,1,3,0,World Cup 1958
-1958-06-28,Germany,France,3,6,1,World Cup 1958
-1958-06-29,Sweden,Brazil,2,5,0,World Cup 1958
-1962-05-30,Uruguay,Colombia,2,1,1,World Cup 1962
-1962-05-30,Chile,Switzerland,3,1,0,World Cup 1962
-1962-05-30,Brazil,Mexico,2,0,1,World Cup 1962
-1962-05-30,Argentina,Bulgaria,1,0,1,World Cup 1962
-1962-05-31,Soviet Union,Yugoslavia,2,0,1,World Cup 1962
-1962-05-31,Germany,Italy,0,0,1,World Cup 1962
-1962-05-31,Czechoslovakia,Spain,1,0,1,World Cup 1962
-1962-05-31,Hungary,England,2,1,1,World Cup 1962
-1962-06-02,Yugoslavia,Uruguay,3,1,1,World Cup 1962
-1962-06-02,Chile,Italy,2,0,0,World Cup 1962
-1962-06-02,Brazil,Czechoslovakia,0,0,1,World Cup 1962
-1962-06-02,England,Argentina,3,1,1,World Cup 1962
-1962-06-03,Soviet Union,Colombia,4,4,1,World Cup 1962
-1962-06-03,Germany,Switzerland,2,1,1,World Cup 1962
-1962-06-03,Spain,Mexico,1,0,1,World Cup 1962
-1962-06-03,Hungary,Bulgaria,6,1,1,World Cup 1962
-1962-06-06,Soviet Union,Uruguay,2,1,1,World Cup 1962
-1962-06-06,Germany,Chile,2,0,0,World Cup 1962
-1962-06-06,Brazil,Spain,2,1,1,World Cup 1962
-1962-06-06,Hungary,Argentina,0,0,1,World Cup 1962
-1962-06-07,Yugoslavia,Colombia,5,0,1,World Cup 1962
-1962-06-07,Italy,Switzerland,3,0,1,World Cup 1962
-1962-06-07,Mexico,Czechoslovakia,3,1,1,World Cup 1962
-1962-06-07,England,Bulgaria,0,0,1,World Cup 1962
-1962-06-10,Chile,Soviet Union,2,1,0,World Cup 1962
-1962-06-10,Yugoslavia,Germany,1,0,1,World Cup 1962
-1962-06-10,Brazil,England,3,1,1,World Cup 1962
-1962-06-10,Czechoslovakia,Hungary,1,0,1,World Cup 1962
-1962-06-13,Brazil,Chile,4,2,0,World Cup 1962
-1962-06-13,Czechoslovakia,Yugoslavia,3,1,1,World Cup 1962
-1962-06-16,Chile,Yugoslavia,1,0,0,World Cup 1962
-1962-06-17,Brazil,Czechoslovakia,3,1,1,World Cup 1962
-1966-07-11,England,Uruguay,0,0,0,World Cup 1966
-1966-07-12,Germany,Switzerland,5,0,1,World Cup 1966
-1966-07-12,Brazil,Bulgaria,2,0,1,World Cup 1966
-1966-07-12,Soviet Union,North Korea,3,0,1,World Cup 1966
-1966-07-13,France,Mexico,1,1,1,World Cup 1966
-1966-07-13,Argentina,Spain,2,1,1,World Cup 1966
-1966-07-13,Portugal,Hungary,3,1,1,World Cup 1966
-1966-07-13,Italy,Chile,2,0,1,World Cup 1966
-1966-07-15,Uruguay,France,2,1,1,World Cup 1966
-1966-07-15,Spain,Switzerland,2,1,1,World Cup 1966
-1966-07-15,Hungary,Brazil,3,1,1,World Cup 1966
-1966-07-15,Chile,North Korea,1,1,1,World Cup 1966
-1966-07-16,England,Mexico,2,0,0,World Cup 1966
-1966-07-16,Argentina,Germany,0,0,1,World Cup 1966
-1966-07-16,Portugal,Bulgaria,3,0,1,World Cup 1966
-1966-07-16,Soviet Union,Italy,1,0,1,World Cup 1966
-1966-07-19,Mexico,Uruguay,0,0,1,World Cup 1966
-1966-07-19,Argentina,Switzerland,2,0,1,World Cup 1966
-1966-07-19,Portugal,Brazil,3,1,1,World Cup 1966
-1966-07-19,North Korea,Italy,1,0,1,World Cup 1966
-1966-07-20,England,France,2,0,0,World Cup 1966
-1966-07-20,Germany,Spain,2,1,1,World Cup 1966
-1966-07-20,Hungary,Bulgaria,3,1,1,World Cup 1966
-1966-07-20,Soviet Union,Chile,2,1,1,World Cup 1966
-1966-07-23,England,Argentina,1,0,0,World Cup 1966
-1966-07-23,Germany,Uruguay,4,0,1,World Cup 1966
-1966-07-23,Soviet Union,Hungary,2,1,1,World Cup 1966
-1966-07-23,Portugal,North Korea,5,3,1,World Cup 1966
-1966-07-25,Germany,Soviet Union,2,1,1,World Cup 1966
-1966-07-26,England,Portugal,2,1,0,World Cup 1966
-1966-07-28,Portugal,Soviet Union,2,1,1,World Cup 1966
-1966-07-30,England,Germany,2,2,0,World Cup 1966
-1970-05-31,Mexico,Soviet Union,0,0,0,World Cup 1970
-1970-06-02,Uruguay,Israel,2,0,1,World Cup 1970
-1970-06-02,Romania,England,0,1,1,World Cup 1970
-1970-06-02,Peru,Bulgaria,3,2,1,World Cup 1970
-1970-06-03,Belgium,El Salvador,3,0,1,World Cup 1970
-1970-06-03,Italy,Sweden,1,0,1,World Cup 1970
-1970-06-03,Czechoslovakia,Brazil,1,4,1,World Cup 1970
-1970-06-03,Morocco,Germany,1,2,1,World Cup 1970
-1970-06-06,Soviet Union,Belgium,4,1,1,World Cup 1970
-1970-06-06,Uruguay,Italy,0,0,1,World Cup 1970
-1970-06-06,Romania,Czechoslovakia,2,1,1,World Cup 1970
-1970-06-06,Peru,Morocco,3,0,1,World Cup 1970
-1970-06-07,Mexico,El Salvador,4,0,0,World Cup 1970
-1970-06-07,Sweden,Israel,1,1,1,World Cup 1970
-1970-06-07,England,Brazil,0,1,1,World Cup 1970
-1970-06-07,Bulgaria,Germany,2,5,1,World Cup 1970
-1970-06-10,Soviet Union,El Salvador,2,0,1,World Cup 1970
-1970-06-10,Uruguay,Sweden,0,1,1,World Cup 1970
-1970-06-10,Romania,Brazil,2,3,1,World Cup 1970
-1970-06-10,Peru,Germany,1,3,1,World Cup 1970
-1970-06-11,Mexico,Belgium,1,0,0,World Cup 1970
-1970-06-11,Israel,Italy,0,0,1,World Cup 1970
-1970-06-11,England,Czechoslovakia,1,0,1,World Cup 1970
-1970-06-11,Bulgaria,Morocco,1,1,1,World Cup 1970
-1970-06-14,Soviet Union,Uruguay,0,0,1,World Cup 1970
-1970-06-14,Italy,Mexico,4,1,0,World Cup 1970
-1970-06-14,Brazil,Peru,4,2,1,World Cup 1970
-1970-06-14,Germany,England,2,2,1,World Cup 1970
-1970-06-17,Uruguay,Brazil,1,3,1,World Cup 1970
-1970-06-17,Italy,Germany,1,1,1,World Cup 1970
-1970-06-20,Uruguay,Germany,0,1,1,World Cup 1970
-1970-06-21,Brazil,Italy,4,1,1,World Cup 1970
-1974-06-13,Brazil,Yugoslavia,0,0,1,World Cup 1974
-1974-06-14,Germany,Chile,1,0,0,World Cup 1974
-1974-06-14,East Germany,Australia,2,0,1,World Cup 1974
-1974-06-14,DR Congo,Scotland,0,2,1,World Cup 1974
-1974-06-15,Uruguay,Netherlands,0,2,1,World Cup 1974
-1974-06-15,Sweden,Bulgaria,0,0,1,World Cup 1974
-1974-06-15,Italy,Haiti,3,1,1,World Cup 1974
-1974-06-15,Poland,Argentina,3,2,1,World Cup 1974
-1974-06-18,Chile,East Germany,1,1,1,World Cup 1974
-1974-06-18,Australia,Germany,0,3,0,World Cup 1974
-1974-06-18,Yugoslavia,DR Congo,9,0,1,World Cup 1974
-1974-06-18,Scotland,Brazil,0,0,1,World Cup 1974
-1974-06-19,Netherlands,Sweden,0,0,1,World Cup 1974
-1974-06-19,Uruguay,Bulgaria,1,1,1,World Cup 1974
-1974-06-19,Haiti,Poland,0,7,1,World Cup 1974
-1974-06-19,Argentina,Italy,1,1,1,World Cup 1974
-1974-06-22,Australia,Chile,0,0,1,World Cup 1974
-1974-06-22,East Germany,Germany,1,0,0,World Cup 1974
-1974-06-22,Scotland,Yugoslavia,1,1,1,World Cup 1974
-1974-06-22,DR Congo,Brazil,0,3,1,World Cup 1974
-1974-06-23,Netherlands,Bulgaria,4,1,1,World Cup 1974
-1974-06-23,Sweden,Uruguay,3,0,1,World Cup 1974
-1974-06-23,Argentina,Haiti,4,1,1,World Cup 1974
-1974-06-23,Poland,Italy,2,1,1,World Cup 1974
-1974-06-26,Brazil,East Germany,1,0,1,World Cup 1974
-1974-06-26,Netherlands,Argentina,4,0,1,World Cup 1974
-1974-06-26,Yugoslavia,Germany,0,2,0,World Cup 1974
-1974-06-26,Sweden,Poland,0,1,1,World Cup 1974
-1974-06-30,East Germany,Netherlands,0,2,1,World Cup 1974
-1974-06-30,Argentina,Brazil,1,2,1,World Cup 1974
-1974-06-30,Germany,Sweden,4,2,0,World Cup 1974
-1974-06-30,Poland,Yugoslavia,2,1,1,World Cup 1974
-1974-07-03,Argentina,East Germany,1,1,1,World Cup 1974
-1974-07-03,Netherlands,Brazil,2,0,1,World Cup 1974
-1974-07-03,Poland,Germany,0,1,0,World Cup 1974
-1974-07-03,Sweden,Yugoslavia,2,1,1,World Cup 1974
-1974-07-06,Brazil,Poland,0,1,1,World Cup 1974
-1974-07-07,Netherlands,Germany,1,2,0,World Cup 1974
-1978-06-01,Germany,Poland,0,0,1,World Cup 1978
-1978-06-02,Argentina,Hungary,2,1,0,World Cup 1978
-1978-06-02,Italy,France,2,1,1,World Cup 1978
-1978-06-02,Tunisia,Mexico,3,1,1,World Cup 1978
-1978-06-03,Austria,Spain,2,1,1,World Cup 1978
-1978-06-03,Brazil,Sweden,1,1,1,World Cup 1978
-1978-06-03,Peru,Scotland,3,1,1,World Cup 1978
-1978-06-03,Netherlands,Iran,3,0,1,World Cup 1978
-1978-06-06,Argentina,France,2,1,0,World Cup 1978
-1978-06-06,Italy,Hungary,3,1,1,World Cup 1978
-1978-06-06,Poland,Tunisia,1,0,1,World Cup 1978
-1978-06-06,Germany,Mexico,6,0,1,World Cup 1978
-1978-06-07,Austria,Sweden,1,0,1,World Cup 1978
-1978-06-07,Brazil,Spain,0,0,1,World Cup 1978
-1978-06-07,Scotland,Iran,1,1,1,World Cup 1978
-1978-06-07,Netherlands,Peru,0,0,1,World Cup 1978
-1978-06-10,Argentina,Italy,0,1,0,World Cup 1978
-1978-06-10,France,Hungary,3,1,1,World Cup 1978
-1978-06-10,Poland,Mexico,3,1,1,World Cup 1978
-1978-06-10,Germany,Tunisia,0,0,1,World Cup 1978
-1978-06-11,Spain,Sweden,1,0,1,World Cup 1978
-1978-06-11,Brazil,Austria,1,0,1,World Cup 1978
-1978-06-11,Peru,Iran,4,1,1,World Cup 1978
-1978-06-11,Scotland,Netherlands,3,2,1,World Cup 1978
-1978-06-14,Italy,Germany,0,0,1,World Cup 1978
-1978-06-14,Austria,Netherlands,1,5,1,World Cup 1978
-1978-06-14,Argentina,Poland,2,0,0,World Cup 1978
-1978-06-14,Peru,Brazil,0,3,1,World Cup 1978
-1978-06-18,Italy,Austria,1,0,1,World Cup 1978
-1978-06-18,Netherlands,Germany,2,2,1,World Cup 1978
-1978-06-18,Argentina,Brazil,0,0,0,World Cup 1978
-1978-06-18,Peru,Poland,0,1,1,World Cup 1978
-1978-06-21,Italy,Netherlands,1,2,1,World Cup 1978
-1978-06-21,Austria,Germany,3,2,1,World Cup 1978
-1978-06-21,Argentina,Peru,6,0,0,World Cup 1978
-1978-06-21,Poland,Brazil,1,3,1,World Cup 1978
-1978-06-24,Brazil,Italy,2,1,1,World Cup 1978
-1978-06-25,Netherlands,Argentina,1,1,0,World Cup 1978
-1982-06-13,Argentina,Belgium,0,1,1,World Cup 1982
-1982-06-14,Italy,Poland,0,0,1,World Cup 1982
-1982-06-14,Brazil,Soviet Union,2,1,1,World Cup 1982
-1982-06-15,Peru,Cameroon,0,0,1,World Cup 1982
-1982-06-15,Hungary,El Salvador,10,1,1,World Cup 1982
-1982-06-15,Scotland,New Zealand,5,2,1,World Cup 1982
-1982-06-16,Germany,Algeria,1,2,1,World Cup 1982
-1982-06-16,England,France,3,1,1,World Cup 1982
-1982-06-16,Spain,Honduras,1,1,0,World Cup 1982
-1982-06-17,Chile,Austria,0,1,1,World Cup 1982
-1982-06-17,Czechoslovakia,Kuwait,1,1,1,World Cup 1982
-1982-06-17,Yugoslavia,Northern Ireland,0,0,1,World Cup 1982
-1982-06-18,Italy,Peru,1,1,1,World Cup 1982
-1982-06-18,Argentina,Hungary,4,1,1,World Cup 1982
-1982-06-18,Brazil,Scotland,4,1,1,World Cup 1982
-1982-06-19,Poland,Cameroon,0,0,1,World Cup 1982
-1982-06-19,Belgium,El Salvador,1,0,1,World Cup 1982
-1982-06-19,Soviet Union,New Zealand,3,0,1,World Cup 1982
-1982-06-20,Germany,Chile,4,1,1,World Cup 1982
-1982-06-20,England,Czechoslovakia,2,0,1,World Cup 1982
-1982-06-20,Spain,Yugoslavia,2,1,0,World Cup 1982
-1982-06-21,Algeria,Austria,0,2,1,World Cup 1982
-1982-06-21,France,Kuwait,4,1,1,World Cup 1982
-1982-06-21,Honduras,Northern Ireland,1,1,1,World Cup 1982
-1982-06-22,Poland,Peru,5,1,1,World Cup 1982
-1982-06-22,Belgium,Hungary,1,1,1,World Cup 1982
-1982-06-22,Soviet Union,Scotland,2,2,1,World Cup 1982
-1982-06-23,Italy,Cameroon,1,1,1,World Cup 1982
-1982-06-23,Argentina,El Salvador,2,0,1,World Cup 1982
-1982-06-23,Brazil,New Zealand,4,0,1,World Cup 1982
-1982-06-24,Algeria,Chile,3,2,1,World Cup 1982
-1982-06-24,France,Czechoslovakia,1,1,1,World Cup 1982
-1982-06-24,Honduras,Yugoslavia,0,1,1,World Cup 1982
-1982-06-25,Germany,Austria,1,0,1,World Cup 1982
-1982-06-25,England,Kuwait,1,0,1,World Cup 1982
-1982-06-25,Spain,Northern Ireland,0,1,0,World Cup 1982
-1982-06-28,Poland,Belgium,3,0,1,World Cup 1982
-1982-06-28,Austria,France,0,1,1,World Cup 1982
-1982-06-29,Germany,England,0,0,1,World Cup 1982
-1982-06-29,Italy,Argentina,2,1,1,World Cup 1982
-1982-07-01,Belgium,Soviet Union,0,1,1,World Cup 1982
-1982-07-01,Austria,Northern Ireland,2,2,1,World Cup 1982
-1982-07-02,Germany,Spain,2,1,0,World Cup 1982
-1982-07-02,Argentina,Brazil,1,3,1,World Cup 1982
-1982-07-04,Soviet Union,Poland,0,0,1,World Cup 1982
-1982-07-04,Northern Ireland,France,1,4,1,World Cup 1982
-1982-07-05,Spain,England,0,0,0,World Cup 1982
-1982-07-05,Italy,Brazil,3,2,1,World Cup 1982
-1982-07-08,Poland,Italy,0,2,1,World Cup 1982
-1982-07-08,Germany,France,1,1,1,World Cup 1982
-1982-07-10,Poland,France,3,2,1,World Cup 1982
-1982-07-11,Italy,Germany,3,1,1,World Cup 1982
-1986-05-31,Bulgaria,Italy,1,1,1,World Cup 1986
-1986-06-01,Canada,France,0,1,1,World Cup 1986
-1986-06-01,Spain,Brazil,0,1,1,World Cup 1986
-1986-06-02,Argentina,South Korea,3,1,1,World Cup 1986
-1986-06-02,Soviet Union,Hungary,6,0,1,World Cup 1986
-1986-06-02,Morocco,Poland,0,0,1,World Cup 1986
-1986-06-03,Belgium,Mexico,1,2,0,World Cup 1986
-1986-06-03,Algeria,Northern Ireland,1,1,1,World Cup 1986
-1986-06-03,Portugal,England,1,0,1,World Cup 1986
-1986-06-04,Paraguay,Iraq,1,0,1,World Cup 1986
-1986-06-04,Uruguay,Germany,1,1,1,World Cup 1986
-1986-06-04,Scotland,Denmark,0,1,1,World Cup 1986
-1986-06-05,Italy,Argentina,1,1,1,World Cup 1986
-1986-06-05,South Korea,Bulgaria,1,1,1,World Cup 1986
-1986-06-05,France,Soviet Union,1,1,1,World Cup 1986
-1986-06-06,Hungary,Canada,2,0,1,World Cup 1986
-1986-06-06,Brazil,Algeria,1,0,1,World Cup 1986
-1986-06-06,England,Morocco,0,0,1,World Cup 1986
-1986-06-07,Mexico,Paraguay,1,1,0,World Cup 1986
-1986-06-07,Northern Ireland,Spain,1,2,1,World Cup 1986
-1986-06-07,Poland,Portugal,1,0,1,World Cup 1986
-1986-06-08,Iraq,Belgium,1,2,1,World Cup 1986
-1986-06-08,Germany,Scotland,2,1,1,World Cup 1986
-1986-06-08,Denmark,Uruguay,6,1,1,World Cup 1986
-1986-06-09,Hungary,France,0,3,1,World Cup 1986
-1986-06-09,Soviet Union,Canada,2,0,1,World Cup 1986
-1986-06-10,South Korea,Italy,2,3,1,World Cup 1986
-1986-06-10,Argentina,Bulgaria,2,0,1,World Cup 1986
-1986-06-11,Iraq,Mexico,0,1,0,World Cup 1986
-1986-06-11,Paraguay,Belgium,2,2,1,World Cup 1986
-1986-06-11,Portugal,Morocco,1,3,1,World Cup 1986
-1986-06-11,England,Poland,3,0,1,World Cup 1986
-1986-06-12,Northern Ireland,Brazil,0,3,1,World Cup 1986
-1986-06-12,Algeria,Spain,0,3,1,World Cup 1986
-1986-06-13,Denmark,Germany,2,0,1,World Cup 1986
-1986-06-13,Scotland,Uruguay,0,0,1,World Cup 1986
-1986-06-15,Mexico,Bulgaria,2,0,0,World Cup 1986
-1986-06-15,Soviet Union,Belgium,2,2,1,World Cup 1986
-1986-06-16,Argentina,Uruguay,1,0,1,World Cup 1986
-1986-06-16,Brazil,Poland,4,0,1,World Cup 1986
-1986-06-17,Italy,France,0,2,1,World Cup 1986
-1986-06-17,Morocco,Germany,0,1,1,World Cup 1986
-1986-06-18,England,Paraguay,3,0,1,World Cup 1986
-1986-06-18,Denmark,Spain,1,5,1,World Cup 1986
-1986-06-21,Brazil,France,1,1,1,World Cup 1986
-1986-06-21,Germany,Mexico,0,0,0,World Cup 1986
-1986-06-22,Spain,Belgium,1,1,1,World Cup 1986
-1986-06-22,Argentina,England,2,1,1,World Cup 1986
-1986-06-25,Argentina,Belgium,2,0,1,World Cup 1986
-1986-06-25,France,Germany,0,2,1,World Cup 1986
-1986-06-28,France,Belgium,2,2,1,World Cup 1986
-1986-06-29,Argentina,Germany,3,2,1,World Cup 1986
-1990-06-08,Argentina,Cameroon,0,1,1,World Cup 1990
-1990-06-09,Italy,Austria,1,0,0,World Cup 1990
-1990-06-09,Soviet Union,Romania,0,2,1,World Cup 1990
-1990-06-09,United Arab Emirates,Colombia,0,2,1,World Cup 1990
-1990-06-10,USA,Czechoslovakia,1,5,1,World Cup 1990
-1990-06-10,Brazil,Sweden,2,1,1,World Cup 1990
-1990-06-10,Germany,Yugoslavia,4,1,1,World Cup 1990
-1990-06-11,Costa Rica,Scotland,1,0,1,World Cup 1990
-1990-06-11,England,Ireland,1,1,1,World Cup 1990
-1990-06-12,Belgium,South Korea,2,0,1,World Cup 1990
-1990-06-12,Netherlands,Egypt,1,1,1,World Cup 1990
-1990-06-13,Argentina,Soviet Union,2,0,1,World Cup 1990
-1990-06-13,Uruguay,Spain,0,0,1,World Cup 1990
-1990-06-14,Italy,USA,1,0,0,World Cup 1990
-1990-06-14,Cameroon,Romania,2,1,1,World Cup 1990
-1990-06-14,Yugoslavia,Colombia,1,0,1,World Cup 1990
-1990-06-15,Austria,Czechoslovakia,0,1,1,World Cup 1990
-1990-06-15,Germany,United Arab Emirates,5,1,1,World Cup 1990
-1990-06-16,Brazil,Costa Rica,1,0,1,World Cup 1990
-1990-06-16,Sweden,Scotland,1,2,1,World Cup 1990
-1990-06-16,England,Netherlands,0,0,1,World Cup 1990
-1990-06-17,Belgium,Uruguay,3,1,1,World Cup 1990
-1990-06-17,South Korea,Spain,1,3,1,World Cup 1990
-1990-06-17,Ireland,Egypt,0,0,1,World Cup 1990
-1990-06-18,Argentina,Romania,1,1,1,World Cup 1990
-1990-06-18,Cameroon,Soviet Union,0,4,1,World Cup 1990
-1990-06-19,Italy,Czechoslovakia,2,0,0,World Cup 1990
-1990-06-19,Austria,USA,2,1,1,World Cup 1990
-1990-06-19,Germany,Colombia,1,1,1,World Cup 1990
-1990-06-19,Yugoslavia,United Arab Emirates,4,1,1,World Cup 1990
-1990-06-20,Brazil,Scotland,1,0,1,World Cup 1990
-1990-06-20,Sweden,Costa Rica,1,2,1,World Cup 1990
-1990-06-21,Belgium,Spain,1,2,1,World Cup 1990
-1990-06-21,South Korea,Uruguay,0,1,1,World Cup 1990
-1990-06-21,England,Egypt,1,0,1,World Cup 1990
-1990-06-21,Ireland,Netherlands,1,1,1,World Cup 1990
-1990-06-23,Cameroon,Colombia,0,0,1,World Cup 1990
-1990-06-23,Czechoslovakia,Costa Rica,4,1,1,World Cup 1990
-1990-06-24,Brazil,Argentina,0,1,1,World Cup 1990
-1990-06-24,Germany,Netherlands,2,1,1,World Cup 1990
-1990-06-25,Ireland,Romania,0,0,1,World Cup 1990
-1990-06-25,Italy,Uruguay,2,0,0,World Cup 1990
-1990-06-26,Spain,Yugoslavia,1,1,1,World Cup 1990
-1990-06-26,England,Belgium,0,0,1,World Cup 1990
-1990-06-30,Yugoslavia,Argentina,0,0,1,World Cup 1990
-1990-06-30,Italy,Ireland,1,0,0,World Cup 1990
-1990-07-01,Germany,Czechoslovakia,1,0,1,World Cup 1990
-1990-07-01,England,Cameroon,2,2,1,World Cup 1990
-1990-07-03,Italy,Argentina,1,1,0,World Cup 1990
-1990-07-04,Germany,England,1,1,1,World Cup 1990
-1990-07-07,Italy,England,2,1,0,World Cup 1990
-1990-07-08,Germany,Argentina,1,0,1,World Cup 1990
-1994-06-17,Germany,Bolivia,1,0,1,World Cup 1994
-1994-06-17,Spain,South Korea,2,2,1,World Cup 1994
-1994-06-18,USA,Switzerland,1,1,0,World Cup 1994
-1994-06-18,Colombia,Romania,1,3,1,World Cup 1994
-1994-06-18,Italy,Ireland,0,1,1,World Cup 1994
-1994-06-19,Cameroon,Sweden,2,2,1,World Cup 1994
-1994-06-19,Norway,Mexico,1,0,1,World Cup 1994
-1994-06-19,Belgium,Morocco,1,0,1,World Cup 1994
-1994-06-20,Brazil,Russia,2,0,1,World Cup 1994
-1994-06-20,Netherlands,Saudi Arabia,2,1,1,World Cup 1994
-1994-06-21,Germany,Spain,1,1,1,World Cup 1994
-1994-06-21,Argentina,Greece,4,0,1,World Cup 1994
-1994-06-21,Nigeria,Bulgaria,3,0,1,World Cup 1994
-1994-06-22,Romania,Switzerland,1,4,1,World Cup 1994
-1994-06-22,USA,Colombia,2,1,0,World Cup 1994
-1994-06-23,South Korea,Bolivia,0,0,1,World Cup 1994
-1994-06-23,Italy,Norway,1,0,1,World Cup 1994
-1994-06-24,Brazil,Cameroon,3,0,1,World Cup 1994
-1994-06-24,Sweden,Russia,3,1,1,World Cup 1994
-1994-06-24,Mexico,Ireland,2,1,1,World Cup 1994
-1994-06-25,Argentina,Nigeria,2,1,1,World Cup 1994
-1994-06-25,Belgium,Netherlands,1,0,1,World Cup 1994
-1994-06-25,Saudi Arabia,Morocco,2,1,1,World Cup 1994
-1994-06-26,USA,Romania,0,1,0,World Cup 1994
-1994-06-26,Switzerland,Colombia,0,2,1,World Cup 1994
-1994-06-26,Greece,Bulgaria,0,4,1,World Cup 1994
-1994-06-27,Bolivia,Spain,1,3,1,World Cup 1994
-1994-06-27,Germany,South Korea,3,2,1,World Cup 1994
-1994-06-28,Russia,Cameroon,6,1,1,World Cup 1994
-1994-06-28,Brazil,Sweden,1,1,1,World Cup 1994
-1994-06-28,Ireland,Norway,0,0,1,World Cup 1994
-1994-06-28,Italy,Mexico,1,1,1,World Cup 1994
-1994-06-29,Morocco,Netherlands,1,2,1,World Cup 1994
-1994-06-29,Belgium,Saudi Arabia,0,1,1,World Cup 1994
-1994-06-30,Greece,Nigeria,0,2,1,World Cup 1994
-1994-06-30,Argentina,Bulgaria,0,2,1,World Cup 1994
-1994-07-02,Germany,Belgium,3,2,1,World Cup 1994
-1994-07-02,Spain,Switzerland,3,0,1,World Cup 1994
-1994-07-03,Saudi Arabia,Sweden,1,3,1,World Cup 1994
-1994-07-03,Romania,Argentina,3,2,1,World Cup 1994
-1994-07-04,Netherlands,Ireland,2,0,1,World Cup 1994
-1994-07-04,Brazil,USA,1,0,0,World Cup 1994
-1994-07-05,Nigeria,Italy,1,1,1,World Cup 1994
-1994-07-05,Mexico,Bulgaria,1,1,1,World Cup 1994
-1994-07-09,Italy,Spain,2,1,1,World Cup 1994
-1994-07-09,Netherlands,Brazil,2,3,1,World Cup 1994
-1994-07-10,Bulgaria,Germany,2,1,1,World Cup 1994
-1994-07-10,Romania,Sweden,1,1,1,World Cup 1994
-1994-07-13,Bulgaria,Italy,1,2,1,World Cup 1994
-1994-07-13,Sweden,Brazil,0,1,1,World Cup 1994
-1994-07-16,Sweden,Bulgaria,4,0,1,World Cup 1994
-1994-07-17,Brazil,Italy,0,0,1,World Cup 1994
-1998-06-10,Brazil,Scotland,2,1,1,World Cup 1998
-1998-06-10,Morocco,Norway,2,2,1,World Cup 1998
-1998-06-11,Cameroon,Austria,1,1,1,World Cup 1998
-1998-06-11,Italy,Chile,2,2,1,World Cup 1998
-1998-06-12,Saudi Arabia,Denmark,0,1,1,World Cup 1998
-1998-06-12,France,South Africa,3,0,0,World Cup 1998
-1998-06-12,Paraguay,Bulgaria,0,0,1,World Cup 1998
-1998-06-13,Spain,Nigeria,2,3,1,World Cup 1998
-1998-06-13,Netherlands,Belgium,0,0,1,World Cup 1998
-1998-06-13,South Korea,Mexico,1,3,1,World Cup 1998
-1998-06-14,Yugoslavia,Iran,1,0,1,World Cup 1998
-1998-06-14,Jamaica,Croatia,1,3,1,World Cup 1998
-1998-06-14,Argentina,Japan,1,0,1,World Cup 1998
-1998-06-15,Germany,USA,2,0,1,World Cup 1998
-1998-06-15,Romania,Colombia,1,0,1,World Cup 1998
-1998-06-15,England,Tunisia,2,0,1,World Cup 1998
-1998-06-16,Scotland,Norway,1,1,1,World Cup 1998
-1998-06-16,Brazil,Morocco,3,0,1,World Cup 1998
-1998-06-17,Chile,Austria,1,1,1,World Cup 1998
-1998-06-17,Italy,Cameroon,3,0,1,World Cup 1998
-1998-06-18,France,Saudi Arabia,4,0,0,World Cup 1998
-1998-06-18,South Africa,Denmark,1,1,1,World Cup 1998
-1998-06-19,Nigeria,Bulgaria,1,0,1,World Cup 1998
-1998-06-19,Spain,Paraguay,0,0,1,World Cup 1998
-1998-06-20,Netherlands,South Korea,5,0,1,World Cup 1998
-1998-06-20,Belgium,Mexico,2,2,1,World Cup 1998
-1998-06-20,Japan,Croatia,0,1,1,World Cup 1998
-1998-06-21,Germany,Yugoslavia,2,2,1,World Cup 1998
-1998-06-21,USA,Iran,1,2,1,World Cup 1998
-1998-06-21,Argentina,Jamaica,5,0,1,World Cup 1998
-1998-06-22,Colombia,Tunisia,1,0,1,World Cup 1998
-1998-06-22,Romania,England,2,1,1,World Cup 1998
-1998-06-23,Scotland,Morocco,0,3,1,World Cup 1998
-1998-06-23,Brazil,Norway,1,2,1,World Cup 1998
-1998-06-23,Italy,Austria,2,1,1,World Cup 1998
-1998-06-23,Chile,Cameroon,1,1,1,World Cup 1998
-1998-06-24,France,Denmark,2,1,0,World Cup 1998
-1998-06-24,South Africa,Saudi Arabia,2,2,1,World Cup 1998
-1998-06-24,Spain,Bulgaria,6,1,1,World Cup 1998
-1998-06-24,Nigeria,Paraguay,1,3,1,World Cup 1998
-1998-06-25,Belgium,South Korea,1,1,1,World Cup 1998
-1998-06-25,Netherlands,Mexico,2,2,1,World Cup 1998
-1998-06-25,Germany,Iran,2,0,1,World Cup 1998
-1998-06-25,USA,Yugoslavia,0,1,1,World Cup 1998
-1998-06-26,Romania,Tunisia,1,1,1,World Cup 1998
-1998-06-26,Colombia,England,0,2,1,World Cup 1998
-1998-06-26,Japan,Jamaica,1,2,1,World Cup 1998
-1998-06-26,Argentina,Croatia,1,0,1,World Cup 1998
-1998-06-27,Brazil,Chile,4,1,1,World Cup 1998
-1998-06-27,Italy,Norway,1,0,1,World Cup 1998
-1998-06-28,Nigeria,Denmark,1,4,1,World Cup 1998
-1998-06-28,France,Paraguay,0,0,0,World Cup 1998
-1998-06-29,Germany,Mexico,2,1,1,World Cup 1998
-1998-06-29,Netherlands,Yugoslavia,2,1,1,World Cup 1998
-1998-06-30,Argentina,England,2,2,1,World Cup 1998
-1998-06-30,Romania,Croatia,0,1,1,World Cup 1998
-1998-07-03,Italy,France,0,0,0,World Cup 1998
-1998-07-03,Brazil,Denmark,3,2,1,World Cup 1998
-1998-07-04,Germany,Croatia,0,3,1,World Cup 1998
-1998-07-04,Netherlands,Argentina,2,1,1,World Cup 1998
-1998-07-07,Brazil,Netherlands,1,1,1,World Cup 1998
-1998-07-08,France,Croatia,2,1,0,World Cup 1998
-1998-07-11,Netherlands,Croatia,1,2,1,World Cup 1998
-1998-07-12,Brazil,France,0,3,0,World Cup 1998
-2002-05-31,France,Senegal,0,1,1,World Cup 2002
-2002-06-01,Uruguay,Denmark,1,2,1,World Cup 2002
-2002-06-01,Ireland,Cameroon,1,1,1,World Cup 2002
-2002-06-01,Germany,Saudi Arabia,8,0,1,World Cup 2002
-2002-06-02,Paraguay,South Africa,2,2,1,World Cup 2002
-2002-06-02,Spain,Slovenia,3,1,1,World Cup 2002
-2002-06-02,England,Sweden,1,1,1,World Cup 2002
-2002-06-02,Argentina,Nigeria,1,0,1,World Cup 2002
-2002-06-03,Brazil,Turkey,2,1,1,World Cup 2002
-2002-06-03,Croatia,Mexico,0,1,1,World Cup 2002
-2002-06-03,Italy,Ecuador,2,0,1,World Cup 2002
-2002-06-04,China,Costa Rica,0,2,1,World Cup 2002
-2002-06-04,South Korea,Poland,2,0,0,World Cup 2002
-2002-06-04,Japan,Belgium,2,2,0,World Cup 2002
-2002-06-05,USA,Portugal,3,2,1,World Cup 2002
-2002-06-05,Germany,Ireland,1,1,1,World Cup 2002
-2002-06-05,Russia,Tunisia,2,0,1,World Cup 2002
-2002-06-06,France,Uruguay,0,0,1,World Cup 2002
-2002-06-06,Denmark,Senegal,1,1,1,World Cup 2002
-2002-06-06,Cameroon,Saudi Arabia,1,0,1,World Cup 2002
-2002-06-07,Spain,Paraguay,3,1,1,World Cup 2002
-2002-06-07,Sweden,Nigeria,2,1,1,World Cup 2002
-2002-06-07,Argentina,England,0,1,1,World Cup 2002
-2002-06-08,South Africa,Slovenia,1,0,1,World Cup 2002
-2002-06-08,Brazil,China,4,0,1,World Cup 2002
-2002-06-08,Italy,Croatia,1,2,1,World Cup 2002
-2002-06-09,Costa Rica,Turkey,1,1,1,World Cup 2002
-2002-06-09,Mexico,Ecuador,2,1,1,World Cup 2002
-2002-06-09,Japan,Russia,1,0,0,World Cup 2002
-2002-06-10,South Korea,USA,1,1,0,World Cup 2002
-2002-06-10,Portugal,Poland,4,0,1,World Cup 2002
-2002-06-10,Tunisia,Belgium,1,1,1,World Cup 2002
-2002-06-11,Denmark,France,2,0,1,World Cup 2002
-2002-06-11,Senegal,Uruguay,3,3,1,World Cup 2002
-2002-06-11,Cameroon,Germany,0,2,1,World Cup 2002
-2002-06-11,Saudi Arabia,Ireland,0,3,1,World Cup 2002
-2002-06-12,South Africa,Spain,2,3,1,World Cup 2002
-2002-06-12,Slovenia,Paraguay,1,3,1,World Cup 2002
-2002-06-12,Sweden,Argentina,1,1,1,World Cup 2002
-2002-06-12,Nigeria,England,0,0,1,World Cup 2002
-2002-06-13,Costa Rica,Brazil,2,5,1,World Cup 2002
-2002-06-13,Turkey,China,3,0,1,World Cup 2002
-2002-06-13,Mexico,Italy,1,1,1,World Cup 2002
-2002-06-13,Ecuador,Croatia,1,0,1,World Cup 2002
-2002-06-14,Portugal,South Korea,0,1,0,World Cup 2002
-2002-06-14,Poland,USA,3,1,1,World Cup 2002
-2002-06-14,Tunisia,Japan,0,2,0,World Cup 2002
-2002-06-14,Belgium,Russia,3,2,1,World Cup 2002
-2002-06-15,Germany,Paraguay,1,0,1,World Cup 2002
-2002-06-15,Denmark,England,0,3,1,World Cup 2002
-2002-06-16,Sweden,Senegal,1,1,1,World Cup 2002
-2002-06-16,Spain,Ireland,1,1,1,World Cup 2002
-2002-06-17,Mexico,USA,0,2,1,World Cup 2002
-2002-06-17,Brazil,Belgium,2,0,1,World Cup 2002
-2002-06-18,Japan,Turkey,0,1,0,World Cup 2002
-2002-06-18,South Korea,Italy,1,1,0,World Cup 2002
-2002-06-21,England,Brazil,1,2,1,World Cup 2002
-2002-06-21,Germany,USA,1,0,1,World Cup 2002
-2002-06-22,Spain,South Korea,0,0,0,World Cup 2002
-2002-06-22,Senegal,Turkey,0,0,1,World Cup 2002
-2002-06-25,Germany,South Korea,1,0,0,World Cup 2002
-2002-06-26,Brazil,Turkey,1,0,1,World Cup 2002
-2002-06-29,South Korea,Turkey,2,3,0,World Cup 2002
-2002-06-30,Germany,Brazil,0,2,1,World Cup 2002
-2006-06-09,Germany,Costa Rica,4,2,0,World Cup 2006
-2006-06-09,Poland,Ecuador,0,2,1,World Cup 2006
-2006-06-10,England,Paraguay,1,0,1,World Cup 2006
-2006-06-10,Trinidad and Tobago,Sweden,0,0,1,World Cup 2006
-2006-06-10,Argentina,Ivory Coast,2,1,1,World Cup 2006
-2006-06-11,Serbia and Montenegro,Netherlands,0,1,1,World Cup 2006
-2006-06-11,Mexico,Iran,3,1,1,World Cup 2006
-2006-06-11,Angola,Portugal,0,1,1,World Cup 2006
-2006-06-12,Italy,Ghana,2,0,1,World Cup 2006
-2006-06-12,USA,Czech Republic,0,3,1,World Cup 2006
-2006-06-12,Australia,Japan,3,1,1,World Cup 2006
-2006-06-13,Brazil,Croatia,1,0,1,World Cup 2006
-2006-06-13,France,Switzerland,0,0,1,World Cup 2006
-2006-06-13,South Korea,Togo,2,1,1,World Cup 2006
-2006-06-14,Germany,Poland,1,0,0,World Cup 2006
-2006-06-14,Spain,Ukraine,4,0,1,World Cup 2006
-2006-06-14,Tunisia,Saudi Arabia,2,2,1,World Cup 2006
-2006-06-15,Ecuador,Costa Rica,3,0,1,World Cup 2006
-2006-06-15,England,Trinidad and Tobago,2,0,1,World Cup 2006
-2006-06-15,Sweden,Paraguay,1,0,1,World Cup 2006
-2006-06-16,Argentina,Serbia and Montenegro,6,0,1,World Cup 2006
-2006-06-16,Netherlands,Ivory Coast,2,1,1,World Cup 2006
-2006-06-16,Mexico,Angola,0,0,1,World Cup 2006
-2006-06-17,Portugal,Iran,2,0,1,World Cup 2006
-2006-06-17,Italy,USA,1,1,1,World Cup 2006
-2006-06-17,Czech Republic,Ghana,0,2,1,World Cup 2006
-2006-06-18,Brazil,Australia,2,0,1,World Cup 2006
-2006-06-18,Japan,Croatia,0,0,1,World Cup 2006
-2006-06-18,France,South Korea,1,1,1,World Cup 2006
-2006-06-19,Togo,Switzerland,0,2,1,World Cup 2006
-2006-06-19,Spain,Tunisia,3,1,1,World Cup 2006
-2006-06-19,Saudi Arabia,Ukraine,0,4,1,World Cup 2006
-2006-06-20,Ecuador,Germany,0,3,0,World Cup 2006
-2006-06-20,Costa Rica,Poland,1,2,1,World Cup 2006
-2006-06-20,Sweden,England,2,2,1,World Cup 2006
-2006-06-20,Paraguay,Trinidad and Tobago,2,0,1,World Cup 2006
-2006-06-21,Netherlands,Argentina,0,0,1,World Cup 2006
-2006-06-21,Ivory Coast,Serbia and Montenegro,3,2,1,World Cup 2006
-2006-06-21,Portugal,Mexico,2,1,1,World Cup 2006
-2006-06-21,Iran,Angola,1,1,1,World Cup 2006
-2006-06-22,Czech Republic,Italy,0,2,1,World Cup 2006
-2006-06-22,Ghana,USA,2,1,1,World Cup 2006
-2006-06-22,Japan,Brazil,1,4,1,World Cup 2006
-2006-06-22,Croatia,Australia,2,2,1,World Cup 2006
-2006-06-23,Togo,France,0,2,1,World Cup 2006
-2006-06-23,Switzerland,South Korea,2,0,1,World Cup 2006
-2006-06-23,Saudi Arabia,Spain,0,1,1,World Cup 2006
-2006-06-23,Ukraine,Tunisia,1,0,1,World Cup 2006
-2006-06-24,Germany,Sweden,2,0,0,World Cup 2006
-2006-06-24,Argentina,Mexico,1,1,1,World Cup 2006
-2006-06-25,England,Ecuador,1,0,1,World Cup 2006
-2006-06-25,Portugal,Netherlands,1,0,1,World Cup 2006
-2006-06-26,Italy,Australia,1,0,1,World Cup 2006
-2006-06-26,Switzerland,Ukraine,0,0,1,World Cup 2006
-2006-06-27,Brazil,Ghana,3,0,1,World Cup 2006
-2006-06-27,Spain,France,1,3,1,World Cup 2006
-2006-06-30,Germany,Argentina,1,1,0,World Cup 2006
-2006-06-30,Italy,Ukraine,3,0,1,World Cup 2006
-2006-07-01,England,Portugal,0,0,1,World Cup 2006
-2006-07-01,Brazil,France,0,1,1,World Cup 2006
-2006-07-04,Germany,Italy,0,0,0,World Cup 2006
-2006-07-05,Portugal,France,0,1,1,World Cup 2006
-2006-07-08,Germany,Portugal,3,1,0,World Cup 2006
-2006-07-09,Italy,France,1,1,1,World Cup 2006
-2010-06-11,South Africa,Mexico,1,1,0,World Cup 2010
-2010-06-11,Uruguay,France,0,0,1,World Cup 2010
-2010-06-12,South Korea,Greece,2,0,1,World Cup 2010
-2010-06-12,Argentina,Nigeria,1,0,1,World Cup 2010
-2010-06-12,England,USA,1,1,1,World Cup 2010
-2010-06-13,Algeria,Slovenia,0,1,1,World Cup 2010
-2010-06-13,Serbia,Ghana,0,1,1,World Cup 2010
-2010-06-13,Germany,Australia,4,0,1,World Cup 2010
-2010-06-14,Netherlands,Denmark,2,0,1,World Cup 2010
-2010-06-14,Japan,Cameroon,1,0,1,World Cup 2010
-2010-06-14,Italy,Paraguay,1,1,1,World Cup 2010
-2010-06-15,New Zealand,Slovakia,1,1,1,World Cup 2010
-2010-06-15,Ivory Coast,Portugal,0,0,1,World Cup 2010
-2010-06-15,Brazil,North Korea,2,1,1,World Cup 2010
-2010-06-16,South Africa,Uruguay,0,3,0,World Cup 2010
-2010-06-16,Honduras,Chile,0,1,1,World Cup 2010
-2010-06-16,Spain,Switzerland,0,1,1,World Cup 2010
-2010-06-17,France,Mexico,0,2,1,World Cup 2010
-2010-06-17,Argentina,South Korea,4,1,1,World Cup 2010
-2010-06-17,Greece,Nigeria,2,1,1,World Cup 2010
-2010-06-18,Slovenia,USA,2,2,1,World Cup 2010
-2010-06-18,England,Algeria,0,0,1,World Cup 2010
-2010-06-18,Germany,Serbia,0,1,1,World Cup 2010
-2010-06-19,Ghana,Australia,1,1,1,World Cup 2010
-2010-06-19,Netherlands,Japan,1,0,1,World Cup 2010
-2010-06-19,Cameroon,Denmark,1,2,1,World Cup 2010
-2010-06-20,Slovakia,Paraguay,0,2,1,World Cup 2010
-2010-06-20,Italy,New Zealand,1,1,1,World Cup 2010
-2010-06-20,Brazil,Ivory Coast,3,1,1,World Cup 2010
-2010-06-21,Portugal,North Korea,7,0,1,World Cup 2010
-2010-06-21,Chile,Switzerland,1,0,1,World Cup 2010
-2010-06-21,Spain,Honduras,2,0,1,World Cup 2010
-2010-06-22,Mexico,Uruguay,0,1,1,World Cup 2010
-2010-06-22,France,South Africa,1,2,0,World Cup 2010
-2010-06-22,Nigeria,South Korea,2,2,1,World Cup 2010
-2010-06-22,Greece,Argentina,0,2,1,World Cup 2010
-2010-06-23,USA,Algeria,1,0,1,World Cup 2010
-2010-06-23,Slovenia,England,0,1,1,World Cup 2010
-2010-06-23,Australia,Serbia,2,1,1,World Cup 2010
-2010-06-23,Ghana,Germany,0,1,1,World Cup 2010
-2010-06-24,Denmark,Japan,1,3,1,World Cup 2010
-2010-06-24,Cameroon,Netherlands,1,2,1,World Cup 2010
-2010-06-24,Slovakia,Italy,3,2,1,World Cup 2010
-2010-06-24,Paraguay,New Zealand,0,0,1,World Cup 2010
-2010-06-25,Portugal,Brazil,0,0,1,World Cup 2010
-2010-06-25,North Korea,Ivory Coast,0,3,1,World Cup 2010
-2010-06-25,Chile,Spain,1,2,1,World Cup 2010
-2010-06-25,Switzerland,Honduras,0,0,1,World Cup 2010
-2010-06-26,Uruguay,South Korea,2,1,1,World Cup 2010
-2010-06-26,USA,Ghana,1,1,1,World Cup 2010
-2010-06-27,Germany,England,4,1,1,World Cup 2010
-2010-06-27,Argentina,Mexico,3,1,1,World Cup 2010
-2010-06-28,Netherlands,Slovakia,2,1,1,World Cup 2010
-2010-06-28,Brazil,Chile,3,0,1,World Cup 2010
-2010-06-29,Paraguay,Japan,0,0,1,World Cup 2010
-2010-06-29,Spain,Portugal,1,0,1,World Cup 2010
-2010-07-02,Netherlands,Brazil,2,1,1,World Cup 2010
-2010-07-02,Uruguay,Ghana,1,1,1,World Cup 2010
-2010-07-03,Argentina,Germany,0,4,1,World Cup 2010
-2010-07-03,Paraguay,Spain,0,1,1,World Cup 2010
-2010-07-06,Uruguay,Netherlands,2,3,1,World Cup 2010
-2010-07-07,Germany,Spain,0,1,1,World Cup 2010
-2010-07-10,Uruguay,Germany,2,3,1,World Cup 2010
-2010-07-11,Netherlands,Spain,0,0,1,World Cup 2010
-2014-06-12,Brazil,Croatia,3,1,0,World Cup 2014
-2014-06-13,Mexico,Cameroon,1,0,1,World Cup 2014
-2014-06-13,Spain,Netherlands,1,5,1,World Cup 2014
-2014-06-13,Chile,Australia,3,1,1,World Cup 2014
-2014-06-14,Colombia,Greece,3,0,1,World Cup 2014
-2014-06-14,Ivory Coast,Japan,2,1,1,World Cup 2014
-2014-06-14,Uruguay,Costa Rica,1,3,1,World Cup 2014
-2014-06-14,England,Italy,1,2,1,World Cup 2014
-2014-06-15,Switzerland,Ecuador,2,1,1,World Cup 2014
-2014-06-15,France,Honduras,3,0,1,World Cup 2014
-2014-06-15,Argentina,Bosnia & Herzegovina,2,1,1,World Cup 2014
-2014-06-16,Iran,Nigeria,0,0,1,World Cup 2014
-2014-06-16,Germany,Portugal,4,0,1,World Cup 2014
-2014-06-16,Ghana,USA,1,2,1,World Cup 2014
-2014-06-17,Brazil,Mexico,0,0,0,World Cup 2014
-2014-06-17,Belgium,Algeria,2,1,1,World Cup 2014
-2014-06-17,Russia,South Korea,1,1,1,World Cup 2014
-2014-06-18,Cameroon,Croatia,0,4,1,World Cup 2014
-2014-06-18,Australia,Netherlands,2,3,1,World Cup 2014
-2014-06-18,Spain,Chile,0,2,1,World Cup 2014
-2014-06-19,Colombia,Ivory Coast,2,1,1,World Cup 2014
-2014-06-19,Japan,Greece,0,0,1,World Cup 2014
-2014-06-19,Uruguay,England,2,1,1,World Cup 2014
-2014-06-20,Italy,Costa Rica,0,1,1,World Cup 2014
-2014-06-20,Switzerland,France,2,5,1,World Cup 2014
-2014-06-20,Honduras,Ecuador,1,2,1,World Cup 2014
-2014-06-21,Argentina,Iran,1,0,1,World Cup 2014
-2014-06-21,Nigeria,Bosnia & Herzegovina,1,0,1,World Cup 2014
-2014-06-21,Germany,Ghana,2,2,1,World Cup 2014
-2014-06-22,USA,Portugal,2,2,1,World Cup 2014
-2014-06-22,Belgium,Russia,1,0,1,World Cup 2014
-2014-06-22,South Korea,Algeria,2,4,1,World Cup 2014
-2014-06-23,Cameroon,Brazil,1,4,0,World Cup 2014
-2014-06-23,Croatia,Mexico,1,3,1,World Cup 2014
-2014-06-23,Australia,Spain,0,3,1,World Cup 2014
-2014-06-23,Netherlands,Chile,2,0,1,World Cup 2014
-2014-06-24,Japan,Colombia,1,4,1,World Cup 2014
-2014-06-24,Greece,Ivory Coast,2,1,1,World Cup 2014
-2014-06-24,Italy,Uruguay,0,1,1,World Cup 2014
-2014-06-24,Costa Rica,England,0,0,1,World Cup 2014
-2014-06-25,Honduras,Switzerland,0,3,1,World Cup 2014
-2014-06-25,Ecuador,France,0,0,1,World Cup 2014
-2014-06-25,Nigeria,Argentina,2,3,1,World Cup 2014
-2014-06-25,Bosnia & Herzegovina,Iran,3,1,1,World Cup 2014
-2014-06-26,USA,Germany,0,1,1,World Cup 2014
-2014-06-26,Portugal,Ghana,2,1,1,World Cup 2014
-2014-06-26,South Korea,Belgium,0,1,1,World Cup 2014
-2014-06-26,Algeria,Russia,1,1,1,World Cup 2014
-2014-06-28,Brazil,Chile,1,1,0,World Cup 2014
-2014-06-28,Colombia,Uruguay,2,0,1,World Cup 2014
-2014-06-29,Netherlands,Mexico,2,1,1,World Cup 2014
-2014-06-29,Costa Rica,Greece,1,1,1,World Cup 2014
-2014-06-30,France,Nigeria,2,0,1,World Cup 2014
-2014-06-30,Germany,Algeria,0,0,1,World Cup 2014
-2014-07-01,Argentina,Switzerland,0,0,1,World Cup 2014
-2014-07-01,Belgium,USA,0,0,1,World Cup 2014
-2014-07-04,France,Germany,0,1,1,World Cup 2014
-2014-07-04,Brazil,Colombia,2,1,0,World Cup 2014
-2014-07-05,Argentina,Belgium,1,0,1,World Cup 2014
-2014-07-05,Netherlands,Costa Rica,0,0,1,World Cup 2014
-2014-07-08,Brazil,Germany,1,7,0,World Cup 2014
-2014-07-09,Netherlands,Argentina,0,0,1,World Cup 2014
-2014-07-12,Brazil,Netherlands,0,3,0,World Cup 2014
-2014-07-13,Germany,Argentina,0,0,1,World Cup 2014
-2018-06-14,Russia,Saudi Arabia,5,0,0,World Cup 2018
-2018-06-15,Egypt,Uruguay,0,1,1,World Cup 2018
-2018-06-15,Morocco,Iran,0,1,1,World Cup 2018
-2018-06-15,Portugal,Spain,3,3,1,World Cup 2018
-2018-06-16,France,Australia,2,1,1,World Cup 2018
-2018-06-16,Peru,Denmark,0,1,1,World Cup 2018
-2018-06-16,Argentina,Iceland,1,1,1,World Cup 2018
-2018-06-16,Croatia,Nigeria,2,0,1,World Cup 2018
-2018-06-17,Costa Rica,Serbia,0,1,1,World Cup 2018
-2018-06-17,Brazil,Switzerland,1,1,1,World Cup 2018
-2018-06-17,Germany,Mexico,0,1,1,World Cup 2018
-2018-06-18,Sweden,South Korea,1,0,1,World Cup 2018
-2018-06-18,Belgium,Panama,3,0,1,World Cup 2018
-2018-06-18,Tunisia,England,1,2,1,World Cup 2018
-2018-06-19,Russia,Egypt,3,1,0,World Cup 2018
-2018-06-19,Colombia,Japan,1,2,1,World Cup 2018
-2018-06-19,Poland,Senegal,1,2,1,World Cup 2018
-2018-06-20,Uruguay,Saudi Arabia,1,0,1,World Cup 2018
-2018-06-20,Portugal,Morocco,1,0,1,World Cup 2018
-2018-06-20,Iran,Spain,0,1,1,World Cup 2018
-2018-06-21,Denmark,Australia,1,1,1,World Cup 2018
-2018-06-21,France,Peru,1,0,1,World Cup 2018
-2018-06-21,Argentina,Croatia,0,3,1,World Cup 2018
-2018-06-22,Nigeria,Iceland,2,0,1,World Cup 2018
-2018-06-22,Brazil,Costa Rica,2,0,1,World Cup 2018
-2018-06-22,Serbia,Switzerland,1,2,1,World Cup 2018
-2018-06-23,South Korea,Mexico,1,2,1,World Cup 2018
-2018-06-23,Germany,Sweden,2,1,1,World Cup 2018
-2018-06-23,Belgium,Tunisia,5,2,1,World Cup 2018
-2018-06-24,England,Panama,6,1,1,World Cup 2018
-2018-06-24,Japan,Senegal,2,2,1,World Cup 2018
-2018-06-24,Poland,Colombia,0,3,1,World Cup 2018
-2018-06-25,Uruguay,Russia,3,0,0,World Cup 2018
-2018-06-25,Saudi Arabia,Egypt,2,1,1,World Cup 2018
-2018-06-25,Iran,Portugal,1,1,1,World Cup 2018
-2018-06-25,Spain,Morocco,2,2,1,World Cup 2018
-2018-06-26,Denmark,France,0,0,1,World Cup 2018
-2018-06-26,Australia,Peru,0,2,1,World Cup 2018
-2018-06-26,Nigeria,Argentina,1,2,1,World Cup 2018
-2018-06-26,Iceland,Croatia,1,2,1,World Cup 2018
-2018-06-27,Serbia,Brazil,0,2,1,World Cup 2018
-2018-06-27,Switzerland,Costa Rica,2,2,1,World Cup 2018
-2018-06-27,South Korea,Germany,2,0,1,World Cup 2018
-2018-06-27,Mexico,Sweden,0,3,1,World Cup 2018
-2018-06-28,England,Belgium,0,1,1,World Cup 2018
-2018-06-28,Panama,Tunisia,1,2,1,World Cup 2018
-2018-06-28,Japan,Poland,0,1,1,World Cup 2018
-2018-06-28,Senegal,Colombia,0,1,1,World Cup 2018
-2018-06-30,France,Argentina,4,3,1,World Cup 2018
-2018-06-30,Uruguay,Portugal,2,1,1,World Cup 2018
-2018-07-01,Spain,Russia,1,1,0,World Cup 2018
-2018-07-01,Croatia,Denmark,1,1,1,World Cup 2018
-2018-07-02,Brazil,Mexico,2,0,1,World Cup 2018
-2018-07-02,Belgium,Japan,3,2,1,World Cup 2018
-2018-07-03,Sweden,Switzerland,1,0,1,World Cup 2018
-2018-07-03,Colombia,England,1,1,1,World Cup 2018
-2018-07-06,Uruguay,France,0,2,1,World Cup 2018
-2018-07-06,Brazil,Belgium,1,2,1,World Cup 2018
-2018-07-07,Sweden,England,0,2,1,World Cup 2018
-2018-07-07,Russia,Croatia,1,1,0,World Cup 2018
-2018-07-10,France,Belgium,1,0,1,World Cup 2018
-2018-07-11,Croatia,England,1,1,1,World Cup 2018
-2018-07-14,Belgium,England,2,0,1,World Cup 2018
-2018-07-15,France,Croatia,4,2,1,World Cup 2018
-2022-11-20,Qatar,Ecuador,0,2,0,World Cup 2022
-2022-11-21,Senegal,Netherlands,0,2,1,World Cup 2022
-2022-11-21,England,Iran,6,2,1,World Cup 2022
-2022-11-21,USA,Wales,1,1,1,World Cup 2022
-2022-11-22,Argentina,Saudi Arabia,1,2,1,World Cup 2022
-2022-11-22,Mexico,Poland,0,0,1,World Cup 2022
-2022-11-22,Denmark,Tunisia,0,0,1,World Cup 2022
-2022-11-22,France,Australia,4,1,1,World Cup 2022
-2022-11-23,Germany,Japan,1,2,1,World Cup 2022
-2022-11-23,Spain,Costa Rica,7,0,1,World Cup 2022
-2022-11-23,Morocco,Croatia,0,0,1,World Cup 2022
-2022-11-23,Belgium,Canada,1,0,1,World Cup 2022
-2022-11-24,Switzerland,Cameroon,1,0,1,World Cup 2022
-2022-11-24,Brazil,Serbia,2,0,1,World Cup 2022
-2022-11-24,Uruguay,South Korea,0,0,1,World Cup 2022
-2022-11-24,Portugal,Ghana,3,2,1,World Cup 2022
-2022-11-25,Qatar,Senegal,1,3,0,World Cup 2022
-2022-11-25,Netherlands,Ecuador,1,1,1,World Cup 2022
-2022-11-25,Wales,Iran,0,2,1,World Cup 2022
-2022-11-25,England,USA,0,0,1,World Cup 2022
-2022-11-26,Poland,Saudi Arabia,2,0,1,World Cup 2022
-2022-11-26,Argentina,Mexico,2,0,1,World Cup 2022
-2022-11-26,Tunisia,Australia,0,1,1,World Cup 2022
-2022-11-26,France,Denmark,2,1,1,World Cup 2022
-2022-11-27,Japan,Costa Rica,0,1,1,World Cup 2022
-2022-11-27,Spain,Germany,1,1,1,World Cup 2022
-2022-11-27,Belgium,Morocco,0,2,1,World Cup 2022
-2022-11-27,Croatia,Canada,4,1,1,World Cup 2022
-2022-11-28,Cameroon,Serbia,3,3,1,World Cup 2022
-2022-11-28,Brazil,Switzerland,1,0,1,World Cup 2022
-2022-11-28,South Korea,Ghana,2,3,1,World Cup 2022
-2022-11-28,Portugal,Uruguay,2,0,1,World Cup 2022
-2022-11-29,Ecuador,Senegal,1,2,1,World Cup 2022
-2022-11-29,Netherlands,Qatar,2,0,0,World Cup 2022
-2022-11-29,Wales,England,0,3,1,World Cup 2022
-2022-11-29,Iran,USA,0,1,1,World Cup 2022
-2022-11-30,Poland,Argentina,0,2,1,World Cup 2022
-2022-11-30,Saudi Arabia,Mexico,1,2,1,World Cup 2022
-2022-11-30,Australia,Denmark,1,0,1,World Cup 2022
-2022-11-30,Tunisia,France,1,0,1,World Cup 2022
-2022-12-01,Japan,Spain,2,1,1,World Cup 2022
-2022-12-01,Costa Rica,Germany,2,4,1,World Cup 2022
-2022-12-01,Croatia,Belgium,0,0,1,World Cup 2022
-2022-12-01,Canada,Morocco,1,2,1,World Cup 2022
-2022-12-02,Serbia,Switzerland,2,3,1,World Cup 2022
-2022-12-02,Cameroon,Brazil,1,0,1,World Cup 2022
-2022-12-02,Ghana,Uruguay,0,2,1,World Cup 2022
-2022-12-02,South Korea,Portugal,2,1,1,World Cup 2022
-2022-12-03,Netherlands,USA,3,1,1,World Cup 2022
-2022-12-03,Argentina,Australia,2,1,1,World Cup 2022
-2022-12-04,France,Poland,3,1,1,World Cup 2022
-2022-12-04,England,Senegal,3,0,1,World Cup 2022
-2022-12-05,Japan,Croatia,1,1,1,World Cup 2022
-2022-12-05,Brazil,South Korea,4,1,1,World Cup 2022
-2022-12-06,Morocco,Spain,0,0,1,World Cup 2022
-2022-12-06,Portugal,Switzerland,6,1,1,World Cup 2022
-2022-12-09,Croatia,Brazil,0,0,1,World Cup 2022
-2022-12-09,Netherlands,Argentina,2,2,1,World Cup 2022
-2022-12-10,Morocco,Portugal,1,0,1,World Cup 2022
-2022-12-10,England,France,1,2,1,World Cup 2022
-2022-12-13,Argentina,Croatia,3,0,1,World Cup 2022
-2022-12-14,France,Morocco,2,0,1,World Cup 2022
-2022-12-17,Croatia,Morocco,2,1,1,World Cup 2022
-2022-12-18,Argentina,France,2,2,1,World Cup 2022
-2026-06-11,Mexico,South Africa,2,0,0,World Cup 2026
-2026-06-11,South Korea,Czech Republic,2,1,1,World Cup 2026
-2026-06-12,Canada,Bosnia & Herzegovina,1,1,0,World Cup 2026
-2026-06-12,USA,Paraguay,4,1,0,World Cup 2026
-2026-06-13,Qatar,Switzerland,1,1,1,World Cup 2026
-2026-06-13,Brazil,Morocco,1,1,1,World Cup 2026
-2026-06-13,Haiti,Scotland,0,1,1,World Cup 2026
-2026-06-13,Australia,Turkey,2,0,1,World Cup 2026
-2026-06-14,Germany,Curaçao,7,1,1,World Cup 2026
-2026-06-14,Ivory Coast,Ecuador,1,0,1,World Cup 2026
-2026-06-14,Netherlands,Japan,2,2,1,World Cup 2026
-2026-06-14,Sweden,Tunisia,5,1,1,World Cup 2026
-2026-06-15,Belgium,Egypt,1,1,1,World Cup 2026
-2026-06-15,Iran,New Zealand,2,2,1,World Cup 2026
-2026-06-15,Spain,Cape Verde,0,0,1,World Cup 2026
-2026-06-15,Saudi Arabia,Uruguay,1,1,1,World Cup 2026
-2026-06-16,France,Senegal,3,1,1,World Cup 2026
-2026-06-16,Iraq,Norway,1,4,1,World Cup 2026
-2026-06-16,Argentina,Algeria,3,0,1,World Cup 2026
-2026-06-16,Austria,Jordan,3,1,1,World Cup 2026
+2022-01-01,Bosnia & Herzegovina,Ecuador,3,0,0,Continental Cup
+2022-01-03,Australia,South Africa,3,1,0,Friendly
+2022-01-06,Curaçao,South Korea,0,3,0,Continental Cup
+2022-01-06,Uruguay,Jordan,1,1,0,Qualifier
+2022-01-07,Belgium,New Zealand,7,0,0,Nations League
+2022-01-07,New Zealand,Canada,0,1,0,Continental Cup
+2022-01-08,Algeria,Czech Republic,1,2,0,Qualifier
+2022-01-11,Belgium,Scotland,4,0,0,Nations League
+2022-01-11,Uruguay,Scotland,2,1,0,Friendly
+2022-01-12,Qatar,Morocco,0,2,0,Nations League
+2022-01-12,Cape Verde,Panama,1,1,0,Continental Cup
+2022-01-15,Jordan,Ghana,0,0,1,Friendly
+2022-01-15,France,Senegal,1,0,0,Continental Cup
+2022-01-17,DR Congo,Ivory Coast,1,0,1,Friendly
+2022-01-21,Panama,Uzbekistan,1,3,0,Friendly
+2022-01-21,Norway,Panama,1,1,0,Qualifier
+2022-01-22,Egypt,Germany,1,3,1,Friendly
+2022-01-23,Algeria,Tunisia,0,0,1,Friendly
+2022-01-23,Ivory Coast,Iraq,0,1,0,Qualifier
+2022-01-23,Bosnia & Herzegovina,Curaçao,0,2,0,Friendly
+2022-01-23,Turkey,Ghana,2,2,1,Friendly
+2022-01-24,Turkey,Belgium,0,4,1,Qualifier
+2022-01-24,Haiti,Ecuador,1,0,0,Qualifier
+2022-01-25,Bosnia & Herzegovina,Ghana,2,1,0,Qualifier
+2022-01-25,New Zealand,Netherlands,1,1,0,Qualifier
+2022-01-28,Austria,Brazil,4,0,0,Nations League
+2022-01-29,Saudi Arabia,Sweden,0,0,0,Friendly
+2022-01-30,Brazil,Spain,1,1,0,Friendly
+2022-01-30,Ecuador,Cape Verde,1,0,0,Friendly
+2022-01-31,Portugal,England,1,2,0,Qualifier
+2022-01-31,Iraq,Tunisia,5,1,0,Nations League
+2022-02-03,South Africa,Canada,0,2,0,Qualifier
+2022-02-03,Brazil,Egypt,2,1,0,Qualifier
+2022-02-05,Colombia,France,2,1,0,Qualifier
+2022-02-05,France,Scotland,2,0,1,Friendly
+2022-02-07,Sweden,Curaçao,2,0,1,Friendly
+2022-02-07,Uzbekistan,Cape Verde,1,1,0,Qualifier
+2022-02-07,Uruguay,Germany,2,0,1,Friendly
+2022-02-09,Portugal,DR Congo,1,0,0,Qualifier
+2022-02-09,Japan,Canada,3,1,1,Friendly
+2022-02-12,Cape Verde,Canada,2,2,0,Qualifier
+2022-02-13,Morocco,Paraguay,1,3,0,Friendly
+2022-02-14,Bosnia & Herzegovina,Tunisia,2,0,0,Nations League
+2022-02-17,Ghana,Croatia,0,1,0,Qualifier
+2022-02-18,Egypt,Czech Republic,1,3,0,Friendly
+2022-02-20,Croatia,Turkey,1,0,0,Qualifier
+2022-02-23,Ivory Coast,Qatar,2,1,0,Friendly
+2022-02-24,South Africa,Algeria,1,3,0,Qualifier
+2022-02-25,DR Congo,South Korea,2,1,0,Nations League
+2022-02-25,Panama,Norway,0,1,0,Friendly
+2022-02-25,Scotland,Qatar,0,3,1,Friendly
+2022-02-26,Iraq,Bosnia & Herzegovina,1,0,0,Continental Cup
+2022-02-28,Panama,Iran,4,0,0,Friendly
+2022-02-28,Germany,Belgium,0,1,0,Qualifier
+2022-03-02,Mexico,Saudi Arabia,1,0,0,Friendly
+2022-03-03,Jordan,Curaçao,1,0,0,Qualifier
+2022-03-04,Ecuador,Netherlands,0,1,0,Continental Cup
+2022-03-04,Turkey,Bosnia & Herzegovina,1,0,0,Continental Cup
+2022-03-05,Jordan,Algeria,1,2,0,Qualifier
+2022-03-06,Bosnia & Herzegovina,Panama,1,3,1,Friendly
+2022-03-06,Japan,Belgium,2,3,0,Friendly
+2022-03-07,Japan,Senegal,3,0,0,Nations League
+2022-03-08,Austria,Czech Republic,1,0,0,Friendly
+2022-03-16,Netherlands,Algeria,6,1,0,Friendly
+2022-03-17,England,Mexico,1,0,1,Continental Cup
+2022-03-19,Scotland,Uzbekistan,0,1,0,Qualifier
+2022-03-20,Ivory Coast,Uzbekistan,2,1,0,Friendly
+2022-03-21,Austria,Turkey,4,3,0,Friendly
+2022-03-22,Iraq,Sweden,2,0,0,Qualifier
+2022-03-22,Netherlands,DR Congo,4,0,0,Qualifier
+2022-03-22,Saudi Arabia,Tunisia,1,1,0,Qualifier
+2022-03-24,Algeria,Saudi Arabia,2,0,0,Continental Cup
+2022-03-24,Uruguay,Belgium,2,0,0,Qualifier
+2022-03-26,Cape Verde,South Africa,1,2,0,Friendly
+2022-03-26,Jordan,Portugal,2,5,1,Friendly
+2022-03-27,Brazil,Turkey,1,0,0,Qualifier
+2022-03-30,Uruguay,Belgium,0,2,0,Friendly
+2022-04-02,Netherlands,New Zealand,3,1,0,Qualifier
+2022-04-03,Morocco,Iran,1,2,0,Nations League
+2022-04-04,Tunisia,South Korea,1,0,0,Continental Cup
+2022-04-05,Egypt,Croatia,0,1,0,Qualifier
+2022-04-07,Sweden,Morocco,0,1,1,Friendly
+2022-04-07,Spain,Canada,3,3,0,Qualifier
+2022-04-09,Ivory Coast,Iran,2,0,0,Friendly
+2022-04-12,Morocco,Portugal,2,1,0,Friendly
+2022-04-12,France,Curaçao,2,1,0,Nations League
+2022-04-18,Netherlands,Argentina,1,1,0,Qualifier
+2022-04-19,Cape Verde,Paraguay,2,1,0,Qualifier
+2022-04-19,Paraguay,Iran,1,2,0,Qualifier
+2022-04-20,Canada,Croatia,1,2,0,Friendly
+2022-04-21,Qatar,England,0,1,0,Qualifier
+2022-04-22,Panama,Norway,1,0,1,Friendly
+2022-04-23,Norway,Ghana,1,1,0,Qualifier
+2022-04-23,Austria,Iran,3,3,0,Qualifier
+2022-04-24,Iran,Brazil,1,2,0,Qualifier
+2022-04-26,Japan,France,0,2,0,Qualifier
+2022-04-26,Australia,France,1,1,0,Friendly
+2022-04-27,Canada,Tunisia,1,2,1,Friendly
+2022-04-29,Spain,Argentina,1,1,0,Friendly
+2022-04-30,England,Turkey,1,0,1,Qualifier
+2022-05-01,Brazil,Scotland,2,0,1,Qualifier
+2022-05-03,Czech Republic,Australia,1,1,0,Friendly
+2022-05-04,France,Iraq,1,2,0,Qualifier
+2022-05-06,Scotland,Tunisia,1,0,1,Friendly
+2022-05-07,Argentina,Senegal,2,0,0,Friendly
+2022-05-07,Scotland,New Zealand,4,0,0,Continental Cup
+2022-05-10,Netherlands,DR Congo,1,1,0,Qualifier
+2022-05-12,Jordan,Argentina,0,0,0,Friendly
+2022-05-14,Iraq,Haiti,2,1,0,Qualifier
+2022-05-16,Curaçao,Egypt,1,2,0,Nations League
+2022-05-16,Netherlands,Bosnia & Herzegovina,3,3,1,Nations League
+2022-05-16,Brazil,Ecuador,2,0,0,Friendly
+2022-05-17,Panama,France,0,0,0,Friendly
+2022-05-18,Bosnia & Herzegovina,South Korea,3,1,1,Friendly
+2022-05-19,Belgium,Paraguay,1,1,0,Nations League
+2022-05-20,Portugal,South Korea,3,2,0,Friendly
+2022-05-21,England,Paraguay,1,0,0,Qualifier
+2022-05-21,Croatia,Paraguay,5,1,0,Qualifier
+2022-05-21,Australia,Panama,2,1,0,Qualifier
+2022-05-26,Uruguay,Uzbekistan,3,3,0,Qualifier
+2022-05-27,Bosnia & Herzegovina,Saudi Arabia,1,1,0,Friendly
+2022-05-28,Saudi Arabia,Turkey,1,2,0,Nations League
+2022-05-28,Belgium,Colombia,3,1,0,Friendly
+2022-05-28,Switzerland,Japan,1,2,1,Friendly
+2022-05-29,USA,Iran,0,2,0,Qualifier
+2022-05-30,Japan,France,0,0,0,Friendly
+2022-05-30,DR Congo,Ivory Coast,2,1,1,Continental Cup
+2022-05-31,Panama,Ivory Coast,1,1,1,Qualifier
+2022-06-04,France,Germany,7,1,0,Nations League
+2022-06-06,Portugal,South Africa,2,1,0,Friendly
+2022-06-06,Jordan,Qatar,1,1,0,Qualifier
+2022-06-08,Norway,Jordan,1,2,0,Qualifier
+2022-06-08,Norway,Senegal,0,1,1,Friendly
+2022-06-08,Iran,Uruguay,3,1,0,Qualifier
+2022-06-09,Ghana,Japan,0,1,0,Friendly
+2022-06-09,Jordan,Croatia,1,2,0,Qualifier
+2022-06-11,Haiti,Jordan,3,2,0,Friendly
+2022-06-11,Scotland,Saudi Arabia,1,1,0,Continental Cup
+2022-06-12,Norway,Curaçao,3,0,0,Qualifier
+2022-06-13,Portugal,South Korea,1,0,0,Qualifier
+2022-06-14,Qatar,Australia,1,1,0,Qualifier
+2022-06-14,Colombia,Cape Verde,3,0,0,Qualifier
+2022-06-14,Bosnia & Herzegovina,Qatar,3,0,0,Qualifier
+2022-06-15,Turkey,Iran,0,1,1,Friendly
+2022-06-18,Portugal,Ivory Coast,4,1,0,Qualifier
+2022-06-18,Canada,Mexico,0,0,1,Friendly
+2022-06-18,Croatia,Scotland,1,1,0,Qualifier
+2022-06-19,Colombia,Netherlands,0,1,0,Friendly
+2022-06-22,Sweden,Netherlands,0,0,0,Qualifier
+2022-06-23,Egypt,Curaçao,1,0,0,Qualifier
+2022-06-24,New Zealand,Qatar,2,1,0,Friendly
+2022-06-28,Mexico,Paraguay,3,0,0,Continental Cup
+2022-06-29,Mexico,DR Congo,3,2,0,Continental Cup
+2022-06-30,Canada,Switzerland,1,0,1,Friendly
+2022-07-02,France,Ghana,4,0,0,Qualifier
+2022-07-05,Iran,Jordan,0,0,0,Qualifier
+2022-07-05,Cape Verde,Morocco,0,3,0,Friendly
+2022-07-06,Iran,Panama,0,0,0,Friendly
+2022-07-06,Canada,Ghana,1,1,0,Nations League
+2022-07-06,Algeria,Jordan,1,0,0,Nations League
+2022-07-08,Uzbekistan,Algeria,1,0,0,Friendly
+2022-07-11,Egypt,Switzerland,1,3,0,Nations League
+2022-07-12,England,Switzerland,1,1,1,Friendly
+2022-07-13,Morocco,Belgium,3,1,0,Qualifier
+2022-07-16,Scotland,Japan,1,0,0,Friendly
+2022-07-17,Scotland,USA,0,1,0,Friendly
+2022-07-17,England,USA,1,1,0,Qualifier
+2022-07-18,Paraguay,Mexico,3,3,0,Friendly
+2022-07-18,Brazil,Bosnia & Herzegovina,3,0,1,Friendly
+2022-07-18,Japan,Algeria,1,0,0,Qualifier
+2022-07-22,Bosnia & Herzegovina,Uzbekistan,5,0,0,Nations League
+2022-07-23,Ivory Coast,Spain,0,1,1,Friendly
+2022-07-24,Netherlands,Ivory Coast,0,1,0,Friendly
+2022-07-25,Germany,Austria,1,1,0,Qualifier
+2022-07-26,Saudi Arabia,Iraq,1,1,0,Qualifier
+2022-07-28,Sweden,Germany,1,1,0,Qualifier
+2022-07-30,Morocco,USA,0,0,0,Qualifier
+2022-07-30,Australia,Norway,2,1,0,Friendly
+2022-07-30,Mexico,Belgium,0,2,0,Continental Cup
+2022-08-01,Curaçao,Portugal,0,2,0,Continental Cup
+2022-08-01,Ivory Coast,Sweden,0,0,0,Qualifier
+2022-08-01,France,Qatar,4,0,0,Continental Cup
+2022-08-02,Egypt,Iran,2,3,0,Qualifier
+2022-08-02,Haiti,Japan,0,0,0,Nations League
+2022-08-03,Norway,Japan,0,0,0,Qualifier
+2022-08-04,Austria,Germany,1,3,0,Continental Cup
+2022-08-05,USA,Argentina,0,2,0,Qualifier
+2022-08-07,Saudi Arabia,South Korea,0,2,0,Friendly
+2022-08-08,Qatar,Uzbekistan,1,0,0,Qualifier
+2022-08-08,Portugal,Ivory Coast,3,0,0,Friendly
+2022-08-09,Scotland,Iran,3,3,0,Nations League
+2022-08-11,Brazil,Algeria,3,0,1,Friendly
+2022-08-11,Brazil,Qatar,2,1,0,Qualifier
+2022-08-11,Spain,Canada,2,1,0,Qualifier
+2022-08-11,Sweden,France,0,1,0,Friendly
+2022-08-11,Uzbekistan,Canada,0,0,0,Qualifier
+2022-08-14,USA,Qatar,2,1,0,Nations League
+2022-08-15,Czech Republic,Sweden,1,3,0,Qualifier
+2022-08-16,Croatia,Cape Verde,5,0,0,Qualifier
+2022-08-18,Algeria,Netherlands,1,2,0,Nations League
+2022-08-19,Uzbekistan,Argentina,1,2,1,Friendly
+2022-08-20,Ecuador,Japan,3,1,0,Friendly
+2022-08-20,Panama,Paraguay,1,0,0,Qualifier
+2022-08-20,New Zealand,Uzbekistan,3,2,0,Qualifier
+2022-08-23,South Korea,Switzerland,0,0,0,Friendly
+2022-08-23,Bosnia & Herzegovina,Colombia,1,1,0,Friendly
+2022-08-24,Cape Verde,Belgium,2,0,0,Friendly
+2022-08-24,Turkey,Australia,0,1,0,Nations League
+2022-08-24,New Zealand,Norway,0,0,1,Friendly
+2022-08-24,Switzerland,Netherlands,3,1,0,Friendly
+2022-08-25,Tunisia,Germany,0,3,1,Qualifier
+2022-08-26,Mexico,Japan,3,3,1,Nations League
+2022-08-30,Haiti,Panama,1,2,0,Nations League
+2022-08-30,Netherlands,Turkey,0,1,0,Nations League
+2022-08-30,USA,DR Congo,0,1,1,Friendly
+2022-08-31,Qatar,Brazil,0,2,0,Qualifier
+2022-09-01,Croatia,France,2,1,0,Friendly
+2022-09-02,Ivory Coast,Haiti,1,0,1,Qualifier
+2022-09-05,DR Congo,Uruguay,1,3,0,Nations League
+2022-09-05,England,Morocco,1,1,0,Qualifier
+2022-09-05,Portugal,Bosnia & Herzegovina,0,2,1,Friendly
+2022-09-05,Canada,France,1,0,0,Friendly
+2022-09-07,New Zealand,Qatar,0,2,0,Qualifier
+2022-09-08,Saudi Arabia,Netherlands,0,1,0,Nations League
+2022-09-08,Jordan,Switzerland,1,4,0,Qualifier
+2022-09-08,Bosnia & Herzegovina,Croatia,0,2,1,Friendly
+2022-09-12,Switzerland,Czech Republic,1,1,0,Qualifier
+2022-09-14,Czech Republic,Jordan,0,2,1,Friendly
+2022-09-14,Saudi Arabia,Canada,0,1,0,Qualifier
+2022-09-17,Ghana,USA,0,0,0,Nations League
+2022-09-17,Ghana,Jordan,0,2,0,Nations League
+2022-09-18,Sweden,Haiti,1,1,0,Friendly
+2022-09-21,France,Croatia,1,0,0,Qualifier
+2022-09-21,Ivory Coast,Uzbekistan,1,2,1,Qualifier
+2022-09-23,Bosnia & Herzegovina,Switzerland,4,2,0,Nations League
+2022-09-23,Brazil,Haiti,2,1,0,Friendly
+2022-09-24,Curaçao,England,0,3,0,Qualifier
+2022-09-27,Turkey,Norway,1,0,1,Friendly
+2022-09-28,Panama,Australia,2,1,0,Nations League
+2022-09-28,Uruguay,Egypt,1,1,0,Qualifier
+2022-09-29,Netherlands,Uzbekistan,3,0,0,Continental Cup
+2022-09-29,Germany,Austria,5,1,0,Qualifier
+2022-09-30,DR Congo,Iran,0,1,0,Friendly
+2022-10-04,Ecuador,Portugal,1,2,1,Friendly
+2022-10-04,Egypt,Netherlands,0,1,0,Continental Cup
+2022-10-05,Belgium,England,2,1,0,Qualifier
+2022-10-09,Uzbekistan,Uruguay,1,2,1,Qualifier
+2022-10-11,Iraq,Spain,0,1,0,Friendly
+2022-10-11,Argentina,Scotland,3,1,0,Friendly
+2022-10-14,England,DR Congo,0,1,0,Qualifier
+2022-10-16,Uruguay,England,2,1,0,Qualifier
+2022-10-18,Qatar,Algeria,2,2,1,Friendly
+2022-10-18,Czech Republic,DR Congo,1,1,0,Friendly
+2022-10-18,Norway,Tunisia,2,1,0,Qualifier
+2022-10-20,Panama,Uzbekistan,1,0,1,Friendly
+2022-10-20,Sweden,Cape Verde,1,0,0,Continental Cup
+2022-10-22,Scotland,South Africa,0,1,0,Continental Cup
+2022-10-24,Brazil,Saudi Arabia,7,1,0,Friendly
+2022-10-27,Switzerland,Bosnia & Herzegovina,0,0,0,Friendly
+2022-10-27,DR Congo,Iran,1,2,1,Nations League
+2022-10-28,Switzerland,USA,0,0,0,Continental Cup
+2022-10-31,Mexico,Morocco,1,1,1,Friendly
+2022-11-01,Paraguay,Bosnia & Herzegovina,0,1,0,Nations League
+2022-11-03,Ecuador,Brazil,1,2,0,Friendly
+2022-11-03,Austria,Spain,0,0,0,Qualifier
+2022-11-03,Curaçao,Paraguay,4,1,1,Friendly
+2022-11-06,Saudi Arabia,Czech Republic,1,3,0,Qualifier
+2022-11-07,Belgium,Czech Republic,3,0,0,Nations League
+2022-11-08,Croatia,Argentina,1,0,1,Friendly
+2022-11-11,Brazil,Portugal,1,1,0,Nations League
+2022-11-11,England,Morocco,4,1,0,Qualifier
+2022-11-13,Senegal,USA,2,0,0,Friendly
+2022-11-14,Iran,Cape Verde,2,3,1,Qualifier
+2022-11-14,Argentina,Germany,1,1,0,Nations League
+2022-11-15,Netherlands,Egypt,0,1,0,Friendly
+2022-11-15,Sweden,Ivory Coast,1,0,0,Nations League
+2022-11-17,Bosnia & Herzegovina,Uzbekistan,5,0,0,Friendly
+2022-11-17,Scotland,Croatia,2,1,0,Nations League
+2022-11-18,Panama,Jordan,1,0,0,Friendly
+2022-11-18,Algeria,Saudi Arabia,1,1,0,Qualifier
+2022-11-18,Japan,Cape Verde,4,0,0,Qualifier
+2022-11-18,Senegal,Tunisia,3,0,0,Continental Cup
+2022-11-19,Iraq,DR Congo,2,0,0,Nations League
+2022-11-21,Cape Verde,Paraguay,1,0,1,Friendly
+2022-11-22,Scotland,Cape Verde,0,0,0,Qualifier
+2022-11-23,Morocco,Japan,3,1,0,Friendly
+2022-11-24,Norway,England,1,1,0,Qualifier
+2022-11-24,Cape Verde,Jordan,0,0,0,Continental Cup
+2022-11-25,Cape Verde,Uruguay,2,0,0,Friendly
+2022-11-28,DR Congo,USA,2,4,0,Qualifier
+2022-11-29,Qatar,Morocco,0,2,1,Qualifier
+2022-11-30,Paraguay,Morocco,1,1,0,Friendly
+2022-12-02,Panama,Colombia,3,1,0,Friendly
+2022-12-03,Haiti,Argentina,0,2,0,Qualifier
+2022-12-03,Portugal,Uruguay,4,1,0,Continental Cup
+2022-12-04,Mexico,Curaçao,0,0,0,Qualifier
+2022-12-04,Iraq,England,0,0,0,Nations League
+2022-12-05,Cape Verde,Switzerland,1,2,0,Continental Cup
+2022-12-07,Canada,South Africa,4,0,0,Friendly
+2022-12-07,Algeria,Bosnia & Herzegovina,1,0,0,Friendly
+2022-12-09,Czech Republic,Saudi Arabia,0,0,0,Friendly
+2022-12-10,Jordan,Spain,0,1,0,Qualifier
+2022-12-12,Uzbekistan,Australia,1,0,0,Friendly
+2022-12-12,Australia,Sweden,3,1,0,Qualifier
+2022-12-14,Uruguay,USA,2,1,0,Qualifier
+2022-12-15,Curaçao,South Korea,1,0,0,Qualifier
+2022-12-16,England,Egypt,2,1,0,Qualifier
+2022-12-19,South Korea,Brazil,0,0,0,Friendly
+2022-12-19,Morocco,Scotland,1,1,0,Qualifier
+2022-12-20,Ghana,Colombia,0,2,1,Nations League
+2022-12-23,Sweden,Egypt,1,0,0,Nations League
+2022-12-26,Senegal,Uzbekistan,0,0,0,Friendly
+2022-12-27,Spain,DR Congo,2,0,1,Friendly
+2022-12-27,Senegal,Iraq,3,3,1,Friendly
+2022-12-27,Qatar,Switzerland,1,1,0,Friendly
+2022-12-29,Switzerland,Colombia,0,1,0,Qualifier
+2022-12-29,Ecuador,Ghana,1,0,0,Qualifier
+2022-12-29,Turkey,Scotland,0,1,0,Friendly
+2023-01-01,Ghana,Germany,0,0,0,Friendly
+2023-01-04,Panama,Ghana,0,0,0,Friendly
+2023-01-04,Uzbekistan,Cape Verde,2,3,0,Friendly
+2023-01-05,Netherlands,Scotland,1,0,0,Qualifier
+2023-01-05,France,Japan,1,1,1,Friendly
+2023-01-05,Mexico,Tunisia,0,0,0,Friendly
+2023-01-07,Netherlands,Uzbekistan,1,2,0,Friendly
+2023-01-08,Sweden,South Korea,4,0,0,Nations League
+2023-01-09,Norway,Colombia,3,1,0,Nations League
+2023-01-10,Norway,Egypt,2,1,0,Nations League
+2023-01-11,Cape Verde,Qatar,0,1,1,Friendly
+2023-01-12,Ivory Coast,Tunisia,1,0,0,Qualifier
+2023-01-12,South Korea,France,3,0,0,Continental Cup
+2023-01-12,France,Uruguay,1,1,0,Friendly
+2023-01-14,DR Congo,Spain,1,2,0,Qualifier
+2023-01-15,Norway,Australia,0,1,1,Qualifier
+2023-01-17,Switzerland,Croatia,0,2,0,Friendly
+2023-01-20,Austria,DR Congo,1,1,0,Qualifier
+2023-01-21,Senegal,Algeria,1,0,0,Friendly
+2023-01-22,Ivory Coast,Ghana,1,2,0,Continental Cup
+2023-01-22,DR Congo,Colombia,1,0,0,Qualifier
+2023-01-25,Senegal,Panama,3,1,1,Friendly
+2023-01-26,Ghana,Jordan,3,0,0,Friendly
+2023-01-27,Ivory Coast,DR Congo,0,1,0,Friendly
+2023-01-27,Senegal,Mexico,2,2,0,Qualifier
+2023-01-28,Panama,Iraq,4,2,1,Qualifier
+2023-01-28,England,Switzerland,0,0,1,Friendly
+2023-01-29,Uzbekistan,Switzerland,0,3,0,Qualifier
+2023-01-29,Qatar,Ecuador,1,2,0,Qualifier
+2023-01-30,France,Spain,1,0,0,Qualifier
+2023-01-31,Japan,Mexico,0,2,0,Qualifier
+2023-02-01,South Korea,Uzbekistan,1,0,1,Friendly
+2023-02-02,Austria,Sweden,1,1,0,Qualifier
+2023-02-04,Portugal,Scotland,5,0,1,Friendly
+2023-02-07,Senegal,Czech Republic,0,0,0,Friendly
+2023-02-08,Turkey,South Africa,3,0,0,Nations League
+2023-02-09,Curaçao,South Africa,0,1,0,Qualifier
+2023-02-10,Curaçao,Uzbekistan,1,1,1,Friendly
+2023-02-10,Australia,Ghana,5,0,0,Qualifier
+2023-02-11,Ecuador,Norway,3,0,0,Qualifier
+2023-02-16,Scotland,Argentina,2,0,0,Qualifier
+2023-02-17,Panama,Egypt,1,1,0,Friendly
+2023-02-18,Netherlands,Norway,3,1,1,Friendly
+2023-02-22,Croatia,Brazil,1,0,0,Nations League
+2023-02-22,Tunisia,Mexico,1,1,0,Nations League
+2023-02-24,Panama,England,0,0,0,Nations League
+2023-02-24,Iraq,Morocco,3,3,0,Friendly
+2023-02-26,Iraq,Turkey,0,0,0,Nations League
+2023-02-27,Germany,Belgium,0,0,0,Qualifier
+2023-03-01,USA,Austria,3,0,0,Qualifier
+2023-03-01,Uzbekistan,Egypt,2,1,0,Friendly
+2023-03-01,Haiti,Netherlands,1,2,0,Continental Cup
+2023-03-03,Curaçao,Japan,2,0,0,Nations League
+2023-03-05,Japan,Curaçao,1,0,0,Continental Cup
+2023-03-05,Brazil,Canada,4,2,0,Friendly
+2023-03-07,Ecuador,Qatar,2,0,1,Friendly
+2023-03-08,Ecuador,Morocco,2,1,0,Continental Cup
+2023-03-09,Czech Republic,Spain,2,0,0,Friendly
+2023-03-09,Germany,France,1,2,0,Nations League
+2023-03-10,Morocco,Paraguay,3,0,0,Qualifier
+2023-03-10,Mexico,Algeria,1,0,0,Continental Cup
+2023-03-11,Sweden,Portugal,0,0,0,Qualifier
+2023-03-14,Netherlands,Scotland,2,1,0,Friendly
+2023-03-15,Norway,Ghana,2,2,0,Friendly
+2023-03-17,Mexico,Argentina,1,1,1,Qualifier
+2023-03-18,Paraguay,France,1,1,0,Qualifier
+2023-03-19,Australia,Ghana,3,0,0,Qualifier
+2023-03-22,Brazil,Morocco,0,2,0,Friendly
+2023-03-26,Argentina,South Africa,6,0,0,Friendly
+2023-03-27,Austria,Brazil,1,4,0,Qualifier
+2023-03-27,France,Uzbekistan,3,0,1,Continental Cup
+2023-03-27,Turkey,Scotland,2,1,0,Friendly
+2023-03-29,Scotland,England,1,0,0,Nations League
+2023-03-29,Panama,Germany,2,3,0,Friendly
+2023-04-01,Argentina,Senegal,0,1,0,Friendly
+2023-04-01,Mexico,Austria,1,1,0,Friendly
+2023-04-02,Tunisia,Colombia,1,3,0,Friendly
+2023-04-02,France,Panama,3,1,0,Qualifier
+2023-04-05,Ecuador,France,0,0,1,Friendly
+2023-04-06,Uzbekistan,Colombia,1,1,1,Nations League
+2023-04-08,Qatar,Netherlands,1,1,1,Friendly
+2023-04-08,Sweden,Germany,1,1,0,Friendly
+2023-04-08,Canada,Egypt,0,2,1,Friendly
+2023-04-09,Netherlands,Scotland,2,1,0,Friendly
+2023-04-16,Paraguay,South Africa,1,0,0,Friendly
+2023-04-18,Jordan,Iran,0,2,0,Friendly
+2023-04-19,Brazil,Ivory Coast,1,3,0,Friendly
+2023-04-20,Iran,Uzbekistan,2,0,0,Qualifier
+2023-04-22,Austria,South Korea,1,2,0,Qualifier
+2023-04-23,South Africa,Algeria,2,1,0,Friendly
+2023-04-24,DR Congo,Switzerland,2,3,0,Friendly
+2023-04-27,Morocco,England,0,0,0,Friendly
+2023-05-01,Ivory Coast,Uruguay,1,3,0,Nations League
+2023-05-05,Mexico,Sweden,0,1,0,Friendly
+2023-05-05,Uzbekistan,Panama,0,1,0,Nations League
+2023-05-06,Mexico,Curaçao,2,2,1,Friendly
+2023-05-07,USA,Ivory Coast,2,0,0,Friendly
+2023-05-09,Haiti,Brazil,0,4,0,Friendly
+2023-05-10,Turkey,Portugal,2,0,0,Qualifier
+2023-05-10,Ghana,Scotland,1,2,0,Nations League
+2023-05-10,New Zealand,South Africa,0,2,0,Friendly
+2023-05-16,Haiti,South Africa,0,0,0,Qualifier
+2023-05-16,England,Saudi Arabia,5,0,0,Qualifier
+2023-05-18,Morocco,Ghana,1,0,0,Qualifier
+2023-05-20,Norway,Canada,1,1,0,Qualifier
+2023-05-24,Ghana,Ecuador,1,2,0,Friendly
+2023-05-24,Austria,Turkey,4,1,0,Continental Cup
+2023-05-26,Iran,Egypt,2,0,0,Nations League
+2023-05-26,Japan,DR Congo,3,0,0,Continental Cup
+2023-05-28,Uzbekistan,Netherlands,1,0,0,Continental Cup
+2023-05-30,Ghana,Austria,1,1,0,Nations League
+2023-06-01,Belgium,Tunisia,2,0,0,Qualifier
+2023-06-03,Norway,England,2,2,0,Nations League
+2023-06-05,France,Mexico,1,1,0,Qualifier
+2023-06-05,Germany,Ghana,3,0,0,Friendly
+2023-06-08,Ghana,South Korea,1,0,0,Friendly
+2023-06-09,Qatar,France,0,0,0,Continental Cup
+2023-06-11,Iraq,Algeria,1,4,0,Continental Cup
+2023-06-13,Ivory Coast,Qatar,2,1,0,Nations League
+2023-06-15,Croatia,Iran,4,2,0,Qualifier
+2023-06-16,Mexico,Germany,1,0,0,Friendly
+2023-06-16,Iraq,Japan,0,1,0,Continental Cup
+2023-06-16,France,Mexico,2,1,0,Friendly
+2023-06-18,England,Iraq,2,0,0,Qualifier
+2023-06-18,Iraq,Panama,1,2,0,Qualifier
+2023-06-22,Argentina,Jordan,2,0,1,Friendly
+2023-07-01,Canada,Turkey,1,0,0,Friendly
+2023-07-02,France,Portugal,2,0,0,Nations League
+2023-07-04,France,Egypt,2,0,0,Friendly
+2023-07-04,Turkey,DR Congo,2,0,0,Qualifier
+2023-07-05,Cape Verde,Ghana,0,2,0,Friendly
+2023-07-05,Ghana,Ecuador,1,1,0,Qualifier
+2023-07-07,South Korea,Spain,1,0,0,Continental Cup
+2023-07-08,Saudi Arabia,Canada,2,2,0,Qualifier
+2023-07-09,Scotland,Ecuador,1,1,1,Friendly
+2023-07-09,Colombia,Spain,0,3,0,Qualifier
+2023-07-11,Senegal,DR Congo,4,1,0,Qualifier
+2023-07-15,New Zealand,Norway,0,2,0,Continental Cup
+2023-07-16,Cape Verde,Qatar,1,3,1,Friendly
+2023-07-20,Brazil,Tunisia,0,0,0,Friendly
+2023-07-22,Brazil,Argentina,1,3,0,Friendly
+2023-07-24,Egypt,Morocco,0,0,0,Friendly
+2023-07-24,South Africa,Netherlands,0,3,0,Qualifier
+2023-07-25,Portugal,Spain,0,0,0,Friendly
+2023-07-26,Qatar,Cape Verde,1,1,0,Qualifier
+2023-07-27,Portugal,Haiti,5,1,0,Friendly
+2023-07-28,Belgium,Austria,3,3,0,Friendly
+2023-07-29,Panama,Austria,1,1,0,Friendly
+2023-08-02,Norway,Canada,1,2,0,Friendly
+2023-08-03,Morocco,Japan,0,0,0,Qualifier
+2023-08-03,England,New Zealand,2,2,0,Qualifier
+2023-08-04,Mexico,Scotland,0,1,0,Nations League
+2023-08-04,Bosnia & Herzegovina,Uruguay,1,0,0,Friendly
+2023-08-05,Iraq,Curaçao,2,1,0,Friendly
+2023-08-05,Turkey,Saudi Arabia,1,1,0,Qualifier
+2023-08-09,Belgium,Haiti,2,1,1,Friendly
+2023-08-09,South Africa,Qatar,2,1,0,Nations League
+2023-08-12,Portugal,Ghana,2,1,0,Nations League
+2023-08-14,DR Congo,Qatar,1,1,0,Nations League
+2023-08-14,Switzerland,Senegal,0,0,0,Nations League
+2023-08-16,Iraq,Saudi Arabia,0,2,1,Friendly
+2023-08-16,New Zealand,Japan,1,1,0,Continental Cup
+2023-08-17,Paraguay,Morocco,0,2,1,Qualifier
+2023-08-18,Saudi Arabia,Paraguay,1,0,0,Qualifier
+2023-08-19,Portugal,Australia,0,1,1,Friendly
+2023-08-20,Egypt,Uruguay,1,0,0,Friendly
+2023-08-20,Portugal,Argentina,3,1,0,Nations League
+2023-08-20,Spain,Uruguay,0,1,0,Qualifier
+2023-08-23,Saudi Arabia,Switzerland,0,2,0,Qualifier
+2023-08-23,Senegal,Jordan,3,0,0,Continental Cup
+2023-08-24,Senegal,Mexico,1,2,0,Nations League
+2023-08-24,Qatar,Senegal,0,1,1,Friendly
+2023-08-25,South Africa,Cape Verde,1,1,0,Friendly
+2023-08-27,France,USA,2,0,1,Friendly
+2023-08-27,Algeria,Ghana,4,0,0,Qualifier
+2023-08-29,South Korea,Algeria,0,0,0,Continental Cup
+2023-08-30,Portugal,Scotland,2,1,1,Friendly
+2023-08-31,England,Jordan,1,0,0,Continental Cup
+2023-09-01,Qatar,Norway,1,4,1,Friendly
+2023-09-02,Senegal,Tunisia,3,0,0,Friendly
+2023-09-03,Panama,Canada,1,1,0,Qualifier
+2023-09-04,Jordan,DR Congo,0,2,1,Qualifier
+2023-09-04,South Korea,Australia,3,2,0,Nations League
+2023-09-05,Austria,Spain,2,4,1,Friendly
+2023-09-09,Canada,Japan,2,1,0,Qualifier
+2023-09-11,Sweden,Portugal,0,5,1,Friendly
+2023-09-11,Cape Verde,Mexico,1,1,0,Friendly
+2023-09-12,Turkey,England,0,0,0,Nations League
+2023-09-12,Ecuador,Algeria,0,1,0,Friendly
+2023-09-13,Ecuador,New Zealand,0,0,1,Continental Cup
+2023-09-17,Algeria,Australia,5,2,0,Friendly
+2023-09-17,Mexico,Colombia,0,0,1,Friendly
+2023-09-18,Ghana,Ecuador,1,2,0,Friendly
+2023-09-20,Croatia,Brazil,0,0,0,Friendly
+2023-09-21,Morocco,Haiti,5,0,0,Friendly
+2023-09-21,Germany,Austria,1,1,0,Friendly
+2023-09-23,Egypt,DR Congo,3,0,0,Qualifier
+2023-09-24,Cape Verde,Uzbekistan,3,1,0,Qualifier
+2023-09-25,Ecuador,Haiti,2,0,0,Qualifier
+2023-09-26,Ivory Coast,Curaçao,1,0,0,Qualifier
+2023-09-28,Iran,Jordan,1,0,1,Friendly
+2023-09-29,South Korea,Haiti,3,0,1,Friendly
+2023-10-01,Curaçao,Qatar,0,0,0,Qualifier
+2023-10-01,Ecuador,Iran,0,0,1,Friendly
+2023-10-04,Norway,Egypt,3,1,0,Qualifier
+2023-10-06,Brazil,Saudi Arabia,3,0,0,Qualifier
+2023-10-07,South Africa,Haiti,2,0,0,Qualifier
+2023-10-07,Sweden,New Zealand,0,1,1,Friendly
+2023-10-07,Iraq,Uzbekistan,1,0,0,Continental Cup
+2023-10-07,Austria,Ivory Coast,1,0,0,Friendly
+2023-10-08,Canada,Uzbekistan,1,1,0,Friendly
+2023-10-08,France,Jordan,3,0,0,Nations League
+2023-10-08,Croatia,Uruguay,2,1,0,Friendly
+2023-10-08,Uzbekistan,Qatar,2,0,1,Friendly
+2023-10-09,Argentina,Mexico,1,0,0,Continental Cup
+2023-10-10,Spain,Iraq,2,1,0,Qualifier
+2023-10-12,Scotland,Norway,2,0,0,Continental Cup
+2023-10-13,Japan,Ecuador,4,1,0,Nations League
+2023-10-14,Iraq,Senegal,0,0,1,Friendly
+2023-10-15,Saudi Arabia,Uruguay,1,1,1,Friendly
+2023-10-15,Iraq,Austria,2,0,0,Continental Cup
+2023-10-15,Ghana,Portugal,0,4,1,Nations League
+2023-10-17,Croatia,Ecuador,3,1,0,Qualifier
+2023-10-18,Tunisia,Netherlands,0,2,0,Continental Cup
+2023-10-18,DR Congo,Senegal,1,2,0,Nations League
+2023-10-19,Japan,Paraguay,1,1,0,Continental Cup
+2023-10-19,Qatar,Algeria,2,2,1,Friendly
+2023-10-21,Ghana,Canada,3,1,0,Nations League
+2023-10-21,Netherlands,Ghana,1,0,0,Continental Cup
+2023-10-22,Senegal,South Africa,4,2,0,Friendly
+2023-10-24,Tunisia,England,2,2,1,Friendly
+2023-10-24,Japan,Austria,2,1,0,Qualifier
+2023-10-25,DR Congo,Ivory Coast,1,0,0,Friendly
+2023-10-25,Croatia,Iran,0,0,0,Friendly
+2023-10-26,Ecuador,Portugal,1,0,0,Qualifier
+2023-10-27,Saudi Arabia,Mexico,1,1,0,Qualifier
+2023-10-27,Mexico,Iran,1,0,0,Qualifier
+2023-10-30,Egypt,New Zealand,6,1,0,Nations League
+2023-10-31,Turkey,Spain,1,0,0,Qualifier
+2023-11-04,Ivory Coast,Germany,0,0,0,Qualifier
+2023-11-04,Panama,Portugal,5,0,0,Friendly
+2023-11-05,Cape Verde,Belgium,2,1,0,Friendly
+2023-11-08,USA,Spain,0,2,1,Friendly
+2023-11-10,USA,Brazil,1,1,0,Qualifier
+2023-11-13,Norway,South Korea,0,0,0,Qualifier
+2023-11-13,Spain,Uzbekistan,4,1,0,Continental Cup
+2023-11-15,Portugal,Qatar,1,2,0,Qualifier
+2023-11-16,USA,Canada,1,0,0,Continental Cup
+2023-11-17,USA,New Zealand,5,1,0,Nations League
+2023-11-18,Norway,Ivory Coast,1,0,0,Friendly
+2023-11-19,Czech Republic,Canada,2,0,0,Continental Cup
+2023-11-20,Iran,France,1,0,0,Qualifier
+2023-11-20,Ivory Coast,Austria,0,1,1,Friendly
+2023-11-22,Iraq,Switzerland,2,2,0,Friendly
+2023-11-24,Uzbekistan,Saudi Arabia,2,1,0,Qualifier
+2023-11-25,Jordan,England,0,0,0,Qualifier
+2023-11-26,Turkey,New Zealand,2,2,0,Qualifier
+2023-11-27,DR Congo,Saudi Arabia,1,1,0,Friendly
+2023-11-27,Paraguay,Jordan,0,1,0,Friendly
+2023-11-28,Belgium,Senegal,3,0,0,Friendly
+2023-11-28,Paraguay,Turkey,5,4,0,Qualifier
+2023-11-28,Norway,Spain,0,2,1,Friendly
+2023-11-29,Morocco,Ecuador,2,0,0,Qualifier
+2023-11-30,South Korea,Germany,0,0,0,Nations League
+2023-11-30,England,Australia,1,2,0,Continental Cup
+2023-12-01,Paraguay,USA,1,1,0,Qualifier
+2023-12-01,Qatar,Austria,0,1,0,Nations League
+2023-12-03,Sweden,Portugal,0,0,0,Qualifier
+2023-12-03,Curaçao,Argentina,1,3,0,Qualifier
+2023-12-03,Cape Verde,Senegal,0,1,0,Friendly
+2023-12-04,Tunisia,Turkey,2,0,0,Friendly
+2023-12-08,Japan,Paraguay,3,2,0,Qualifier
+2023-12-08,Haiti,Canada,1,2,1,Nations League
+2023-12-09,Brazil,Croatia,4,1,0,Friendly
+2023-12-10,Canada,Panama,1,1,0,Friendly
+2023-12-11,South Africa,Ecuador,2,1,0,Qualifier
+2023-12-11,Argentina,Uzbekistan,3,0,0,Qualifier
+2023-12-11,Iraq,Colombia,1,3,0,Friendly
+2023-12-20,Curaçao,Netherlands,2,2,1,Friendly
+2023-12-23,Cape Verde,Netherlands,2,0,0,Qualifier
+2023-12-23,Japan,Canada,1,1,1,Friendly
+2023-12-24,Canada,Germany,0,0,0,Qualifier
+2023-12-26,Cape Verde,Uruguay,0,0,0,Qualifier
+2023-12-26,Japan,Algeria,3,0,1,Friendly
+2023-12-27,France,Tunisia,3,2,0,Friendly
+2023-12-28,New Zealand,Bosnia & Herzegovina,1,1,0,Friendly
+2023-12-30,Scotland,Portugal,1,0,0,Qualifier
+2024-01-03,Jordan,Mexico,1,1,0,Continental Cup
+2024-01-04,Austria,Curaçao,2,1,0,Qualifier
+2024-01-04,Germany,Cape Verde,3,0,0,Nations League
+2024-01-05,DR Congo,Cape Verde,1,0,0,Continental Cup
+2024-01-06,Senegal,Switzerland,1,0,0,Qualifier
+2024-01-07,Croatia,Bosnia & Herzegovina,3,1,0,Continental Cup
+2024-01-07,DR Congo,Mexico,2,2,0,Qualifier
+2024-01-10,Austria,Sweden,1,1,1,Friendly
+2024-01-10,DR Congo,Argentina,0,0,0,Friendly
+2024-01-10,Portugal,Austria,2,3,0,Qualifier
+2024-01-11,Paraguay,Austria,0,1,1,Friendly
+2024-01-11,Ivory Coast,Saudi Arabia,1,2,0,Friendly
+2024-01-13,Mexico,New Zealand,1,0,0,Friendly
+2024-01-14,Tunisia,Netherlands,1,1,0,Nations League
+2024-01-14,Belgium,New Zealand,0,1,0,Qualifier
+2024-01-15,Panama,Saudi Arabia,3,3,0,Continental Cup
+2024-01-15,Tunisia,Czech Republic,4,1,0,Friendly
+2024-01-17,Senegal,Uruguay,1,0,0,Qualifier
+2024-01-18,Jordan,France,0,1,0,Nations League
+2024-01-19,Panama,Ivory Coast,1,0,0,Friendly
+2024-01-22,Cape Verde,Senegal,2,3,0,Friendly
+2024-01-23,USA,Uruguay,0,1,0,Friendly
+2024-01-23,Uzbekistan,Cape Verde,3,3,0,Friendly
+2024-01-26,Paraguay,Cape Verde,1,2,1,Friendly
+2024-01-26,USA,Czech Republic,4,1,0,Qualifier
+2024-01-31,Japan,Germany,2,1,1,Friendly
+2024-01-31,Morocco,Ecuador,1,0,0,Continental Cup
+2024-02-02,Norway,Senegal,1,0,1,Friendly
+2024-02-03,Iraq,Uruguay,1,0,1,Friendly
+2024-02-03,Netherlands,England,1,0,0,Friendly
+2024-02-05,Portugal,England,0,0,0,Friendly
+2024-02-05,Czech Republic,USA,2,2,1,Friendly
+2024-02-08,Canada,Japan,3,0,0,Friendly
+2024-02-08,Panama,Curaçao,2,0,0,Friendly
+2024-02-08,Germany,Ivory Coast,0,1,1,Qualifier
+2024-02-10,Canada,Senegal,1,2,0,Friendly
+2024-02-11,Portugal,Tunisia,2,1,0,Qualifier
+2024-02-17,Croatia,South Africa,5,1,0,Qualifier
+2024-02-18,New Zealand,England,1,0,0,Qualifier
+2024-02-18,Tunisia,Jordan,1,0,0,Continental Cup
+2024-02-19,Paraguay,Scotland,2,0,0,Qualifier
+2024-02-19,South Africa,England,0,2,0,Continental Cup
+2024-02-19,Paraguay,Egypt,0,2,0,Qualifier
+2024-02-22,Switzerland,Austria,1,1,1,Friendly
+2024-02-22,France,Argentina,0,0,0,Qualifier
+2024-02-22,Mexico,New Zealand,1,0,1,Friendly
+2024-02-26,Japan,South Africa,1,0,0,Qualifier
+2024-02-28,New Zealand,Uruguay,0,2,0,Nations League
+2024-03-02,Croatia,France,1,0,0,Nations League
+2024-03-02,Brazil,Sweden,3,0,0,Friendly
+2024-03-04,Netherlands,Colombia,2,1,0,Continental Cup
+2024-03-04,Colombia,Australia,1,1,0,Qualifier
+2024-03-05,Croatia,Mexico,3,1,0,Qualifier
+2024-03-07,Qatar,Scotland,1,2,0,Friendly
+2024-03-09,Croatia,Panama,0,2,0,Friendly
+2024-03-09,Croatia,Panama,3,0,0,Qualifier
+2024-03-12,Panama,Germany,0,1,0,Friendly
+2024-03-12,Uruguay,Haiti,2,0,0,Friendly
+2024-03-13,USA,Iran,1,1,0,Nations League
+2024-03-16,Haiti,Iraq,1,0,0,Friendly
+2024-03-16,Croatia,Iran,4,1,0,Qualifier
+2024-03-19,USA,Curaçao,1,0,0,Friendly
+2024-03-20,Switzerland,Bosnia & Herzegovina,1,0,0,Nations League
+2024-03-20,Jordan,Argentina,0,2,1,Qualifier
+2024-03-22,Algeria,Cape Verde,2,2,0,Qualifier
+2024-03-25,Algeria,Turkey,0,1,0,Nations League
+2024-03-25,USA,Tunisia,1,0,0,Friendly
+2024-03-29,Egypt,South Africa,0,0,1,Friendly
+2024-03-31,Netherlands,Iran,1,2,0,Qualifier
+2024-04-01,Mexico,Germany,0,2,0,Friendly
+2024-04-02,Austria,South Africa,1,3,0,Qualifier
+2024-04-06,Iran,Ghana,2,1,0,Continental Cup
+2024-04-06,Mexico,Senegal,3,0,0,Nations League
+2024-04-08,Cape Verde,Saudi Arabia,1,1,0,Qualifier
+2024-04-10,Uzbekistan,Curaçao,5,0,0,Friendly
+2024-04-10,Uruguay,Senegal,0,0,0,Continental Cup
+2024-04-11,Argentina,Ecuador,0,0,0,Qualifier
+2024-04-13,France,Spain,3,1,1,Qualifier
+2024-04-15,Panama,Turkey,2,4,0,Nations League
+2024-04-16,England,Colombia,2,2,0,Qualifier
+2024-04-17,Tunisia,Iran,0,1,0,Qualifier
+2024-04-20,Mexico,DR Congo,4,0,0,Nations League
+2024-04-20,Paraguay,Egypt,2,0,1,Friendly
+2024-04-20,Iraq,Panama,2,1,0,Nations League
+2024-04-22,Haiti,Cape Verde,4,0,0,Qualifier
+2024-04-22,Bosnia & Herzegovina,Australia,0,4,1,Friendly
+2024-04-23,South Korea,Haiti,0,1,0,Continental Cup
+2024-04-26,Argentina,Germany,0,1,0,Friendly
+2024-05-01,England,Austria,2,0,1,Qualifier
+2024-05-02,Mexico,Iran,4,1,0,Continental Cup
+2024-05-02,Czech Republic,Paraguay,1,0,1,Friendly
+2024-05-03,Bosnia & Herzegovina,Panama,3,3,0,Qualifier
+2024-05-04,Brazil,South Africa,3,0,1,Friendly
+2024-05-04,Saudi Arabia,Australia,2,3,0,Nations League
+2024-05-05,Iran,Turkey,0,1,0,Nations League
+2024-05-06,Uzbekistan,Spain,0,2,0,Nations League
+2024-05-06,Jordan,Croatia,0,1,0,Nations League
+2024-05-09,Bosnia & Herzegovina,Paraguay,0,0,0,Nations League
+2024-05-11,Canada,Curaçao,1,1,0,Qualifier
+2024-05-11,Australia,Mexico,0,1,0,Nations League
+2024-05-13,Saudi Arabia,Portugal,0,2,0,Friendly
+2024-05-15,Iran,New Zealand,0,0,0,Qualifier
+2024-05-16,Belgium,England,2,3,0,Qualifier
+2024-05-18,Germany,Paraguay,1,1,0,Qualifier
+2024-05-20,Austria,Turkey,1,3,1,Friendly
+2024-05-20,Tunisia,France,0,2,0,Friendly
+2024-05-20,Paraguay,Cape Verde,1,1,0,Qualifier
+2024-05-20,DR Congo,France,2,2,1,Friendly
+2024-05-21,Bosnia & Herzegovina,Uzbekistan,0,0,0,Friendly
+2024-05-21,Switzerland,Ghana,3,1,0,Continental Cup
+2024-05-23,Mexico,Uruguay,1,3,0,Friendly
+2024-05-26,USA,Belgium,1,0,1,Friendly
+2024-05-29,France,Iraq,3,1,0,Continental Cup
+2024-05-30,Colombia,Haiti,2,0,1,Qualifier
+2024-05-31,Ivory Coast,Mexico,1,2,0,Qualifier
+2024-05-31,Egypt,Japan,0,1,0,Friendly
+2024-06-01,Uzbekistan,Japan,0,1,0,Nations League
+2024-06-02,Argentina,Bosnia & Herzegovina,3,0,0,Continental Cup
+2024-06-03,Germany,Norway,2,0,0,Qualifier
+2024-06-05,Scotland,Mexico,0,0,0,Qualifier
+2024-06-09,Tunisia,South Africa,1,0,0,Continental Cup
+2024-06-10,Iraq,Sweden,1,0,0,Qualifier
+2024-06-13,Ecuador,Norway,1,2,0,Friendly
+2024-06-13,Colombia,Canada,2,1,0,Nations League
+2024-06-14,Mexico,Spain,0,0,0,Qualifier
+2024-06-14,South Africa,Jordan,2,0,1,Friendly
+2024-06-15,South Korea,Japan,0,0,0,Friendly
+2024-06-15,DR Congo,Czech Republic,3,1,0,Qualifier
+2024-06-19,Germany,Turkey,2,0,0,Qualifier
+2024-06-19,Iraq,Curaçao,0,1,0,Continental Cup
+2024-06-20,Switzerland,France,0,0,0,Continental Cup
+2024-06-21,Panama,Sweden,2,0,0,Friendly
+2024-06-21,Egypt,Uruguay,0,0,1,Friendly
+2024-06-23,DR Congo,Senegal,0,7,1,Friendly
+2024-06-23,Ghana,Scotland,1,1,0,Qualifier
+2024-06-24,Colombia,South Africa,1,1,0,Friendly
+2024-06-24,Haiti,Colombia,0,1,0,Friendly
+2024-06-24,Egypt,Japan,0,0,0,Qualifier
+2024-06-26,Portugal,Argentina,2,0,0,Friendly
+2024-07-01,France,Ghana,3,1,0,Qualifier
+2024-07-02,Ghana,Haiti,0,1,1,Friendly
+2024-07-02,Portugal,Switzerland,2,0,0,Nations League
+2024-07-02,Switzerland,Norway,1,0,0,Qualifier
+2024-07-04,Saudi Arabia,Norway,1,1,0,Qualifier
+2024-07-05,Australia,Netherlands,1,3,0,Friendly
+2024-07-08,Brazil,Portugal,0,0,0,Friendly
+2024-07-12,Saudi Arabia,Panama,0,0,1,Friendly
+2024-07-12,Germany,South Korea,4,1,0,Continental Cup
+2024-07-13,Qatar,Iran,0,3,0,Friendly
+2024-07-14,Switzerland,Paraguay,1,0,0,Friendly
+2024-07-14,Saudi Arabia,South Korea,2,0,0,Friendly
+2024-07-14,Mexico,Jordan,1,0,0,Qualifier
+2024-07-15,Iraq,Belgium,2,2,0,Nations League
+2024-07-16,Mexico,Haiti,0,1,1,Friendly
+2024-07-16,Netherlands,France,1,1,0,Qualifier
+2024-07-17,Qatar,Germany,0,0,1,Qualifier
+2024-07-18,Netherlands,Saudi Arabia,3,1,0,Qualifier
+2024-07-19,Senegal,Bosnia & Herzegovina,3,2,0,Nations League
+2024-07-20,USA,South Korea,1,0,0,Friendly
+2024-07-21,Sweden,Haiti,1,4,1,Friendly
+2024-07-22,Netherlands,Croatia,0,0,1,Nations League
+2024-07-24,Curaçao,Iraq,1,0,0,Qualifier
+2024-07-24,Austria,Jordan,3,0,0,Qualifier
+2024-07-24,South Korea,Ghana,2,2,0,Qualifier
+2024-07-25,Senegal,Saudi Arabia,2,1,0,Qualifier
+2024-07-25,Portugal,Panama,0,1,1,Friendly
+2024-07-30,DR Congo,Norway,2,0,0,Continental Cup
+2024-07-31,Curaçao,Jordan,1,0,0,Continental Cup
+2024-08-01,Austria,Saudi Arabia,0,1,0,Qualifier
+2024-08-01,Iran,South Korea,1,0,0,Nations League
+2024-08-02,Croatia,France,0,1,0,Continental Cup
+2024-08-06,Tunisia,Argentina,0,3,0,Qualifier
+2024-08-07,Paraguay,Tunisia,1,1,1,Continental Cup
+2024-08-09,Brazil,Canada,0,2,1,Friendly
+2024-08-09,Ivory Coast,Egypt,1,1,0,Qualifier
+2024-08-09,Belgium,Algeria,1,1,0,Qualifier
+2024-08-09,Croatia,Scotland,4,2,0,Qualifier
+2024-08-12,Colombia,Uruguay,0,0,0,Qualifier
+2024-08-13,Sweden,Egypt,1,0,0,Nations League
+2024-08-13,Japan,Jordan,5,1,0,Friendly
+2024-08-14,Japan,Brazil,1,4,0,Friendly
+2024-08-15,USA,Qatar,2,0,1,Friendly
+2024-08-16,Morocco,Panama,1,1,1,Nations League
+2024-08-16,DR Congo,Senegal,0,1,1,Friendly
+2024-08-18,Bosnia & Herzegovina,Switzerland,1,1,0,Nations League
+2024-08-19,Iraq,Spain,0,1,0,Nations League
+2024-08-21,Portugal,Ecuador,0,0,0,Qualifier
+2024-08-21,Argentina,Ghana,5,0,0,Qualifier
+2024-08-22,Portugal,Turkey,4,1,0,Qualifier
+2024-08-23,Iran,Jordan,3,0,0,Nations League
+2024-08-31,Tunisia,Saudi Arabia,3,0,0,Friendly
+2024-09-04,Ecuador,South Africa,3,1,0,Qualifier
+2024-09-05,Tunisia,Turkey,3,2,0,Nations League
+2024-09-05,Curaçao,South Africa,0,1,0,Qualifier
+2024-09-06,Czech Republic,Cape Verde,3,0,0,Friendly
+2024-09-07,Cape Verde,Japan,2,3,1,Friendly
+2024-09-07,Egypt,Curaçao,1,0,0,Friendly
+2024-09-07,Bosnia & Herzegovina,France,1,1,0,Friendly
+2024-09-07,Austria,Germany,0,1,0,Continental Cup
+2024-09-09,Iran,Ivory Coast,4,1,0,Qualifier
+2024-09-09,South Africa,Morocco,1,3,0,Nations League
+2024-09-11,Norway,USA,4,1,0,Qualifier
+2024-09-11,Portugal,Croatia,1,2,0,Nations League
+2024-09-11,Japan,England,1,2,0,Qualifier
+2024-09-11,Egypt,Haiti,2,0,0,Friendly
+2024-09-12,Sweden,Egypt,1,2,0,Nations League
+2024-09-12,Iran,Turkey,2,1,0,Nations League
+2024-09-14,Czech Republic,Morocco,1,2,0,Qualifier
+2024-09-14,Scotland,USA,1,1,0,Friendly
+2024-09-14,DR Congo,Ghana,2,0,0,Qualifier
+2024-09-15,Czech Republic,Spain,1,1,0,Qualifier
+2024-09-16,Ivory Coast,Senegal,0,0,0,Continental Cup
+2024-09-22,Egypt,Czech Republic,1,3,1,Friendly
+2024-09-23,Germany,Morocco,1,1,0,Friendly
+2024-09-24,Brazil,Jordan,1,0,1,Friendly
+2024-09-25,Japan,Curaçao,4,0,0,Qualifier
+2024-09-25,Czech Republic,Scotland,2,2,0,Qualifier
+2024-09-27,Netherlands,Senegal,1,1,0,Continental Cup
+2024-09-27,Uzbekistan,New Zealand,0,1,0,Nations League
+2024-09-29,DR Congo,Turkey,1,2,0,Friendly
+2024-09-30,DR Congo,Saudi Arabia,4,1,0,Continental Cup
+2024-09-30,Tunisia,New Zealand,2,0,0,Qualifier
+2024-10-01,Qatar,Portugal,1,0,0,Qualifier
+2024-10-02,Croatia,Iran,0,1,0,Qualifier
+2024-10-03,Iraq,USA,0,1,0,Qualifier
+2024-10-03,Colombia,Austria,1,3,1,Qualifier
+2024-10-04,Brazil,Senegal,1,1,0,Qualifier
+2024-10-09,Colombia,Switzerland,3,1,0,Qualifier
+2024-10-09,Egypt,Spain,1,3,1,Friendly
+2024-10-10,Saudi Arabia,Croatia,0,1,0,Friendly
+2024-10-12,Uruguay,Iran,2,1,1,Friendly
+2024-10-12,Bosnia & Herzegovina,Panama,0,2,0,Friendly
+2024-10-13,Czech Republic,Paraguay,0,0,0,Qualifier
+2024-10-13,Switzerland,Iran,1,0,0,Friendly
+2024-10-14,Qatar,Bosnia & Herzegovina,2,1,0,Friendly
+2024-10-14,Australia,Germany,0,1,0,Continental Cup
+2024-10-14,Austria,Norway,2,1,1,Friendly
+2024-10-14,New Zealand,Croatia,1,3,0,Qualifier
+2024-10-16,Argentina,Iran,1,0,0,Qualifier
+2024-10-17,Austria,Netherlands,1,1,1,Friendly
+2024-10-18,Germany,Ghana,1,1,0,Friendly
+2024-10-22,Curaçao,Qatar,2,2,0,Nations League
+2024-10-22,England,USA,0,1,0,Nations League
+2024-10-26,Panama,Bosnia & Herzegovina,1,1,0,Nations League
+2024-11-01,Sweden,Egypt,1,1,1,Friendly
+2024-11-02,Netherlands,Turkey,1,0,0,Friendly
+2024-11-04,Panama,Scotland,0,0,0,Continental Cup
+2024-11-05,Morocco,Qatar,5,2,0,Friendly
+2024-11-06,Austria,USA,0,1,1,Friendly
+2024-11-06,Norway,Uruguay,1,2,0,Qualifier
+2024-11-07,Iran,Czech Republic,1,0,0,Continental Cup
+2024-11-07,Brazil,Netherlands,3,1,0,Friendly
+2024-11-07,Canada,France,0,3,1,Friendly
+2024-11-08,Scotland,Switzerland,2,0,0,Qualifier
+2024-11-09,Scotland,Algeria,1,0,0,Nations League
+2024-11-09,Uzbekistan,Turkey,0,0,0,Friendly
+2024-11-10,Curaçao,Canada,2,0,0,Qualifier
+2024-11-11,DR Congo,Qatar,1,0,0,Continental Cup
+2024-11-11,Norway,Germany,1,0,0,Qualifier
+2024-11-11,Morocco,Curaçao,2,1,0,Qualifier
+2024-11-13,Netherlands,Iran,4,3,0,Qualifier
+2024-11-14,Uzbekistan,Brazil,0,1,0,Qualifier
+2024-11-14,Qatar,Canada,4,0,0,Friendly
+2024-11-15,France,Portugal,2,0,0,Nations League
+2024-11-15,Saudi Arabia,Germany,2,3,0,Qualifier
+2024-11-16,Cape Verde,Haiti,0,0,0,Friendly
+2024-11-17,Ivory Coast,Australia,3,3,0,Qualifier
+2024-11-17,Algeria,Croatia,1,1,0,Qualifier
+2024-11-19,Croatia,Haiti,5,0,0,Friendly
+2024-11-19,Ghana,Brazil,1,0,0,Qualifier
+2024-11-20,Portugal,Cape Verde,0,0,0,Friendly
+2024-11-22,Argentina,Switzerland,2,1,0,Nations League
+2024-11-24,Senegal,Australia,0,2,1,Friendly
+2024-11-24,Morocco,Iraq,1,0,0,Continental Cup
+2024-11-25,Bosnia & Herzegovina,Croatia,0,2,0,Nations League
+2024-11-26,Haiti,USA,1,0,0,Nations League
+2024-11-27,Sweden,Saudi Arabia,2,1,0,Continental Cup
+2024-11-27,DR Congo,Morocco,1,0,1,Friendly
+2024-11-28,Curaçao,Morocco,0,2,0,Friendly
+2024-11-28,Argentina,Uzbekistan,2,2,1,Friendly
+2024-11-30,Qatar,France,2,3,0,Qualifier
+2024-11-30,Senegal,Mexico,0,0,1,Friendly
+2024-12-01,Algeria,Tunisia,4,1,0,Qualifier
+2024-12-04,New Zealand,Australia,0,3,0,Continental Cup
+2024-12-04,Australia,Austria,1,1,0,Qualifier
+2024-12-04,DR Congo,Saudi Arabia,2,0,0,Qualifier
+2024-12-04,Germany,Croatia,1,2,0,Nations League
+2024-12-07,South Korea,USA,1,2,0,Friendly
+2024-12-09,Uruguay,Sweden,0,0,1,Friendly
+2024-12-10,England,Turkey,2,0,0,Friendly
+2024-12-12,Colombia,Turkey,0,1,1,Friendly
+2024-12-14,Cape Verde,Panama,2,0,0,Friendly
+2024-12-14,Uzbekistan,Brazil,0,1,0,Friendly
+2024-12-15,Paraguay,Croatia,1,2,0,Qualifier
+2024-12-16,Ivory Coast,Qatar,3,0,0,Qualifier
+2024-12-18,Jordan,South Korea,1,0,0,Friendly
+2024-12-20,Saudi Arabia,Bosnia & Herzegovina,2,2,0,Nations League
+2024-12-20,Brazil,Iran,1,0,0,Qualifier
+2024-12-21,Iraq,DR Congo,0,0,0,Qualifier
+2024-12-21,Turkey,Netherlands,0,0,1,Continental Cup
+2024-12-22,Turkey,France,0,3,0,Qualifier
+2024-12-24,Croatia,DR Congo,4,1,0,Friendly
+2024-12-25,Norway,Australia,0,0,0,Qualifier
+2024-12-25,Czech Republic,New Zealand,0,0,1,Friendly
+2024-12-25,Japan,DR Congo,3,1,0,Qualifier
+2024-12-25,Haiti,Argentina,0,3,0,Continental Cup
+2024-12-25,Japan,Panama,1,0,0,Friendly
+2024-12-25,Tunisia,Portugal,1,0,0,Nations League
+2024-12-28,Iran,Cape Verde,2,0,0,Friendly
+2024-12-29,Uzbekistan,Iran,1,2,0,Friendly
+2025-01-01,Morocco,Paraguay,6,1,0,Nations League
+2025-01-01,Curaçao,Bosnia & Herzegovina,5,2,0,Qualifier
+2025-01-01,Bosnia & Herzegovina,Australia,2,2,0,Qualifier
+2025-01-02,Senegal,Spain,2,1,0,Qualifier
+2025-01-02,South Korea,Mexico,0,1,1,Friendly
+2025-01-03,Austria,Bosnia & Herzegovina,1,1,0,Continental Cup
+2025-01-03,Colombia,Bosnia & Herzegovina,2,0,0,Qualifier
+2025-01-04,Uzbekistan,Turkey,0,0,0,Friendly
+2025-01-04,Belgium,Uruguay,0,0,0,Nations League
+2025-01-04,Austria,Haiti,2,0,0,Continental Cup
+2025-01-06,Czech Republic,Australia,2,0,0,Friendly
+2025-01-06,Algeria,South Korea,0,0,1,Friendly
+2025-01-07,DR Congo,France,1,1,0,Continental Cup
+2025-01-08,Jordan,Haiti,4,0,0,Nations League
+2025-01-08,South Korea,Croatia,1,1,0,Friendly
+2025-01-08,Turkey,Sweden,2,0,0,Nations League
+2025-01-08,Brazil,France,0,1,1,Friendly
+2025-01-12,Netherlands,Morocco,0,1,1,Friendly
+2025-01-12,Ecuador,Belgium,0,2,0,Nations League
+2025-01-13,New Zealand,Panama,1,2,0,Friendly
+2025-01-13,Algeria,Argentina,0,2,0,Continental Cup
+2025-01-13,Sweden,Ghana,2,0,0,Friendly
+2025-01-13,Senegal,Paraguay,0,0,1,Friendly
+2025-01-13,Turkey,Uruguay,0,2,0,Qualifier
+2025-01-13,Australia,Spain,1,2,1,Friendly
+2025-01-14,Cape Verde,Bosnia & Herzegovina,0,3,0,Friendly
+2025-01-16,Norway,DR Congo,2,0,0,Nations League
+2025-01-18,Mexico,Netherlands,1,2,0,Friendly
+2025-01-19,Uruguay,Panama,2,1,1,Nations League
+2025-01-19,Qatar,Colombia,1,0,0,Qualifier
+2025-01-20,South Africa,Brazil,1,3,1,Friendly
+2025-01-22,Qatar,Mexico,1,1,0,Qualifier
+2025-01-24,Ecuador,Algeria,0,1,0,Qualifier
+2025-01-24,Paraguay,Bosnia & Herzegovina,2,1,0,Continental Cup
+2025-01-25,Australia,Belgium,4,0,0,Nations League
+2025-01-25,Argentina,South Korea,2,0,0,Qualifier
+2025-01-25,Switzerland,Colombia,1,1,0,Nations League
+2025-01-29,Croatia,Japan,2,0,0,Friendly
+2025-01-31,Curaçao,DR Congo,0,2,0,Qualifier
+2025-01-31,Ecuador,Scotland,0,2,1,Friendly
+2025-02-02,Spain,Japan,3,1,0,Nations League
+2025-02-03,Australia,Iraq,1,1,1,Friendly
+2025-02-04,Senegal,Colombia,1,1,0,Qualifier
+2025-02-04,Netherlands,Belgium,2,0,0,Nations League
+2025-02-04,Curaçao,Mexico,2,1,0,Nations League
+2025-02-04,England,Cape Verde,2,0,0,Friendly
+2025-02-05,Japan,Uruguay,1,1,0,Qualifier
+2025-02-07,Algeria,Haiti,2,0,0,Qualifier
+2025-02-10,Uruguay,South Africa,2,0,0,Continental Cup
+2025-02-11,Uruguay,Austria,1,2,0,Continental Cup
+2025-02-11,Bosnia & Herzegovina,Algeria,2,1,0,Nations League
+2025-02-12,Jordan,Senegal,0,1,0,Friendly
+2025-02-13,Qatar,Cape Verde,1,1,0,Qualifier
+2025-02-14,Uruguay,Paraguay,1,1,0,Nations League
+2025-02-14,France,Sweden,6,0,0,Friendly
+2025-02-16,Argentina,Australia,2,1,0,Continental Cup
+2025-02-18,Curaçao,Ecuador,2,2,0,Qualifier
+2025-02-19,France,Japan,3,1,0,Nations League
+2025-02-21,South Africa,Turkey,2,1,0,Continental Cup
+2025-02-22,Senegal,Tunisia,0,2,0,Qualifier
+2025-02-23,Belgium,Saudi Arabia,2,2,0,Friendly
+2025-02-24,Panama,Ecuador,1,0,0,Qualifier
+2025-02-24,Sweden,Senegal,0,0,0,Continental Cup
+2025-02-27,Mexico,Cape Verde,3,0,1,Friendly
+2025-02-27,USA,Uruguay,3,2,1,Friendly
+2025-02-28,New Zealand,Saudi Arabia,3,1,0,Friendly
+2025-03-02,Morocco,Qatar,4,0,0,Nations League
+2025-03-02,Iraq,Ecuador,1,1,0,Nations League
+2025-03-04,Egypt,Paraguay,1,2,0,Qualifier
+2025-03-06,Sweden,Bosnia & Herzegovina,1,1,0,Friendly
+2025-03-08,Switzerland,Egypt,1,1,0,Qualifier
+2025-03-08,Spain,Bosnia & Herzegovina,3,0,0,Qualifier
+2025-03-13,Austria,Uzbekistan,0,1,0,Nations League
+2025-03-13,Germany,Iraq,2,0,0,Continental Cup
+2025-03-13,Colombia,Czech Republic,6,0,1,Nations League
+2025-03-14,Iraq,Tunisia,4,0,0,Qualifier
+2025-03-19,Cape Verde,Canada,0,1,0,Friendly
+2025-03-19,Uruguay,Argentina,1,1,1,Nations League
+2025-03-21,Mexico,Ecuador,2,0,0,Continental Cup
+2025-03-23,South Korea,Senegal,1,0,0,Nations League
+2025-03-23,Colombia,Sweden,0,2,0,Nations League
+2025-03-24,Austria,USA,1,1,0,Friendly
+2025-03-25,Ecuador,Saudi Arabia,2,1,0,Qualifier
+2025-03-25,Portugal,South Korea,2,0,0,Friendly
+2025-03-26,Curaçao,Portugal,0,3,0,Nations League
+2025-03-26,Ghana,Germany,2,1,0,Friendly
+2025-03-26,Ghana,Paraguay,1,2,0,Qualifier
+2025-03-29,New Zealand,France,0,5,1,Friendly
+2025-03-30,Brazil,Senegal,4,1,0,Friendly
+2025-03-30,South Africa,Switzerland,1,1,0,Qualifier
+2025-03-30,Japan,Bosnia & Herzegovina,1,2,1,Qualifier
+2025-04-01,Canada,France,1,1,0,Nations League
+2025-04-01,Jordan,Cape Verde,3,0,0,Nations League
+2025-04-01,Saudi Arabia,France,1,4,0,Qualifier
+2025-04-05,Egypt,Netherlands,2,2,0,Nations League
+2025-04-05,Ecuador,New Zealand,2,0,0,Friendly
+2025-04-06,Jordan,Mexico,0,4,1,Qualifier
+2025-04-07,Czech Republic,Ghana,0,1,0,Friendly
+2025-04-08,Scotland,South Africa,0,1,0,Friendly
+2025-04-10,Cape Verde,Spain,1,2,0,Nations League
+2025-04-10,Brazil,Sweden,1,0,0,Friendly
+2025-04-12,Iran,Cape Verde,3,2,0,Friendly
+2025-04-14,Argentina,Colombia,2,0,0,Qualifier
+2025-04-15,Germany,Egypt,3,0,0,Friendly
+2025-04-17,Ecuador,Sweden,1,1,0,Qualifier
+2025-04-17,Belgium,Uruguay,1,3,0,Qualifier
+2025-04-18,Tunisia,Croatia,2,1,0,Friendly
+2025-04-20,Uzbekistan,Senegal,0,0,0,Qualifier
+2025-04-22,Sweden,Saudi Arabia,1,0,0,Nations League
+2025-04-24,Sweden,Switzerland,3,2,0,Qualifier
+2025-04-26,Egypt,Turkey,2,4,0,Qualifier
+2025-04-27,Egypt,Algeria,2,0,0,Friendly
+2025-04-28,Norway,Qatar,2,2,1,Qualifier
+2025-04-28,Qatar,Czech Republic,0,0,0,Continental Cup
+2025-04-28,Morocco,Cape Verde,1,0,0,Qualifier
+2025-04-30,Senegal,South Korea,2,1,0,Continental Cup
+2025-04-30,Brazil,Panama,5,0,0,Qualifier
+2025-04-30,Ivory Coast,Sweden,0,0,1,Friendly
+2025-05-05,Saudi Arabia,Ecuador,6,0,0,Qualifier
+2025-05-06,Paraguay,Colombia,1,1,1,Friendly
+2025-05-09,Ivory Coast,Egypt,1,0,0,Friendly
+2025-05-09,Qatar,South Africa,2,2,1,Friendly
+2025-05-09,Portugal,Japan,3,1,0,Friendly
+2025-05-09,Uzbekistan,New Zealand,2,0,0,Nations League
+2025-05-13,Curaçao,Iran,1,0,0,Continental Cup
+2025-05-14,Colombia,Paraguay,2,1,0,Nations League
+2025-05-14,Senegal,Iraq,4,1,0,Qualifier
+2025-05-15,Qatar,USA,1,0,0,Nations League
+2025-05-19,Senegal,Ivory Coast,1,0,0,Qualifier
+2025-05-25,Scotland,Curaçao,6,0,0,Nations League
+2025-05-25,Haiti,Brazil,1,1,0,Qualifier
+2025-05-25,Uruguay,Cape Verde,4,0,0,Nations League
+2025-05-29,Iraq,Egypt,2,1,0,Friendly
+2025-05-30,Jordan,Ecuador,1,1,0,Qualifier
+2025-06-03,Colombia,South Korea,1,1,1,Nations League
+2025-06-04,Canada,Mexico,1,1,0,Continental Cup
+2025-06-04,Spain,Jordan,1,1,0,Qualifier
+2025-06-05,Belgium,Turkey,3,0,0,Qualifier
+2025-06-05,Sweden,Austria,0,2,0,Continental Cup
+2025-06-05,Morocco,Paraguay,2,0,0,Qualifier
+2025-06-07,Egypt,Ghana,3,2,0,Friendly
+2025-06-07,Ivory Coast,Mexico,0,0,0,Nations League
+2025-06-09,Panama,Argentina,0,1,1,Friendly
+2025-06-11,Germany,Scotland,0,0,0,Qualifier
+2025-06-12,Jordan,South Africa,3,0,0,Qualifier
+2025-06-12,Tunisia,Uzbekistan,0,1,0,Friendly
+2025-06-13,Panama,Paraguay,1,2,0,Qualifier
+2025-06-13,Colombia,Scotland,2,0,1,Friendly
+2025-06-13,Haiti,Brazil,1,1,0,Nations League
+2025-06-14,Senegal,Egypt,2,1,0,Nations League
+2025-06-16,Brazil,Bosnia & Herzegovina,1,1,0,Qualifier
+2025-06-17,Cape Verde,South Korea,1,1,0,Friendly
+2025-06-20,Colombia,Curaçao,2,1,1,Qualifier
+2025-06-20,Cape Verde,Bosnia & Herzegovina,1,0,1,Nations League
+2025-06-20,Germany,Czech Republic,2,0,0,Nations League
+2025-06-21,Haiti,Czech Republic,1,0,0,Nations League
+2025-06-22,Switzerland,Ivory Coast,2,1,0,Qualifier
+2025-06-23,England,Czech Republic,5,0,0,Qualifier
+2025-06-24,Paraguay,Morocco,0,1,0,Friendly
+2025-06-25,Turkey,Haiti,1,0,0,Qualifier
+2025-06-26,Iran,New Zealand,1,1,0,Continental Cup
+2025-06-29,Canada,Austria,0,2,1,Nations League
+2025-06-29,Belgium,Canada,3,0,0,Friendly
+2025-06-29,Scotland,Spain,0,5,0,Qualifier
+2025-07-01,Scotland,Saudi Arabia,1,0,0,Qualifier
+2025-07-01,Qatar,Algeria,2,1,0,Friendly
+2025-07-01,Croatia,Japan,0,0,0,Qualifier
+2025-07-02,Austria,Canada,0,0,0,Qualifier
+2025-07-03,Netherlands,Qatar,1,0,0,Nations League
+2025-07-04,South Africa,Netherlands,0,2,0,Nations League
+2025-07-04,USA,Qatar,1,2,1,Friendly
+2025-07-05,Australia,Iraq,0,0,0,Qualifier
+2025-07-06,South Africa,Haiti,3,3,0,Qualifier
+2025-07-09,DR Congo,Cape Verde,1,0,0,Continental Cup
+2025-07-09,Netherlands,Argentina,1,0,0,Continental Cup
+2025-07-11,South Korea,Iran,3,2,0,Qualifier
+2025-07-11,Qatar,Belgium,4,2,0,Friendly
+2025-07-11,Bosnia & Herzegovina,Portugal,1,3,0,Nations League
+2025-07-12,Iraq,Portugal,2,1,0,Friendly
+2025-07-15,Algeria,Germany,1,1,0,Friendly
+2025-07-15,Curaçao,Algeria,2,1,0,Qualifier
+2025-07-17,South Africa,Netherlands,0,1,1,Friendly
+2025-07-19,Austria,Germany,1,2,0,Friendly
+2025-07-20,Ghana,Iraq,4,2,0,Qualifier
+2025-07-21,Paraguay,Germany,0,0,0,Friendly
+2025-07-21,Scotland,Morocco,1,0,0,Friendly
+2025-07-22,Canada,Croatia,0,1,0,Friendly
+2025-07-24,Haiti,Ghana,2,1,0,Friendly
+2025-07-25,Japan,South Africa,4,0,0,Continental Cup
+2025-07-25,Netherlands,Saudi Arabia,3,1,0,Friendly
+2025-07-26,Brazil,Cape Verde,1,1,0,Qualifier
+2025-07-26,Uruguay,Japan,0,0,0,Friendly
+2025-07-27,South Africa,Belgium,0,0,0,Friendly
+2025-07-28,Germany,Morocco,1,1,1,Continental Cup
+2025-07-28,Ivory Coast,Czech Republic,0,1,0,Friendly
+2025-07-31,Cape Verde,South Korea,0,3,0,Qualifier
+2025-07-31,Uruguay,Switzerland,5,2,1,Friendly
+2025-08-04,Bosnia & Herzegovina,Argentina,0,2,0,Qualifier
+2025-08-04,Austria,Cape Verde,1,2,1,Friendly
+2025-08-08,Egypt,Belgium,0,1,0,Qualifier
+2025-08-09,Uzbekistan,Qatar,2,2,0,Qualifier
+2025-08-09,Portugal,Japan,0,1,1,Nations League
+2025-08-09,USA,DR Congo,1,0,0,Continental Cup
+2025-08-09,Sweden,Uruguay,2,0,0,Qualifier
+2025-08-10,Portugal,Uruguay,1,3,1,Friendly
+2025-08-12,Ecuador,South Africa,4,1,0,Qualifier
+2025-08-14,Croatia,Canada,2,0,0,Friendly
+2025-08-14,Curaçao,Netherlands,4,1,0,Qualifier
+2025-08-15,Switzerland,Morocco,0,0,0,Friendly
+2025-08-15,Belgium,Paraguay,0,0,0,Qualifier
+2025-08-17,Australia,Portugal,0,0,0,Friendly
+2025-08-19,Uzbekistan,Ecuador,2,1,0,Friendly
+2025-08-22,Mexico,Canada,2,2,0,Nations League
+2025-08-23,DR Congo,Algeria,1,1,1,Friendly
+2025-08-25,Iran,USA,0,1,0,Continental Cup
+2025-08-27,Argentina,Morocco,3,0,0,Qualifier
+2025-08-27,Japan,Sweden,2,1,0,Qualifier
+2025-08-29,Ivory Coast,Qatar,1,1,0,Friendly
+2025-08-31,Belgium,Portugal,1,1,0,Continental Cup
+2025-09-02,Tunisia,Uzbekistan,2,0,0,Nations League
+2025-09-02,Cape Verde,Tunisia,0,2,0,Friendly
+2025-09-04,Algeria,USA,0,0,0,Friendly
+2025-09-06,England,Czech Republic,4,1,0,Friendly
+2025-09-06,Turkey,Canada,1,0,1,Friendly
+2025-09-06,Cape Verde,Germany,1,2,0,Qualifier
+2025-09-08,Turkey,Scotland,1,1,0,Qualifier
+2025-09-09,Ghana,Egypt,1,0,0,Friendly
+2025-09-14,Mexico,South Africa,0,2,0,Friendly
+2025-09-16,Panama,Paraguay,2,0,0,Nations League
+2025-09-19,Qatar,Norway,0,1,0,Friendly
+2025-09-20,Algeria,Czech Republic,3,1,0,Nations League
+2025-09-22,Brazil,South Korea,0,0,0,Continental Cup
+2025-09-25,Brazil,Spain,0,1,0,Nations League
+2025-09-25,Portugal,Algeria,4,0,0,Friendly
+2025-09-25,Netherlands,South Africa,2,1,0,Nations League
+2025-09-27,Switzerland,Curaçao,4,0,1,Continental Cup
+2025-09-29,Egypt,Switzerland,1,0,0,Friendly
+2025-10-02,Curaçao,Uzbekistan,1,2,0,Friendly
+2025-10-02,Ivory Coast,England,1,0,0,Qualifier
+2025-10-03,USA,Uzbekistan,1,0,1,Friendly
+2025-10-04,Canada,Morocco,1,3,0,Qualifier
+2025-10-04,Haiti,Ghana,0,0,1,Friendly
+2025-10-04,England,Curaçao,3,1,0,Qualifier
+2025-10-04,Panama,Senegal,1,1,0,Nations League
+2025-10-06,South Africa,Panama,1,1,0,Qualifier
+2025-10-08,Argentina,Czech Republic,2,0,0,Friendly
+2025-10-08,Japan,Qatar,2,1,0,Qualifier
+2025-10-11,Portugal,Curaçao,4,1,1,Friendly
+2025-10-11,Netherlands,Algeria,0,1,0,Friendly
+2025-10-16,Saudi Arabia,Morocco,2,1,0,Continental Cup
+2025-10-22,Iraq,Uzbekistan,2,0,0,Friendly
+2025-10-22,Canada,Haiti,0,2,1,Qualifier
+2025-10-23,Brazil,Qatar,1,2,0,Friendly
+2025-10-23,Germany,Paraguay,2,0,0,Friendly
+2025-10-24,Austria,Sweden,2,0,0,Friendly
+2025-10-24,England,Croatia,1,0,1,Qualifier
+2025-10-25,Norway,Ivory Coast,2,2,0,Continental Cup
+2025-10-27,Brazil,Australia,3,0,0,Continental Cup
+2025-10-28,South Africa,Turkey,1,3,0,Continental Cup
+2025-10-31,Canada,Japan,3,2,0,Qualifier
+2025-11-01,Algeria,South Korea,0,2,1,Friendly
+2025-11-04,Belgium,Egypt,2,1,0,Nations League
+2025-11-06,South Korea,Uzbekistan,3,3,0,Continental Cup
+2025-11-06,Brazil,Uzbekistan,2,0,1,Friendly
+2025-11-07,Norway,Iran,0,0,0,Qualifier
+2025-11-09,South Africa,Haiti,0,0,0,Nations League
+2025-11-12,Saudi Arabia,Algeria,2,3,0,Qualifier
+2025-11-13,Morocco,England,2,1,0,Nations League
+2025-11-13,Netherlands,England,0,0,0,Friendly
+2025-11-13,Spain,Morocco,2,2,0,Continental Cup
+2025-11-13,South Korea,Paraguay,1,0,0,Qualifier
+2025-11-16,Colombia,Ivory Coast,4,0,0,Qualifier
+2025-11-17,Uzbekistan,Ecuador,1,1,0,Nations League
+2025-11-19,DR Congo,England,0,1,0,Nations League
+2025-11-22,Belgium,Iran,2,1,0,Nations League
+2025-11-24,France,Japan,0,3,0,Nations League
+2025-11-25,Colombia,Czech Republic,4,2,1,Friendly
+2025-11-26,Jordan,Croatia,4,1,0,Qualifier
+2025-11-28,Haiti,Germany,1,2,0,Friendly
+2025-11-28,USA,Qatar,9,0,0,Continental Cup
+2025-11-29,Scotland,Croatia,0,1,0,Nations League
+2025-11-30,Uzbekistan,South Africa,4,2,0,Friendly
+2025-11-30,Iraq,Saudi Arabia,4,1,0,Qualifier
+2025-11-30,Belgium,Uzbekistan,3,0,0,Friendly
+2025-12-03,Belgium,Austria,2,1,0,Nations League
+2025-12-05,Turkey,Qatar,0,1,0,Qualifier
+2025-12-06,Czech Republic,Iraq,0,3,0,Friendly
+2025-12-07,Germany,Iraq,6,1,0,Friendly
+2025-12-08,South Africa,Germany,0,2,0,Qualifier
+2025-12-14,Algeria,Croatia,1,2,1,Qualifier
+2025-12-15,Colombia,Iraq,1,1,0,Qualifier
+2025-12-15,Ecuador,Australia,0,2,0,Friendly
+2025-12-17,Algeria,Tunisia,2,0,0,Nations League
+2025-12-19,Cape Verde,Czech Republic,0,1,0,Nations League
+2025-12-19,Brazil,USA,2,0,0,Qualifier
+2025-12-20,Panama,Canada,3,0,1,Friendly
+2025-12-20,Netherlands,England,0,1,0,Continental Cup
+2025-12-21,Panama,Spain,0,0,0,Friendly
+2025-12-23,Uzbekistan,South Africa,0,1,1,Friendly
+2025-12-25,Netherlands,Belgium,1,0,0,Qualifier
+2025-12-26,Brazil,Czech Republic,3,0,0,Qualifier
+2025-12-26,Cape Verde,Senegal,2,0,0,Friendly
+2025-12-26,Egypt,Turkey,1,2,1,Nations League
+2025-12-26,France,Iraq,1,0,1,Friendly
+2025-12-30,Sweden,Ghana,5,1,0,Qualifier
+2026-01-01,Tunisia,Panama,0,2,0,Friendly
+2026-01-01,Curaçao,Colombia,0,3,0,Continental Cup
+2026-01-02,Croatia,Panama,2,0,1,Nations League
+2026-01-05,South Korea,Germany,4,0,0,Friendly
+2026-01-06,Austria,South Africa,1,0,1,Friendly
+2026-01-06,South Korea,South Africa,2,1,0,Qualifier
+2026-01-07,Mexico,Portugal,1,1,0,Friendly
+2026-01-07,Germany,DR Congo,5,1,0,Friendly
+2026-01-09,South Africa,New Zealand,4,0,0,Continental Cup
+2026-01-09,USA,Paraguay,0,2,0,Continental Cup
+2026-01-09,Czech Republic,DR Congo,0,0,1,Friendly
+2026-01-11,Paraguay,South Africa,2,0,0,Qualifier
+2026-01-11,New Zealand,Haiti,0,1,0,Friendly
+2026-01-13,USA,Belgium,1,2,0,Qualifier
+2026-01-13,Portugal,South Africa,2,0,0,Qualifier
+2026-01-13,Uzbekistan,South Africa,0,2,0,Friendly
+2026-01-15,Bosnia & Herzegovina,Japan,1,1,1,Qualifier
+2026-01-15,South Africa,England,0,1,0,Qualifier
+2026-01-17,England,Ecuador,3,2,0,Qualifier
+2026-01-18,Norway,Croatia,0,2,0,Qualifier
+2026-01-20,Bosnia & Herzegovina,Japan,3,3,0,Friendly
+2026-01-23,New Zealand,Germany,1,3,0,Qualifier
+2026-01-24,Australia,Colombia,0,1,0,Friendly
+2026-01-24,Morocco,Egypt,0,0,0,Qualifier
+2026-01-24,Bosnia & Herzegovina,Croatia,1,1,0,Qualifier
+2026-01-25,Algeria,Spain,0,3,0,Qualifier
+2026-01-26,Argentina,Qatar,2,0,0,Continental Cup
+2026-01-26,Turkey,USA,1,0,0,Continental Cup
+2026-01-27,South Africa,Bosnia & Herzegovina,0,1,0,Continental Cup
+2026-01-28,Ecuador,Bosnia & Herzegovina,2,0,0,Friendly
+2026-01-29,Jordan,Tunisia,1,1,0,Qualifier
+2026-01-30,Croatia,Turkey,0,0,0,Qualifier
+2026-02-02,New Zealand,Jordan,1,1,1,Nations League
+2026-02-03,Tunisia,Ivory Coast,1,1,0,Qualifier
+2026-02-03,Paraguay,Morocco,1,1,0,Qualifier
+2026-02-04,Argentina,DR Congo,2,0,0,Friendly
+2026-02-05,Belgium,DR Congo,1,0,0,Continental Cup
+2026-02-07,Cape Verde,Panama,1,2,0,Qualifier
+2026-02-07,Switzerland,Haiti,3,0,0,Qualifier
+2026-02-07,Senegal,Iraq,4,0,0,Nations League
+2026-02-07,Ivory Coast,Egypt,1,1,0,Qualifier
+2026-02-07,Colombia,Czech Republic,2,0,0,Qualifier
+2026-02-10,Saudi Arabia,Paraguay,3,1,0,Qualifier
+2026-02-11,Iran,Japan,0,0,0,Friendly
+2026-02-12,Panama,Ivory Coast,5,1,1,Friendly
+2026-02-14,Sweden,Algeria,2,0,0,Nations League
+2026-02-17,Portugal,Brazil,0,0,0,Friendly
+2026-02-18,Czech Republic,Uruguay,1,0,0,Qualifier
+2026-02-18,South Africa,Austria,1,1,0,Friendly
+2026-02-19,South Africa,Senegal,0,3,0,Continental Cup
+2026-02-20,Mexico,Portugal,0,1,1,Friendly
+2026-02-21,Ivory Coast,Croatia,2,1,0,Nations League
+2026-02-26,Morocco,Ivory Coast,7,0,0,Qualifier
+2026-02-27,Jordan,Ivory Coast,4,1,0,Friendly
+2026-02-27,Sweden,Ivory Coast,0,1,0,Qualifier
+2026-03-02,Brazil,Mexico,4,1,0,Qualifier
+2026-03-06,Netherlands,Ghana,6,0,1,Friendly
+2026-03-06,Ghana,Japan,4,1,0,Qualifier
+2026-03-07,Panama,Uzbekistan,2,0,0,Qualifier
+2026-03-08,Australia,Cape Verde,0,0,1,Friendly
+2026-03-09,Tunisia,Curaçao,0,0,0,Nations League
+2026-03-10,Colombia,Turkey,1,1,0,Qualifier
+2026-03-11,Spain,South Korea,0,0,0,Nations League
+2026-03-12,South Korea,Austria,5,0,0,Continental Cup
+2026-03-14,Panama,Portugal,0,1,0,Friendly
+2026-03-14,Austria,Czech Republic,0,1,1,Friendly
+2026-03-16,Jordan,Paraguay,0,2,0,Qualifier
+2026-03-17,DR Congo,England,0,3,0,Qualifier
+2026-03-18,Australia,Curaçao,0,0,0,Friendly
+2026-03-21,Algeria,Belgium,0,3,0,Continental Cup
+2026-03-22,England,Uzbekistan,1,1,0,Qualifier
+2026-03-24,Colombia,Turkey,2,0,0,Friendly
+2026-03-25,Senegal,France,4,0,0,Qualifier
+2026-03-25,Algeria,Cape Verde,1,1,0,Qualifier
+2026-03-26,Scotland,Netherlands,1,2,0,Qualifier
+2026-03-30,Czech Republic,Portugal,2,1,1,Friendly
+2026-04-01,DR Congo,Norway,0,2,1,Friendly
+2026-04-01,Ghana,Panama,0,2,0,Friendly
+2026-04-04,Netherlands,Spain,0,3,0,Continental Cup
+2026-04-07,Cape Verde,Germany,0,2,0,Qualifier
+2026-04-07,Japan,DR Congo,3,0,0,Friendly
+2026-04-07,Senegal,Sweden,1,1,0,Friendly
+2026-04-08,Spain,Ivory Coast,0,0,0,Friendly
+2026-04-10,Ghana,Iran,0,6,1,Friendly
+2026-04-12,Spain,Ivory Coast,1,3,0,Qualifier
+2026-04-14,Belgium,DR Congo,4,1,1,Friendly
+2026-04-14,Austria,Uzbekistan,2,0,1,Friendly
+2026-04-14,DR Congo,Tunisia,1,2,0,Friendly
+2026-04-16,Iraq,South Africa,7,0,0,Continental Cup
+2026-04-17,Ivory Coast,Turkey,1,0,0,Continental Cup
+2026-04-20,Ghana,Tunisia,0,1,1,Qualifier
+2026-04-26,Spain,Cape Verde,3,0,0,Qualifier
+2026-04-26,DR Congo,Canada,2,0,0,Friendly
+2026-04-28,Spain,Ivory Coast,0,0,1,Friendly
+2026-04-29,Uzbekistan,Scotland,0,1,0,Friendly
+2026-04-29,Scotland,Japan,4,1,0,Qualifier
+2026-04-30,Ivory Coast,Ecuador,1,0,0,Qualifier
+2026-04-30,Netherlands,Ghana,2,0,0,Qualifier
+2026-05-01,Czech Republic,Belgium,1,0,0,Continental Cup
+2026-05-01,DR Congo,England,2,0,0,Continental Cup

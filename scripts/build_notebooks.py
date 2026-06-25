@@ -165,16 +165,30 @@ def notebook_03():
             "ax.set_xlabel('attack strength'); ax.set_ylabel('defense strength')\n"
             "ax.set_title('Team attack vs defense'); plt.tight_layout(); plt.show()"
         ),
-        new_markdown_cell("## Scoreline probabilities for a fixture"),
+        new_markdown_cell(
+            "## Scoreline probabilities for a fixture\n\n"
+            "The annotated heatmap tints each scoreline by who it favours "
+            "(blue = home win, grey = draw, red = away win) and rings the most "
+            "likely score in gold."
+        ),
         new_code_cell(
+            "from wcpredictor.visualization import (plot_scoreline_heatmap,\n"
+            "                                       plot_match_comparison)\n"
+            "plot_scoreline_heatmap(poisson, 'France', 'Morocco', neutral=True)\n"
+            "plt.tight_layout(); plt.show()"
+        ),
+        new_markdown_cell(
+            "## Match outcome: Elo vs Poisson\n\n"
+            "Compare the win/draw/loss probabilities the two models assign to "
+            "the same fixture."
+        ),
+        new_code_cell(
+            "elo = EloModel(config).fit(tr)\n"
             "home, away = 'France', 'Morocco'\n"
-            "matrix = poisson.scoreline_matrix(home, away, neutral=True)[:6, :6]\n"
-            "fig, ax = plt.subplots(figsize=(6, 5))\n"
-            "im = ax.imshow(matrix, cmap='Blues', origin='lower')\n"
-            "ax.set_xlabel(f'{away} goals'); ax.set_ylabel(f'{home} goals')\n"
-            "ax.set_title(f'P(scoreline): {home} vs {away}')\n"
-            "fig.colorbar(im, ax=ax); plt.tight_layout(); plt.show()\n"
-            "print('most likely score:', poisson.most_likely_score(home, away, True))"
+            "preds = {'Elo': elo.predict_match(home, away, True),\n"
+            "         'Poisson': poisson.predict_match(home, away, True)}\n"
+            "plot_match_comparison(preds, home, away)\n"
+            "plt.tight_layout(); plt.show()"
         ),
         new_markdown_cell(
             "## Backtest: Elo vs Poisson\n\n"
@@ -192,14 +206,16 @@ def notebook_03():
 def notebook_04():
     return [
         new_markdown_cell(
-            "# 04 - Tournament Simulation\n\n"
-            "Monte Carlo simulate the full 48-team 2026 World Cup and visualize "
-            "title and advancement probabilities."
+            "# 04 - Tournament Simulation & Outcome Visualizations\n\n"
+            "Monte Carlo simulate the full 48-team 2026 World Cup, then explore "
+            "the results with a set of advanced outcome visualizations from "
+            "`wcpredictor.visualization`."
         ),
         new_code_cell(
             SETUP
             + "\nfrom wcpredictor.models import PoissonModel\n"
             "from wcpredictor.simulation import TournamentSimulator\n"
+            "from wcpredictor import visualization as viz\n"
             "import numpy as np"
         ),
         new_code_cell(
@@ -207,41 +223,77 @@ def notebook_04():
             "poisson = PoissonModel(config).fit(tr)\n"
             "groups = load_groups(config)\n"
             "sim = TournamentSimulator(poisson, groups, config)\n"
-            "report = sim.run(n_simulations=3000)\n"
-            "report.table.head(15)"
+            "report = sim.run(n_simulations=5000)\n"
+            "report.table.head(12)"
         ),
-        new_markdown_cell("## Title probabilities (top 15)"),
+        new_markdown_cell(
+            "## The title race\n\n"
+            "A lollipop chart of each contender's probability of lifting the "
+            "trophy."
+        ),
         new_code_cell(
-            "top = report.table.head(15).iloc[::-1]\n"
-            "ax = top.plot.barh(x='team', y='p_winner', legend=False, color='#C44E52')\n"
-            "ax.set_title('Probability of winning World Cup 2026')\n"
-            "ax.set_xlabel('P(win)'); plt.tight_layout(); plt.show()"
+            "viz.plot_title_race(report, top_n=12)\n"
+            "plt.tight_layout(); plt.show()"
         ),
-        new_markdown_cell("## Stage-by-stage funnel for the favourites"),
+        new_markdown_cell(
+            "## Full finish distribution\n\n"
+            "The headline outcome chart: every bar spans 0-100% and is split "
+            "into the *mutually exclusive* ways a team's tournament can end, "
+            "from a group-stage exit (left) to champion (right, gold). This "
+            "shows a team's entire range of plausible results at once."
+        ),
         new_code_cell(
-            "stages = ['p_advance', 'p_round_of_16', 'p_quarterfinal',\n"
-            "          'p_semifinal', 'p_final', 'p_winner']\n"
-            "labels = ['R32', 'R16', 'QF', 'SF', 'Final', 'Win']\n"
-            "fig, ax = plt.subplots()\n"
-            "for _, row in report.table.head(5).iterrows():\n"
-            "    ax.plot(labels, [row[s] for s in stages], marker='o', label=row['team'])\n"
-            "ax.set_ylabel('probability'); ax.set_title('Run to the title')\n"
-            "ax.legend(); plt.tight_layout(); plt.show()"
+            "viz.plot_outcome_distribution(report, top_n=16)\n"
+            "plt.tight_layout(); plt.show()"
         ),
-        new_markdown_cell("## One simulated tournament (example bracket)"),
+        new_markdown_cell(
+            "## Reaching each stage (heatmap)\n\n"
+            "Cumulative probability of reaching each round."
+        ),
+        new_code_cell(
+            "viz.plot_stage_heatmap(report, top_n=20)\n"
+            "plt.tight_layout(); plt.show()"
+        ),
+        new_markdown_cell(
+            "## Group-stage outcomes\n\n"
+            "Probability of each team finishing 1st / 2nd / 3rd / 4th in their "
+            "group (only the top two are guaranteed to advance; the best eight "
+            "third-placed teams also progress)."
+        ),
+        new_code_cell(
+            "viz.plot_group_grid(report)\n"
+            "plt.show()"
+        ),
+        new_markdown_cell("## Zoom into a single group"),
+        new_code_cell(
+            "first_group = sorted(report.table['group'].unique())[0]\n"
+            "viz.plot_group_outcomes(report, first_group)\n"
+            "plt.tight_layout(); plt.show()"
+        ),
+        new_markdown_cell(
+            "## One simulated tournament (example bracket)\n\n"
+            "A single random realization of the whole event."
+        ),
         new_code_cell(
             "rng = np.random.default_rng(7)\n"
             "result = sim.simulate_once(rng)\n"
-            "print('Champion:', result['champion'])\n"
-            "print('Finalists:', sorted(result['reached']['final']))\n"
+            "print('Champion:    ', result['champion'])\n"
+            "print('Finalists:   ', sorted(result['reached']['final']))\n"
             "print('Semifinalists:', sorted(result['reached']['semifinal']))"
         ),
-        new_markdown_cell("## Probability of topping the group"),
+        new_markdown_cell(
+            "## Most likely finish per team\n\n"
+            "The single most probable outcome for each of the favourites."
+        ),
         new_code_cell(
-            "# Re-run focusing on group winners would require per-group stats;\n"
-            "# here we show advancement probability grouped by draw group.\n"
-            "report.table.groupby('group')['p_advance'].mean()"
-            ".sort_values(ascending=False)"
+            "from wcpredictor.simulation.tournament import EXACT_OUTCOMES\n"
+            "label_map = dict(EXACT_OUTCOMES)\n"
+            "keys = [k for k, _ in EXACT_OUTCOMES]\n"
+            "dist = report.outcome_distribution()\n"
+            "dist['most_likely'] = dist[keys].idxmax(axis=1).map(label_map)\n"
+            "dist['p_most_likely'] = dist[keys].max(axis=1)\n"
+            "dist.sort_values('champion', ascending=False)"
+            "[['team', 'group', 'most_likely', 'p_most_likely', 'champion']].head(12)"
         ),
     ]
 

@@ -41,6 +41,7 @@ world-cup-predictor/
 │   ├── models/               base.py, elo.py, poisson.py
 │   ├── simulation/           match.py, tournament.py
 │   ├── evaluation/           metrics.py (backtesting)
+│   ├── visualization.py      advanced outcome/probability plots
 │   └── cli.py                `wcpredict` command-line interface
 └── tests/                    pytest suite
 ```
@@ -63,6 +64,7 @@ wcpredict ratings --top 20            # current Elo ranking
 wcpredict match Brazil Argentina      # predict a single fixture (neutral venue)
 wcpredict match France "Saudi Arabia" --home   # TEAM_A at home
 wcpredict simulate --n 10000 --top 20 # Monte Carlo the whole tournament
+wcpredict simulate --n 10000 --plot outcomes.png  # + save an outcome chart
 wcpredict backtest                    # historical accuracy of both models
 ```
 
@@ -85,7 +87,33 @@ jupyter lab notebooks/
 - `01_data_exploration.ipynb` - inspect the seed data and outcome distributions.
 - `02_elo_ratings.ipynb` - build and visualize Elo ratings.
 - `03_poisson_model.ipynb` - attack/defense strengths, scoreline heatmaps, backtest.
-- `04_tournament_simulation.ipynb` - run simulations and plot title probabilities.
+- `04_tournament_simulation.ipynb` - run simulations and the advanced outcome plots.
+
+## Visualizations
+
+`wcpredictor.visualization` turns models and a `SimulationReport` into
+publication-quality matplotlib figures. Every function takes an optional `ax`
+(or makes its own figure) and returns the `Axes`, so they compose in notebooks.
+
+```python
+from wcpredictor import visualization as viz
+
+viz.plot_outcome_distribution(report)  # stacked finish distribution per team
+viz.plot_stage_heatmap(report)         # reach-stage probabilities (heatmap)
+viz.plot_title_race(report)            # championship-odds lollipop chart
+viz.plot_group_grid(report)            # group finishing positions (1st-4th)
+viz.plot_group_outcomes(report, "A")   # one group in detail
+viz.plot_scoreline_heatmap(poisson, "France", "Morocco")   # W/D/L-tinted grid
+viz.plot_match_comparison(preds, "France", "Morocco")      # model comparison
+```
+
+The headline chart, `plot_outcome_distribution`, shows each team's *full* range
+of outcomes in mutually exclusive segments (group-stage exit -> champion), so a
+single bar communicates how far a team is likely to go. These finish
+probabilities are derived from the cumulative reach-stage probabilities via
+`report.outcome_distribution()`; group-position probabilities are available via
+`report.group_position_distribution()`. The CLI's `simulate --plot PATH` saves
+the outcome-distribution chart directly.
 
 ## Methodology
 

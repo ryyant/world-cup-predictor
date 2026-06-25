@@ -123,7 +123,9 @@ def match(team_a, team_b, neutral):
               help="Number of simulations (default from config).")
 @click.option("--top", default=20, show_default=True,
               help="Number of teams to display.")
-def simulate(n_sim, top):
+@click.option("--plot", "plot_path", default=None, type=click.Path(),
+              help="Save an outcome-distribution chart to this PNG path.")
+def simulate(n_sim, top, plot_path):
     """Run the Monte Carlo tournament simulation."""
     config = default_config()
     poisson = _load_or_train_poisson(config)
@@ -147,6 +149,20 @@ def simulate(n_sim, top):
             f"{row.p_advance:>8.1%}"
         )
     click.echo("")
+
+    if plot_path:
+        # Imported lazily so the CLI does not pull in matplotlib unless asked.
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+
+        from wcpredictor.visualization import plot_outcome_distribution
+
+        plot_outcome_distribution(report, top_n=top)
+        plt.tight_layout()
+        plt.savefig(plot_path, dpi=150, bbox_inches="tight")
+        plt.close()
+        click.echo(f"Saved outcome chart -> {plot_path}")
 
 
 @cli.command()
