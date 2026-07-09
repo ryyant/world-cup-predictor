@@ -8,7 +8,12 @@ import math
 import pytest
 
 from wcpredictor.config import default_config
-from wcpredictor.data import load_groups, load_tournament_state
+from wcpredictor.data import (
+    actual_knockout_ties,
+    load_groups,
+    load_tournament_state,
+    phase_start_dates,
+)
 from wcpredictor.data.tournament_state import (
     GROUP_STAGE,
     TournamentStateError,
@@ -166,3 +171,75 @@ def test_raises_when_already_decided(tmp_path):
     ]
     with pytest.raises(TournamentStateError, match="already decided"):
         load_state(_write(tmp_path, matches))
+
+
+# --------------------------------------------------------- as_of_stage rewind
+def test_as_of_stage_rewinds_frontier(tmp_path):
+    """`as_of_stage` unplays a round (and everything after), moving the frontier.
+
+    R32 and R16 are both played and the QF has real teams; rewinding to the R16
+    should reopen it as the frontier and forget the QF matchup entirely.
+    """
+    matches = [
+        {"num": 1, "round": "Round of 32", "team1": "Alpha", "team2": "Beta",
+         "score": {"ft": [2, 0]}},
+        {"num": 2, "round": "Round of 32", "team1": "Gamma", "team2": "Delta",
+         "score": {"ft": [1, 0]}},
+        {"num": 33, "round": "Round of 16", "team1": "Alpha", "team2": "Gamma",
+         "score": {"ft": [1, 0]}},
+        {"num": 49, "round": "Quarter-final", "team1": "Alpha", "team2": "Zeta"},
+    ]
+    config = _write(tmp_path, matches)
+
+    # Default view: the QF is the frontier (R16 is already settled).
+    assert load_state(config).frontier_stage == "quarterfinal"
+
+    state = load_state(config, as_of_stage="round_of_16")
+    assert state.frontier_stage == "round_of_16"
+    assert state.alive == ("Alpha", "Gamma")
+    assert state.remaining_stages == STAGES[_STAGE_INDEX["round_of_16"] + 1:]
+    # Both survivors are back to only having reached the R16 (not the QF).
+    assert state.reached["Alpha"] == "round_of_16"
+    assert state.reached["Gamma"] == "round_of_16"
+    # Losers keep the round they actually reached.
+    assert state.reached["Beta"] == "round_of_32"
+    # The QF opponent is forgotten -- that matchup isn't known yet at this point.
+    assert "Zeta" not in state.reached
+
+
+@pytest.mark.parametrize("bad", ["group_stage", "winner", "nonsense"])
+def test_as_of_stage_rejects_non_knockout(tmp_path, bad):
+    matches = [
+        {"num": 1, "round": "Round of 32", "team1": "Alpha", "team2": "Beta",
+         "score": {"ft": [2, 0]}},
+        {"num": 33, "round": "Round of 16", "team1": "Alpha", "team2": "Gamma"},
+    ]
+    with pytest.raises(ValueError, match="as_of_stage"):
+        load_state(_write(tmp_path, matches), as_of_stage=bad)
+
+
+# ---------------------------------------------------- phase dates & actual ties
+def test_phase_start_dates_are_chronological():
+    """Each phase of the real 2026 fixtures starts no earlier than the last."""
+    dates = phase_start_dates(default_config())
+    assert dates[GROUP_STAGE]  # group stage is present and dated
+    ordered = [GROUP_STAGE] + [s for s in STAGES if s != "winner"]
+    present = [dates[s] for s in ordered if s in dates]
+    assert present == sorted(present)
+
+
+def test_actual_ties_align_with_rewound_frontier():
+    """The real ties for a round equal the frontier we get by rewinding to it."""
+    config = default_config()
+    ties = actual_knockout_ties(config)
+    assert "round_of_16" in ties
+    # Played rounds have a recorded winner for every tie.
+    assert all(t.winner for t in ties["round_of_16"])
+
+    state = load_state(config, as_of_stage="round_of_16")
+    actual_pairs = {frozenset((t.team1, t.team2)) for t in ties["round_of_16"]}
+    frontier_pairs = {frozenset((m.team1, m.team2)) for m in state.frontier}
+    assert frontier_pairs == actual_pairs
+    # Each recorded winner is one of the two teams in its tie.
+    for t in ties["round_of_16"]:
+        assert t.winner in (t.team1, t.team2)

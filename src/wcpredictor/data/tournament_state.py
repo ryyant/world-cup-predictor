@@ -19,6 +19,7 @@ stage is not supported (it raises), because the 2026 group stage is complete.
 
 from __future__ import annotations
 
+import datetime
 import json
 from dataclasses import dataclass
 from pathlib import Path
@@ -194,6 +195,52 @@ def _knockout_by_stage(matches: List[dict]) -> Dict[str, List[dict]]:
     return by_stage
 
 
+def _advanced_map(by_stage: Dict[str, List[dict]]) -> Dict[int, str]:
+    """Map a played tie's match number to the team that advanced from it.
+
+    A team advanced from its match iff it turns up, as a real team, one round
+    later; this is what lets penalty-shootout ties (level on the full-time
+    score) be resolved without a recorded shootout result.
+    """
+    advanced: Dict[int, str] = {}
+    ordered_stages = [s for s in STAGES if s in by_stage]
+    for earlier, later in zip(ordered_stages, ordered_stages[1:]):
+        later_teams = {
+            t for m in by_stage[later]
+            for t in (m.get("team1"), m.get("team2")) if not _is_placeholder(t)
+        }
+        for m in by_stage[earlier]:
+            for t in (m.get("team1"), m.get("team2")):
+                if t in later_teams:
+                    advanced[_match_num(m)] = t
+    return advanced
+
+
+def _mask_from_stage(matches: List[dict], as_of_stage: str) -> None:
+    """Rewind the fixtures in place to *before* ``as_of_stage`` was played.
+
+    Blanks the scores of the ``as_of_stage`` ties, turning that round into the
+    unplayed frontier, and blanks both the scores and the team slots of every
+    later knockout round (whose matchups are not yet determined at that point
+    in the tournament). Group matches and earlier knockout rounds are left
+    untouched. This lets a caller reconstruct the settled state "as of" any
+    past round even though the vendored file now holds later results -- the
+    basis for the per-phase prediction notebooks.
+    """
+    target = _STAGE_INDEX[as_of_stage]
+    for match in matches:
+        stage = _ROUND_TO_STAGE.get((match.get("round") or "").strip())
+        if stage is None:
+            continue  # group match, or the third-place match (never conditioned on)
+        sidx = _STAGE_INDEX[stage]
+        if sidx < target:
+            continue
+        match["score"] = {}  # not yet played
+        if sidx > target:
+            match["team1"] = None  # matchup not yet determined
+            match["team2"] = None
+
+
 def _winner_of(match: dict, advanced: Dict[int, str]) -> Optional[str]:
     """Winner of a *played* tie, or ``None`` if it has not been played.
 
@@ -216,12 +263,12 @@ def _winner_of(match: dict, advanced: Dict[int, str]) -> Optional[str]:
     return advanced.get(_match_num(match))
 
 
-def load_tournament_state(config: Optional[Config] = None) -> TournamentState:
-    """Read the vendored 2026 fixtures and distil the settled tournament state.
+def _collect_matches(config: Optional[Config] = None) -> Tuple[Config, List[dict]]:
+    """Load the vendored 2026 fixtures as a flat list of match dicts.
 
-    Raises :class:`TournamentStateError` if the group stage is only partially
-    played (unsupported), if no knockout round has begun, or if the tournament
-    is already decided (nothing left to simulate).
+    Returns the resolved config alongside the matches. Each call re-reads the
+    file, so callers are free to mutate the returned dicts (e.g. to rewind the
+    tournament to an earlier phase) without affecting anyone else.
     """
     config = config or default_config()
     path: Path = config.wc2026_source_path
@@ -234,6 +281,34 @@ def load_tournament_state(config: Optional[Config] = None) -> TournamentState:
     matches: List[dict] = list(doc.get("matches", []))
     for rnd in doc.get("rounds", []):
         matches.extend(rnd.get("matches", []))
+    return config, matches
+
+
+def load_tournament_state(
+    config: Optional[Config] = None, as_of_stage: Optional[str] = None
+) -> TournamentState:
+    """Read the vendored 2026 fixtures and distil the settled tournament state.
+
+    By default the frontier is wherever the tournament actually is (the earliest
+    knockout round with a match still to play). Pass ``as_of_stage`` (a knockout
+    key of :data:`STAGES`, e.g. ``"round_of_32"``) to *rewind* to the start of
+    that round: its results -- and every later round's -- are treated as not yet
+    played, so the returned state is the "as of the start of that round" view
+    used by the per-phase prediction notebooks. Rounds before it stay settled.
+
+    Raises :class:`TournamentStateError` if the group stage is only partially
+    played (unsupported), if no knockout round has begun, or if the tournament
+    is already decided (nothing left to simulate); raises :class:`ValueError`
+    for an ``as_of_stage`` that is not a knockout stage.
+    """
+    config, matches = _collect_matches(config)
+    if as_of_stage is not None:
+        if as_of_stage not in _STAGE_INDEX or as_of_stage == "winner":
+            raise ValueError(
+                "as_of_stage must be a knockout stage in "
+                f"{STAGES[:-1]}, got {as_of_stage!r}."
+            )
+        _mask_from_stage(matches, as_of_stage)
 
     # -- group stage: must be complete before we condition on the knockout.
     group_matches = [m for m in matches if _group_letter(m) is not None
@@ -266,19 +341,9 @@ def load_tournament_state(config: Optional[Config] = None) -> TournamentState:
                 ):
                     reached[team] = stage
 
-    # -- who advanced out of each played tie (so penalty ties resolve). A team
-    # advanced from its match iff it turns up, as a real team, one round later.
-    advanced: Dict[int, str] = {}
+    # -- who advanced out of each played tie (so penalty ties resolve).
+    advanced = _advanced_map(by_stage)
     ordered_stages = [s for s in STAGES if s in by_stage]
-    for earlier, later in zip(ordered_stages, ordered_stages[1:]):
-        later_teams = {
-            t for m in by_stage[later]
-            for t in (m.get("team1"), m.get("team2")) if not _is_placeholder(t)
-        }
-        for m in by_stage[earlier]:
-            for t in (m.get("team1"), m.get("team2")):
-                if t in later_teams:
-                    advanced[_match_num(m)] = t
 
     # -- the frontier: earliest knockout round with real teams and a match left
     # to play. Placeholder slots (e.g. "W97") are resolved to the winner of the
@@ -329,3 +394,63 @@ def load_tournament_state(config: Optional[Config] = None) -> TournamentState:
         frontier_stage=frontier_stage,
         frontier=tuple(frontier),
     )
+
+
+def phase_start_dates(
+    config: Optional[Config] = None,
+) -> Dict[str, datetime.date]:
+    """First calendar date of each tournament phase, from the vendored fixtures.
+
+    Keys are :data:`GROUP_STAGE` plus the knockout keys of :data:`STAGES`
+    (``"round_of_32"`` ... ``"final"``); each value is the earliest match date
+    in that phase. Intended for *point-in-time* model training: to project a
+    phase honestly, train only on matches played strictly before its start date
+    so the model never "sees" results it is about to predict.
+    """
+    _config, matches = _collect_matches(config)
+    firsts: Dict[str, datetime.date] = {}
+    for match in matches:
+        raw = match.get("date")
+        if not raw:
+            continue
+        round_label = (match.get("round") or "").strip()
+        if "Matchday" in round_label and _group_letter(match) is not None:
+            phase = GROUP_STAGE
+        else:
+            phase = _ROUND_TO_STAGE.get(round_label)
+        if phase is None:
+            continue
+        try:
+            day = datetime.date.fromisoformat(str(raw)[:10])
+        except ValueError:
+            continue
+        if phase not in firsts or day < firsts[phase]:
+            firsts[phase] = day
+    return firsts
+
+
+def actual_knockout_ties(
+    config: Optional[Config] = None,
+) -> Dict[str, Tuple[KnockoutMatch, ...]]:
+    """The real knockout ties per stage, with the side that actually advanced.
+
+    For every knockout stage present in the vendored fixtures, returns its ties
+    (in bracket order) between two real teams, each carrying the ``winner`` that
+    progressed -- or ``None`` if the tie has not been played yet. Ties with an
+    undetermined slot (a ``"W97"``-style placeholder) are skipped. Used to score
+    a phase's predictions against what really happened.
+    """
+    _config, matches = _collect_matches(config)
+    by_stage = _knockout_by_stage(matches)
+    advanced = _advanced_map(by_stage)
+    out: Dict[str, Tuple[KnockoutMatch, ...]] = {}
+    for stage in STAGES:
+        ties: List[KnockoutMatch] = []
+        for match in by_stage.get(stage, []):
+            t1, t2 = match.get("team1"), match.get("team2")
+            if _is_placeholder(t1) or _is_placeholder(t2):
+                continue
+            ties.append(KnockoutMatch(t1, t2, _winner_of(match, advanced)))
+        if ties:
+            out[stage] = tuple(ties)
+    return out

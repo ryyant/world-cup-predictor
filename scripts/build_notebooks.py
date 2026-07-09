@@ -287,145 +287,368 @@ def notebook_03():
     ]
 
 
-def notebook_04():
+# --------------------------------------------------------------------------
+# Per-phase prediction notebooks (04-07).
+#
+# One notebook per tournament phase. Each freezes the event at the start of a
+# round, trains the model on ONLY the matches available at that point (strict
+# point-in-time, no look-ahead), predicts that round and everything after via a
+# conditioned simulation, and -- for rounds that have since been played --
+# scores those predictions against the real results. They share the frontier
+# machinery in wcpredictor.data.tournament_state (as_of_stage / phase_start_dates
+# / actual_knockout_ties).
+# --------------------------------------------------------------------------
+
+# Team-A / team-B tint for the knockout "who advances" bars, kept consistent
+# with the home/away language elsewhere in the notebooks.
+TIE_A_COLOR = NB_PALETTE["home"]
+TIE_B_COLOR = NB_PALETTE["away"]
+
+
+def notebook_group_stage():
     return [
         new_markdown_cell(
-            "# 04 - Tournament Simulation & Outcome Visualizations\n\n"
-            "Monte Carlo simulate the 48-team 2026 World Cup, then explore the "
-            "results with a set of advanced outcome visualizations from "
-            "`wcpredictor.visualization`.\n\n"
-            "**The tournament is already under way, so we condition on the "
-            "matches that have actually been played.** The group stage and the "
-            "completed knockout rounds are settled facts, not things to "
-            "re-simulate: `load_tournament_state` reads them from the vendored "
-            "2026 fixtures, and `sim.run_conditioned` rolls dice only from the "
-            "current bracket onward. A team that has already been eliminated "
-            "therefore has a 0% chance of winning -- re-simulating the whole "
-            "event from scratch (`sim.run`) would instead hand already-out "
-            "sides like Germany or the Netherlands a championship probability "
-            "they can no longer have."
+            "# 04 - Phase 1: Group Stage (pre-tournament)\n\n"
+            "The first of four phase notebooks. Each one freezes the tournament "
+            "at the start of a round, trains a model on **only the matches "
+            "available at that point** (strict point-in-time -- no look-ahead), "
+            "and predicts what happens next; then, for rounds that have since "
+            "been played, it scores those predictions against reality.\n\n"
+            "**This is the pre-tournament view.** The model is trained on every "
+            "match played *before the 2026 group stage kicked off*, so it has "
+            "never seen a single 2026 result. We predict (1) the win/draw/loss "
+            "odds of each group fixture and (2) every team's chance of advancing "
+            "to the knockout -- then check both against what actually happened."
         ),
         new_code_cell(
-            MINIMAL_SETUP
-            + "\nfrom wcpredictor.data import (load_matches, load_groups,\n"
-            "                            load_tournament_state)\n"
-            "from wcpredictor.data.preprocess import build_training_matches\n"
+            "import numpy as np\n"
+            "import pandas as pd\n"
+            "import matplotlib.pyplot as plt\n\n"
+            "from wcpredictor.config import default_config\n"
+            "from wcpredictor.data import (load_matches, load_groups,\n"
+            "                              load_tournament_state,\n"
+            "                              build_training_matches, phase_start_dates)\n"
+            "from wcpredictor.data.tournament_state import GROUP_STAGE\n"
             "from wcpredictor.models import PoissonModel\n"
             "from wcpredictor.simulation import TournamentSimulator\n"
-            "from wcpredictor import visualization as viz\n"
-            "import numpy as np"
+            "from wcpredictor import visualization as viz\n\n"
+            "config = default_config()\n"
+            "plt.rcParams['figure.figsize'] = (9, 4.5)"
+        ),
+        new_markdown_cell(
+            "## Point-in-time training\n\n"
+            "Cut the data at the first 2026 group match: the model sees only "
+            "matches played strictly before it."
         ),
         new_code_cell(
-            "tr = build_training_matches(load_matches(config), config)\n"
-            "poisson = PoissonModel(config).fit(tr)\n"
-            "groups = load_groups(config)\n"
-            "sim = TournamentSimulator(poisson, groups, config)\n"
-            "\n"
-            "# Condition on what has actually happened so far. `state` records\n"
-            "# how far each team has already gone and the current (frontier)\n"
-            "# knockout round; only that round onward is simulated.\n"
-            "state = load_tournament_state(config)\n"
-            "alive = ', '.join(state.alive)\n"
-            "print(f'Current round: {state.frontier_stage.replace(\"_\", \" \")}')\n"
-            "print(f'Still alive ({len(state.alive)}): {alive}')\n"
-            "report = sim.run_conditioned(\n"
-            "    state, n_simulations=config.simulation.n_simulations)\n"
-            "report.table.head(12)"
+            "matches = load_matches(config)\n"
+            "dates = phase_start_dates(config)\n"
+            "cutoff = pd.Timestamp(dates[GROUP_STAGE])   # first 2026 group match\n"
+            "train = matches[matches['date'] < cutoff]\n"
+            "print(f'Group stage starts {cutoff.date()}.')\n"
+            "print(f'Training on {len(train)} pre-tournament matches; '\n"
+            "      f'holding out {len(matches) - len(train)} played since.')\n"
+            "tr = build_training_matches(train, config, reference_date=cutoff)\n"
+            "poisson = PoissonModel(config).fit(tr)"
         ),
         new_markdown_cell(
-            "### Monte Carlo uncertainty\n\n"
-            "Each probability comes from a finite number of simulated "
-            "tournaments, so it carries sampling error: "
-            "s.e. = sqrt(p(1-p)/n)."
-        ),
-        new_code_cell("report.standard_errors().head(12)"),
-        new_markdown_cell(
-            "## The title race\n\n"
-            "A lollipop chart of each contender's probability of lifting the "
-            "trophy. The horizontal error bars are 95% confidence intervals "
-            "(±1.96 s.e.) reflecting Monte Carlo sampling uncertainty, not "
-            "additional model uncertainty."
+            "## Match-by-match group predictions\n\n"
+            "For every actual group fixture: the model's win / draw / loss "
+            "probabilities (home perspective), the outcome it called most "
+            "likely, and what really happened. We zoom into one group here; the "
+            "accuracy summary that follows covers all 72 group matches."
         ),
         new_code_cell(
-            "viz.plot_title_race(report, top_n=12)\n"
-            "plt.tight_layout(); plt.show()"
+            "r32_start = pd.Timestamp(dates['round_of_32'])\n"
+            "group_games = matches[(matches['tournament'] == 'World Cup 2026') &\n"
+            "                      (matches['date'] >= cutoff) &\n"
+            "                      (matches['date'] < r32_start)].copy()\n\n"
+            "def _predict_row(g):\n"
+            "    pred = poisson.predict_match(g['home_team'], g['away_team'],\n"
+            "                                 neutral=bool(g['neutral']))\n"
+            "    actual = ('H' if g['home_score'] > g['away_score']\n"
+            "              else 'A' if g['away_score'] > g['home_score'] else 'D')\n"
+            "    return pd.Series({\n"
+            "        'home': g['home_team'], 'away': g['away_team'],\n"
+            "        'p_home': round(pred.p_home_win, 3),\n"
+            "        'p_draw': round(pred.p_draw, 3),\n"
+            "        'p_away': round(pred.p_away_win, 3),\n"
+            "        'called': pred.most_likely,\n"
+            "        'score': f\"{g['home_score']}-{g['away_score']}\",\n"
+            "        'actual': actual, 'hit': pred.most_likely == actual})\n\n"
+            "preds = group_games.apply(_predict_row, axis=1)\n"
+            "example = sorted(load_groups(config)['group'].unique())[0]\n"
+            "in_group = set(load_groups(config).query('group == @example')['team'])\n"
+            "print(f'Group {example} fixtures:')\n"
+            "preds[preds['home'].isin(in_group) & preds['away'].isin(in_group)]"
         ),
         new_markdown_cell(
-            "## Full finish distribution\n\n"
-            "The headline outcome chart: every bar spans 0-100% and is split "
-            "into the *mutually exclusive* ways a team's tournament can end, "
-            "from a group-stage exit (left) to champion (right, gold). This "
-            "shows a team's entire range of plausible results at once."
+            "## How good were the match predictions?\n\n"
+            "Scored across all 72 group games with accuracy, multiclass "
+            "log-loss, and the ranked probability score (RPS) -- the standard "
+            "metric for ordered football outcomes. Lower log-loss / RPS is "
+            "better."
         ),
         new_code_cell(
-            "viz.plot_outcome_distribution(report, top_n=16)\n"
-            "plt.tight_layout(); plt.show()"
+            "def _rps(row):\n"
+            "    order = ['H', 'D', 'A']\n"
+            "    p = np.array([row['p_home'], row['p_draw'], row['p_away']])\n"
+            "    y = np.eye(3)[order.index(row['actual'])]\n"
+            "    return np.sum((np.cumsum(p) - np.cumsum(y)) ** 2) / 2\n\n"
+            "def _p_actual(row):\n"
+            "    return {'H': row['p_home'], 'D': row['p_draw'],\n"
+            "            'A': row['p_away']}[row['actual']]\n\n"
+            "acc = preds['hit'].mean()\n"
+            "ll = -np.log(np.clip(preds.apply(_p_actual, axis=1), 1e-15, 1)).mean()\n"
+            "rps = preds.apply(_rps, axis=1).mean()\n"
+            "print(f'{len(preds)} group matches | accuracy {acc:.0%} | '\n"
+            "      f'log-loss {ll:.3f} | RPS {rps:.3f}')\n"
+            "print('(A three-way coin flip scores log-loss 1.099 / RPS ~0.22.)')"
         ),
         new_markdown_cell(
-            "## Reaching each stage (heatmap)\n\n"
-            "Cumulative probability of reaching each round."
+            "## Who progresses? (Monte Carlo, from scratch)\n\n"
+            "The odds above are single-game views. To turn them into "
+            "*advancement* probabilities we simulate the whole group stage (and "
+            "the knockout beyond) many times with `sim.run()` -- the "
+            "pre-tournament projection in which all 48 teams still contend. Each "
+            "team's finishing-position and advance probabilities fall out of the "
+            "aggregate."
         ),
         new_code_cell(
-            "viz.plot_stage_heatmap(report, top_n=20)\n"
-            "plt.tight_layout(); plt.show()"
-        ),
-        new_markdown_cell(
-            "## Group-stage outcomes\n\n"
-            "Probability of each team finishing 1st / 2nd / 3rd / 4th in their "
-            "group (only the top two are guaranteed to advance; the best eight "
-            "third-placed teams also progress)."
+            "sim = TournamentSimulator(poisson, load_groups(config), config)\n"
+            "report = sim.run(n_simulations=config.simulation.n_simulations)\n"
+            "prog = report.table[['team', 'group', 'p_group_1st', 'p_group_2nd',\n"
+            "                     'p_group_3rd', 'p_group_4th', 'p_advance']]\n"
+            "prog.sort_values(['group', 'p_advance'],\n"
+            "                 ascending=[True, False]).head(12)"
         ),
         new_code_cell(
             "viz.plot_group_grid(report)\n"
             "plt.show()"
         ),
-        new_markdown_cell("## Zoom into a single group"),
+        new_markdown_cell(
+            "## Did the right teams progress?\n\n"
+            "The 32 teams that actually reached the knockout come straight from "
+            "the played results (`load_tournament_state(...).reached`). We "
+            "compare each team's simulated advance probability with whether it "
+            "truly went through."
+        ),
         new_code_cell(
-            "first_group = sorted(report.table['group'].unique())[0]\n"
-            "viz.plot_group_outcomes(report, first_group)\n"
+            "actual_adv = set(load_tournament_state(config).reached)  # reached R32+\n"
+            "adv = report.table[['team', 'p_advance']].copy()\n"
+            "adv['advanced'] = adv['team'].isin(actual_adv).astype(float)\n"
+            "p = adv['p_advance'].clip(1e-15, 1 - 1e-15)\n"
+            "brier = np.mean((adv['p_advance'] - adv['advanced']) ** 2)\n"
+            "ll = -np.mean(adv['advanced'] * np.log(p) +\n"
+            "              (1 - adv['advanced']) * np.log(1 - p))\n"
+            "top = set(adv.sort_values('p_advance', ascending=False)\n"
+            "          .head(len(actual_adv))['team'])\n"
+            "print(f'{len(adv)} teams | Brier {brier:.3f} | log-loss {ll:.3f}')\n"
+            "print(f'Of the {len(actual_adv)} teams we ranked most likely to "
+            "advance, {len(top & actual_adv)} actually did.')\n"
+            "adv['surprise'] = adv['advanced'] - adv['p_advance']\n"
+            "cols = ['team', 'p_advance', 'advanced']\n"
+            "print('\\nBiggest upsets (advanced despite low odds):')\n"
+            "display(adv.sort_values('surprise', ascending=False).head(5)[cols])\n"
+            "print('Biggest flops (favoured but eliminated):')\n"
+            "display(adv.sort_values('surprise').head(5)[cols])"
+        ),
+        new_markdown_cell(
+            "## Pre-tournament title odds\n\n"
+            "For completeness, the from-scratch championship picture *before a "
+            "ball was kicked*."
+        ),
+        new_code_cell(
+            "viz.plot_title_race(report, top_n=12)\n"
             "plt.tight_layout(); plt.show()"
-        ),
-        new_markdown_cell(
-            "## Group difficulty\n\n"
-            "Strength-of-schedule view: mean Elo rating per group (hardest "
-            "first), with individual team ratings overlaid so a strong "
-            "outlier in an otherwise weak group is still visible."
-        ),
-        new_code_cell(
-            "from wcpredictor.models import EloModel\n"
-            "from wcpredictor.visualization import plot_group_difficulty\n"
-            "elo = EloModel(config).fit(tr)\n"
-            "plot_group_difficulty(groups, elo)\n"
-            "plt.tight_layout(); plt.show()"
-        ),
-        new_markdown_cell(
-            "## One simulated tournament (example bracket)\n\n"
-            "A single random realization of the *remaining* event, rolled "
-            "forward from the current bracket. The finalists and semifinalists "
-            "are therefore always drawn from the teams still alive."
-        ),
-        new_code_cell(
-            "rng = np.random.default_rng(7)\n"
-            "result = sim.simulate_once_conditioned(state, rng)\n"
-            "print('Champion:    ', result['champion'])\n"
-            "print('Finalists:   ', sorted(result['reached']['final']))\n"
-            "print('Semifinalists:', sorted(result['reached']['semifinal']))"
-        ),
-        new_markdown_cell(
-            "## Most likely finish per team\n\n"
-            "The single most probable outcome for each of the favourites."
-        ),
-        new_code_cell(
-            "from wcpredictor.simulation.tournament import EXACT_OUTCOMES\n"
-            "label_map = dict(EXACT_OUTCOMES)\n"
-            "keys = [k for k, _ in EXACT_OUTCOMES]\n"
-            "dist = report.outcome_distribution()\n"
-            "dist['most_likely'] = dist[keys].idxmax(axis=1).map(label_map)\n"
-            "dist['p_most_likely'] = dist[keys].max(axis=1)\n"
-            "dist.sort_values('champion', ascending=False)"
-            "[['team', 'group', 'most_likely', 'p_most_likely', 'champion']].head(12)"
         ),
     ]
+
+
+def _knockout_phase_notebook(number, phase, title, stage_key, played):
+    """Cells for a knockout-phase notebook (R32 / R16 / QF).
+
+    ``played`` toggles the scorecard narration between "grade it" (a round that
+    has happened) and "live prediction" (a round still to come).
+    """
+    if played:
+        head_note = (
+            "Because this round has since been played, we also **score our "
+            "predictions against the actual results** at the end."
+        )
+        score_note = (
+            "Now that the round has been played, we grade every tie prediction."
+        )
+    else:
+        head_note = (
+            "This round has **not been played yet** in the vendored data, so "
+            "this is a live prediction -- there is nothing to grade against yet."
+        )
+        score_note = (
+            "This round hasn't been played in the vendored data yet, so the "
+            "cell just lists the live predictions -- rerun it once the results "
+            "are in to grade them."
+        )
+    return [
+        new_markdown_cell(
+            f"# {number} - Phase {phase}: {title}\n\n"
+            f"Freezes the tournament at the start of the {title.lower()} and "
+            "predicts it. The model is trained only on matches played **before "
+            "this round began**, and the simulation is *conditioned* on "
+            "everything already settled: the group stage and every earlier "
+            "knockout round are locked in, and we roll dice only from this round "
+            f"onward. {head_note}"
+        ),
+        new_code_cell(
+            "import numpy as np\n"
+            "import pandas as pd\n"
+            "import matplotlib.pyplot as plt\n\n"
+            "from wcpredictor.config import default_config\n"
+            "from wcpredictor.data import (load_matches, load_groups,\n"
+            "                              load_tournament_state,\n"
+            "                              build_training_matches, phase_start_dates,\n"
+            "                              actual_knockout_ties)\n"
+            "from wcpredictor.models import PoissonModel\n"
+            "from wcpredictor.simulation import TournamentSimulator\n"
+            "from wcpredictor.simulation.tournament import STAGES, _STAGE_INDEX\n"
+            "from wcpredictor import visualization as viz\n\n"
+            "config = default_config()\n"
+            "plt.rcParams['figure.figsize'] = (9, 4.5)\n"
+            f"STAGE = {stage_key!r}\n"
+            "NEXT = STAGES[_STAGE_INDEX[STAGE] + 1]  # the round winners advance to\n"
+            f"A_COLOR, B_COLOR = {TIE_A_COLOR!r}, {TIE_B_COLOR!r}\n"
+            "label = STAGE.replace('_', ' ')"
+        ),
+        new_markdown_cell(
+            "## Point-in-time training\n\n"
+            "Train on every match played strictly before this round started, so "
+            "the model never sees a result it is about to predict."
+        ),
+        new_code_cell(
+            "matches = load_matches(config)\n"
+            "cutoff = pd.Timestamp(phase_start_dates(config)[STAGE])\n"
+            "train = matches[matches['date'] < cutoff]\n"
+            "print(f'The {label} starts {cutoff.date()}.')\n"
+            "print(f'Training on {len(train)} matches played before it; '\n"
+            "      f'holding out {len(matches) - len(train)} later matches.')\n"
+            "tr = build_training_matches(train, config, reference_date=cutoff)\n"
+            "poisson = PoissonModel(config).fit(tr)"
+        ),
+        new_markdown_cell(
+            "## Condition on everything settled, then simulate forward\n\n"
+            "`as_of_stage` rewinds the fixtures to the start of this round; "
+            "`run_conditioned` locks in the settled prefix and rolls the rest "
+            "of the bracket forward."
+        ),
+        new_code_cell(
+            "state = load_tournament_state(config, as_of_stage=STAGE)\n"
+            "sim = TournamentSimulator(poisson, load_groups(config), config)\n"
+            "report = sim.run_conditioned(\n"
+            "    state, n_simulations=config.simulation.n_simulations)\n"
+            "print(f'{len(state.alive)} teams enter the {label}:')\n"
+            "print('  ' + ', '.join(state.alive))\n"
+            "report.table[report.table['team'].isin(state.alive)]"
+        ),
+        new_markdown_cell(
+            "## This round's ties: who advances?\n\n"
+            "In a knockout tie a team's probability of *reaching the next round* "
+            "is exactly its probability of winning the tie -- and it already "
+            "folds in extra time and penalties. The two sides of each tie sum "
+            "to 100%."
+        ),
+        new_code_cell(
+            "probs = report.table.set_index('team')[f'p_{NEXT}']\n"
+            "rows = []\n"
+            "for i, tie in enumerate(state.frontier, 1):\n"
+            "    p1 = float(probs[tie.team1])\n"
+            "    rows.append({'#': i, 'team A': tie.team1, 'p(A adv)': round(p1, 3),\n"
+            "                 'team B': tie.team2, 'p(B adv)': round(1 - p1, 3),\n"
+            "                 'favourite': tie.team1 if p1 >= 0.5 else tie.team2})\n"
+            "pd.DataFrame(rows)"
+        ),
+        new_code_cell(
+            "fig, ax = plt.subplots(figsize=(9, 0.6 * len(state.frontier) + 1))\n"
+            "for i, tie in enumerate(state.frontier):\n"
+            "    p1 = float(probs[tie.team1])\n"
+            "    ax.barh(i, p1, color=A_COLOR)\n"
+            "    ax.barh(i, 1 - p1, left=p1, color=B_COLOR)\n"
+            "    ax.text(0.01, i, f'{tie.team1}  {p1:.0%}', va='center', ha='left',\n"
+            "            color='white', fontsize=9, fontweight='bold')\n"
+            "    ax.text(0.99, i, f'{1 - p1:.0%}  {tie.team2}', va='center',\n"
+            "            ha='right', color='white', fontsize=9, fontweight='bold')\n"
+            "ax.axvline(0.5, color='white', lw=1, ls='--')\n"
+            "ax.set_yticks([]); ax.set_xlim(0, 1); ax.invert_yaxis()\n"
+            "ax.set_xlabel('probability of advancing')\n"
+            "ax.set_title(f'{label.title()}: who advances?')\n"
+            "plt.tight_layout(); plt.show()"
+        ),
+        new_markdown_cell(
+            "## How far do they go?\n\n"
+            "Rolling the same conditioned simulation to the final gives each "
+            "surviving team's title odds and full finish distribution."
+        ),
+        new_code_cell(
+            "viz.plot_title_race(report, top_n=len(state.alive))\n"
+            "plt.tight_layout(); plt.show()"
+        ),
+        new_code_cell(
+            "viz.plot_outcome_distribution(report, top_n=len(state.alive))\n"
+            "plt.tight_layout(); plt.show()"
+        ),
+        new_code_cell(
+            "viz.plot_stage_heatmap(report, top_n=len(state.alive))\n"
+            "plt.tight_layout(); plt.show()"
+        ),
+        new_markdown_cell(
+            "## Scorecard: predictions vs reality\n\n" + score_note
+        ),
+        new_code_cell(
+            "actual = {frozenset((t.team1, t.team2)): t.winner\n"
+            "          for t in actual_knockout_ties(config).get(STAGE, ())}\n"
+            "recs, ps, ys = [], [], []\n"
+            "for tie in state.frontier:\n"
+            "    p1 = float(probs[tie.team1])\n"
+            "    w = actual.get(frozenset((tie.team1, tie.team2)))\n"
+            "    rec = {'match': f'{tie.team1} v {tie.team2}',\n"
+            "           'predicted': tie.team1 if p1 >= 0.5 else tie.team2,\n"
+            "           'confidence': round(max(p1, 1 - p1), 3),\n"
+            "           'actual': w or 'not played yet'}\n"
+            "    if w:\n"
+            "        y = 1.0 if w == tie.team1 else 0.0\n"
+            "        ps.append(p1); ys.append(y)\n"
+            "        rec['result'] = 'correct' if (p1 >= 0.5) == (y == 1.0) else 'upset'\n"
+            "    recs.append(rec)\n"
+            "scorecard = pd.DataFrame(recs)\n"
+            "if ps:\n"
+            "    ps, ys = np.array(ps), np.array(ys)\n"
+            "    pc = np.clip(ps, 1e-15, 1 - 1e-15)\n"
+            "    acc = np.mean((pc >= 0.5) == (ys == 1))\n"
+            "    brier = np.mean((ps - ys) ** 2)\n"
+            "    ll = -np.mean(ys * np.log(pc) + (1 - ys) * np.log(1 - pc))\n"
+            "    print(f'{len(ys)} ties scored | accuracy {acc:.0%} | '\n"
+            "          f'Brier {brier:.3f} | log-loss {ll:.3f}')\n"
+            "    print('(Lower Brier/log-loss is better; a 50/50 guess scores "
+            "0.250 / 0.693.)')\n"
+            "else:\n"
+            "    print(f'The {label} has not been played yet -- predictions only.')\n"
+            "scorecard"
+        ),
+    ]
+
+
+def notebook_round_of_32():
+    return _knockout_phase_notebook(
+        "05", 2, "Round of 32", "round_of_32", played=True)
+
+
+def notebook_round_of_16():
+    return _knockout_phase_notebook(
+        "06", 3, "Round of 16", "round_of_16", played=True)
+
+
+def notebook_quarterfinals():
+    return _knockout_phase_notebook(
+        "07", 4, "Quarterfinals", "quarterfinal", played=False)
 
 
 def main():
@@ -443,7 +666,12 @@ def main():
     build("01_data_exploration.ipynb", notebook_01())
     build("02_elo_ratings.ipynb", notebook_02())
     build("03_poisson_model.ipynb", notebook_03())
-    build("04_tournament_simulation.ipynb", notebook_04())
+    # Per-phase prediction notebooks (point-in-time training + conditioning),
+    # in tournament order.
+    build("04_group_stage.ipynb", notebook_group_stage())
+    build("05_round_of_32.ipynb", notebook_round_of_32())
+    build("06_round_of_16.ipynb", notebook_round_of_16())
+    build("07_quarterfinals.ipynb", notebook_quarterfinals())
     print("done")
 
 

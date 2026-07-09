@@ -14,17 +14,19 @@ explored through Jupyter notebooks.
 The repo ships with **real World Cup data** so everything runs end to end out of
 the box. Match results come from
 [openfootball/worldcup.json](https://github.com/openfootball/worldcup.json) and
-cover every World Cup finals from 1930 through the already-played 2026 group
-games, and the bundled group stage is the **actual 2026 draw**.
+cover every World Cup finals from 1930 through the already-played 2026 matches
+(the full group stage plus the Round of 32 and Round of 16), and the bundled
+group stage is the **actual 2026 draw**.
 
 > **Coverage note:** the source only includes World Cup *finals* (no qualifiers
-> or friendlies), so 2026 debutants with no prior finals history fall back to
-> the models' default ratings. As of the currently vendored data that's just
-> **Uzbekistan** -- the other 2026 debutants already have a `matches.csv` row
-> from the 20 already-played 2026 group games. This list can shrink further (or
-> shift) as more 2026 matches get vendored, so don't rely on a hardcoded name
-> here: `notebooks/01_data_exploration.ipynb` computes it live against
-> whatever data is currently bundled. To fold in more matches, see
+> or friendlies). Four teams make their World Cup debut in 2026 -- Cape Verde,
+> Curaçao, Jordan and Uzbekistan -- so they have no pre-2026 finals history and
+> their ratings rest entirely on their 2026 games. A team only falls back to the
+> models' *default* ratings when it has no matches at all; now that the 2026
+> group stage and first knockout rounds have been played, every qualifier has a
+> record, so none currently do. `notebooks/01_data_exploration.ipynb` recomputes
+> that no-history list live against whatever data is bundled (it is empty as of
+> the currently vendored data). To fold in more matches, see
 > [Using your own data](#using-your-own-data).
 
 ## Project layout
@@ -35,14 +37,14 @@ world-cup-predictor/
 │   ├── raw/                  bundled CSVs (matches, teams, groups)
 │   ├── source/               vendored openfootball worldcup.json (per year)
 │   └── processed/            saved model artifacts (generated)
-├── notebooks/                01-04 analysis notebooks
+├── notebooks/                01-07 analysis notebooks
 ├── scripts/
 │   ├── fetch_worldcup_data.py build raw CSVs from openfootball data
 │   ├── generate_seed_data.py  regenerate synthetic CSVs (offline fallback)
 │   └── build_notebooks.py     regenerate the notebooks
 ├── src/wcpredictor/
 │   ├── config.py             paths + model hyperparameters
-│   ├── data/                 loader.py, preprocess.py
+│   ├── data/                 loader.py, preprocess.py, tournament_state.py
 │   ├── models/               base.py, elo.py, poisson.py
 │   ├── simulation/           match.py, tournament.py
 │   ├── evaluation/           metrics.py (backtesting)
@@ -104,7 +106,42 @@ jupyter lab notebooks/
 - `01_data_exploration.ipynb` - inspect the seed data and outcome distributions.
 - `02_elo_ratings.ipynb` - build and visualize Elo ratings.
 - `03_poisson_model.ipynb` - attack/defense strengths, scoreline heatmaps, backtest.
-- `04_tournament_simulation.ipynb` - run simulations and the advanced outcome plots.
+
+### Per-phase prediction notebooks (04-07)
+
+Notebooks `04`-`07` are a series, one per tournament phase, that answer "what
+did we predict, and how right were we?" at each stage:
+
+- `04_group_stage.ipynb` - **pre-tournament**: per-fixture win/draw/loss odds
+  for every group game and each team's advancement probability.
+- `05_round_of_32.ipynb` - the 16 R32 ties and everything downstream.
+- `06_round_of_16.ipynb` - the 8 R16 ties and downstream.
+- `07_quarterfinals.ipynb` - the 4 QF ties (the live frontier).
+
+Two ideas run through all four:
+
+1. **Point-in-time training (no look-ahead).** Each notebook trains on *only*
+   the matches played strictly before its round began (via
+   `wcpredictor.data.phase_start_dates`), so a snapshot never "knows" a result
+   it is about to predict. The training-set sizes step up round by round
+   (964 → 1036 → 1052 → 1060 matches).
+2. **Conditioning + scoring.** Each round is projected with
+   `load_tournament_state(config, as_of_stage=...)`, which *rewinds* the
+   fixtures to the start of that round, followed by `sim.run_conditioned`. For
+   a knockout tie, a team's `p_<next stage>` **is** its probability of winning
+   that tie (the two sides sum to 100%). Rounds that have since been played are
+   graded against reality with `wcpredictor.data.actual_knockout_ties`
+   (accuracy / Brier / log-loss); the still-to-come round shows live
+   predictions only.
+
+The series extends naturally as the tournament progresses: once the
+quarterfinals are played, add an `08_semifinals.ipynb` (then `09_final.ipynb`)
+by following the same recipe -- set `as_of_stage` to the new round in
+`scripts/build_notebooks.py` and rebuild.
+
+Rebuild them all (they are generated artifacts -- edit
+`scripts/build_notebooks.py`, not the `.ipynb` files) with `python
+scripts/build_notebooks.py`.
 
 ## Visualizations
 
@@ -173,7 +210,7 @@ scoreline distribution (0-0, 1-0, 0-1, 1-1) to correct the well-known tendency
 of independent Poissons to under/over-estimate draws and low-scoring results.
 rho is fit by profile likelihood over the historical low-scoring matches,
 bounded (`PoissonParams.rho_bounds`, default ±0.2) to keep every tau factor
-well-defined; it fits to rho ≈ -0.06 on the currently bundled data (`wcpredict
+well-defined; it fits to rho ≈ -0.09 on the currently bundled data (`wcpredict
 train` then check `poisson.rho`, or see notebook 03's printed value). The
 correction can be disabled via `PoissonParams.dixon_coles`. This yields a full
 scoreline distribution, which drives goal-difference tiebreakers and realistic
@@ -199,7 +236,9 @@ distils how far each team has actually gone plus the current *frontier* round;
 the simulator then treats every settled round as fact (probability exactly 0 or
 1) and rolls dice only from the frontier onward. Eliminated teams get a 0%
 title chance, and the field narrows to the teams still alive. This is the
-default for both the CLI `simulate` command and notebook 04. (Only the knockout
+default for the CLI `simulate` command and the knockout phase notebooks
+(05-07); the group-stage notebook (04) instead uses the from-scratch `run()`
+as its pre-tournament view. (Only the knockout
 phase is conditioned incrementally; a partially played group stage is not
 supported, since the 2026 group stage is complete.)
 
@@ -210,9 +249,12 @@ simulate` prints this as a one-line footer (±1 s.e. on the win probability at
 the top of the table), and `viz.plot_title_race` draws it as a 95%
 confidence-interval error bar on every team by default.
 
-> Note: the knockout bracket uses a seeding-based pairing (a deterministic,
-> balanced approximation) rather than FIFA's exact third-place slotting table,
-> which depends on which groups the qualifying third-placed teams come from.
+> Note: this only applies to the from-scratch projection, whose knockout
+> bracket uses a seeding-based pairing (a deterministic, balanced approximation)
+> rather than FIFA's exact third-place slotting table, which depends on which
+> groups the qualifying third-placed teams come from. The conditioned default
+> sidesteps the approximation once the knockout is under way -- it plays the
+> *actual* bracket read from the fixtures.
 
 ### Evaluation
 `wcpredict backtest` runs a walk-forward backtest reporting accuracy, multiclass
