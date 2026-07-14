@@ -288,7 +288,7 @@ def notebook_03():
 
 
 # --------------------------------------------------------------------------
-# Per-phase prediction notebooks (04-07).
+# Per-phase prediction notebooks (04-08).
 #
 # One notebook per tournament phase. Each freezes the event at the start of a
 # round, trains the model on ONLY the matches available at that point (strict
@@ -309,7 +309,7 @@ def notebook_group_stage():
     return [
         new_markdown_cell(
             "# 04 - Phase 1: Group Stage (pre-tournament)\n\n"
-            "The first of four phase notebooks. Each one freezes the tournament "
+            "The first of five phase notebooks. Each one freezes the tournament "
             "at the start of a round, trains a model on **only the matches "
             "available at that point** (strict point-in-time -- no look-ahead), "
             "and predicts what happens next; then, for rounds that have since "
@@ -466,7 +466,7 @@ def notebook_group_stage():
 
 
 def _knockout_phase_notebook(number, phase, title, stage_key, played):
-    """Cells for a knockout-phase notebook (R32 / R16 / QF).
+    """Cells for a knockout-phase notebook (R32 / R16 / QF / SF).
 
     ``played`` toggles the scorecard narration between "grade it" (a round that
     has happened) and "live prediction" (a round still to come).
@@ -648,7 +648,12 @@ def notebook_round_of_16():
 
 def notebook_quarterfinals():
     return _knockout_phase_notebook(
-        "07", 4, "Quarterfinals", "quarterfinal", played=False)
+        "07", 4, "Quarterfinals", "quarterfinal", played=True)
+
+
+def notebook_semifinals():
+    return _knockout_phase_notebook(
+        "08", 5, "Semifinals", "semifinal", played=False)
 
 
 def main():
@@ -672,6 +677,7 @@ def main():
     build("05_round_of_32.ipynb", notebook_round_of_32())
     build("06_round_of_16.ipynb", notebook_round_of_16())
     build("07_quarterfinals.ipynb", notebook_quarterfinals())
+    build("08_semifinals.ipynb", notebook_semifinals())
     print("done")
 
 

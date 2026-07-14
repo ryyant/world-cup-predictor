@@ -15,8 +15,8 @@ The repo ships with **real World Cup data** so everything runs end to end out of
 the box. Match results come from
 [openfootball/worldcup.json](https://github.com/openfootball/worldcup.json) and
 cover every World Cup finals from 1930 through the already-played 2026 matches
-(the full group stage plus the Round of 32 and Round of 16), and the bundled
-group stage is the **actual 2026 draw**.
+(the full group stage plus the knockout rounds through the quarterfinals), and
+the bundled group stage is the **actual 2026 draw**.
 
 > **Coverage note:** the source only includes World Cup *finals* (no qualifiers
 > or friendlies). Four teams make their World Cup debut in 2026 -- Cape Verde,
@@ -37,7 +37,7 @@ world-cup-predictor/
 │   ├── raw/                  bundled CSVs (matches, teams, groups)
 │   ├── source/               vendored openfootball worldcup.json (per year)
 │   └── processed/            saved model artifacts (generated)
-├── notebooks/                01-07 analysis notebooks
+├── notebooks/                01-08 analysis notebooks
 ├── scripts/
 │   ├── fetch_worldcup_data.py build raw CSVs from openfootball data
 │   ├── generate_seed_data.py  regenerate synthetic CSVs (offline fallback)
@@ -80,18 +80,16 @@ By default `simulate` **conditions on the matches already played** (read from
 the vendored 2026 fixtures): the group stage and completed knockout rounds are
 locked in, and only the current bracket onward is rolled forward, so
 already-eliminated teams correctly show a 0% title chance. Example output
-mid-tournament (`wcpredict simulate --top 10`, at the quarterfinal stage):
+mid-tournament (`wcpredict simulate --top 4`, at the semifinal stage):
 
 ```
-Conditioning on results through the quarterfinal: 8 teams still alive.
+Conditioning on results through the semifinal: 4 teams still alive.
 
   #  Team             Grp     Win   Final    Semi   Last8     Adv
-  1  France             I   24.2%   36.7%   63.6%  100.0%  100.0%
-  2  Spain              H   19.5%   30.9%   60.2%  100.0%  100.0%
-  3  England            L   16.1%   36.2%   63.7%  100.0%  100.0%
-  4  Argentina          J   15.9%   37.0%   68.5%  100.0%  100.0%
-  5  Belgium            G    8.5%   16.5%   39.8%  100.0%  100.0%
-  ...
+  1  France             I   35.6%   55.0%  100.0%  100.0%  100.0%
+  2  Spain              H   26.7%   45.0%  100.0%  100.0%  100.0%
+  3  England            L   19.2%   51.2%  100.0%  100.0%  100.0%
+  4  Argentina          J   18.5%   48.8%  100.0%  100.0%  100.0%
 ```
 
 Pass `--from-scratch` for the pre-tournament projection that replays the whole
@@ -107,16 +105,17 @@ jupyter lab notebooks/
 - `02_elo_ratings.ipynb` - build and visualize Elo ratings.
 - `03_poisson_model.ipynb` - attack/defense strengths, scoreline heatmaps, backtest.
 
-### Per-phase prediction notebooks (04-07)
+### Per-phase prediction notebooks (04-08)
 
-Notebooks `04`-`07` are a series, one per tournament phase, that answer "what
+Notebooks `04`-`08` are a series, one per tournament phase, that answer "what
 did we predict, and how right were we?" at each stage:
 
 - `04_group_stage.ipynb` - **pre-tournament**: per-fixture win/draw/loss odds
   for every group game and each team's advancement probability.
 - `05_round_of_32.ipynb` - the 16 R32 ties and everything downstream.
 - `06_round_of_16.ipynb` - the 8 R16 ties and downstream.
-- `07_quarterfinals.ipynb` - the 4 QF ties (the live frontier).
+- `07_quarterfinals.ipynb` - the 4 QF ties and downstream.
+- `08_semifinals.ipynb` - the 2 semifinal ties (the live frontier).
 
 Two ideas run through all four:
 
@@ -124,7 +123,7 @@ Two ideas run through all four:
    the matches played strictly before its round began (via
    `wcpredictor.data.phase_start_dates`), so a snapshot never "knows" a result
    it is about to predict. The training-set sizes step up round by round
-   (964 → 1036 → 1052 → 1060 matches).
+   (964 → 1036 → 1052 → 1060 → 1064 matches).
 2. **Conditioning + scoring.** Each round is projected with
    `load_tournament_state(config, as_of_stage=...)`, which *rewinds* the
    fixtures to the start of that round, followed by `sim.run_conditioned`. For
@@ -135,9 +134,9 @@ Two ideas run through all four:
    predictions only.
 
 The series extends naturally as the tournament progresses: once the
-quarterfinals are played, add an `08_semifinals.ipynb` (then `09_final.ipynb`)
-by following the same recipe -- set `as_of_stage` to the new round in
-`scripts/build_notebooks.py` and rebuild.
+semifinals are played, add a `09_final.ipynb` by following the same recipe --
+set `as_of_stage` to the new round in `scripts/build_notebooks.py` and
+rebuild.
 
 Rebuild them all (they are generated artifacts -- edit
 `scripts/build_notebooks.py`, not the `.ipynb` files) with `python
@@ -237,7 +236,7 @@ the simulator then treats every settled round as fact (probability exactly 0 or
 1) and rolls dice only from the frontier onward. Eliminated teams get a 0%
 title chance, and the field narrows to the teams still alive. This is the
 default for the CLI `simulate` command and the knockout phase notebooks
-(05-07); the group-stage notebook (04) instead uses the from-scratch `run()`
+(05-08); the group-stage notebook (04) instead uses the from-scratch `run()`
 as its pre-tournament view. (Only the knockout
 phase is conditioned incrementally; a partially played group stage is not
 supported, since the 2026 group stage is complete.)
