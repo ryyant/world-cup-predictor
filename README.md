@@ -37,7 +37,7 @@ world-cup-predictor/
 │   ├── raw/                  bundled CSVs (matches, teams, groups)
 │   ├── source/               vendored openfootball worldcup.json (per year)
 │   └── processed/            saved model artifacts (generated)
-├── notebooks/                01-08 analysis notebooks
+├── notebooks/                analysis notebooks (01-08 + 9x appendices)
 ├── scripts/
 │   ├── fetch_worldcup_data.py build raw CSVs from openfootball data
 │   ├── generate_seed_data.py  regenerate synthetic CSVs (offline fallback)
@@ -137,6 +137,18 @@ The series extends naturally as the tournament progresses: once the
 semifinals are played, add a `09_final.ipynb` by following the same recipe --
 set `as_of_stage` to the new round in `scripts/build_notebooks.py` and
 rebuild.
+
+### Reference analyses (9x)
+
+Notebooks numbered `90+` are appendices, deliberately out of the phase
+series' numbering:
+
+- `90_knockout_scores.ipynb` - every quarterfinal-onward match of the last
+  five completed World Cups (2006-2022) plus the already-played 2026 rounds:
+  the distribution of full-time scores and of scores after extra time, how
+  often 90 minutes fails to settle a tie, and an empirical check of the
+  simulator's extra-time scaling assumption (`EXTRA_TIME_FRACTION`). Unplayed
+  2026 fixtures are skipped, so the sample grows as results are refreshed.
 
 Rebuild them all (they are generated artifacts -- edit
 `scripts/build_notebooks.py`, not the `.ipynb` files) with `python
@@ -330,11 +342,63 @@ python scripts/build_notebooks.py                # rebuild the notebooks
 A live football API could be wired in behind `data/loader.py` by writing a
 fetcher that produces the same `matches.csv` schema.
 
+## Adding more models
+
+The Towards Data Science article in [References](#references) builds 11
+predictors for this same tournament -- ratings (Elo, Colley, PageRank), goal
+models (Poisson GLM, negative binomial), outcome classifiers (logistic
+regression, k-NN, random forest, XGBoost, a small neural net) and a betting-
+market benchmark -- and finds they crown four different champions. This
+project already covers its Elo and Poisson families; the rest slot into the
+existing architecture at one of two levels:
+
+1. **Outcome models** (Colley, PageRank, the ML classifiers): subclass
+   `MatchModel` in `src/wcpredictor/models/base.py` -- implement `fit()` over
+   the `build_training_matches` frame and `predict_match()` returning a
+   `MatchPrediction` (win/draw/loss probabilities). That alone plugs the model
+   into `wcpredict match`, the walk-forward `backtest`, calibration tables and
+   `viz.plot_model_comparison`, so it can be scored head-to-head against Elo
+   and Poisson on the bundled data. The classifiers need features; the
+   article's three (strength gap, combined strength, knockout flag) can all be
+   derived from an Elo fit plus the match metadata.
+2. **Goal models** (e.g. the negative binomial, which relaxes Poisson's
+   mean = variance assumption): additionally expose `expected_goals()` and
+   `sample_score()` -- the two methods `simulate_match` actually calls. Any
+   model with those can be handed to `TournamentSimulator` in place of
+   `PoissonModel` and drive the full Monte Carlo (group tiebreakers, extra
+   time, penalties), the conditioned per-phase notebooks included.
+
+Outcome-only models can't drive the simulator (it needs scorelines for goal
+difference and extra time), so classifiers stop at level 1 unless paired with
+a goal model. Two cheap, high-value additions from the article's conclusions:
+a simple **ensemble** (a `MatchModel` that averages the probabilities of
+several fitted members -- "a simple ensemble usually beats most of its
+members") and a **betting-market benchmark** (a pseudo-model that reads
+de-vigged odds from a CSV) as the yardstick every model must beat in
+`backtest`. Note the small-data caveat: on finals-only history (~1k matches)
+the article found simpler models beat the flexible ones (XGBoost, neural
+nets), which overfit -- if you go down the ML route, first broaden the
+training set (see [Using your own data](#using-your-own-data)).
+
 ## Development
 
 ```bash
 pytest          # run the test suite
 ```
+
+## References
+
+- [I Built 11 Models to Predict the 2026 World Cup — They Crown Four Different
+  Champions](https://towardsdatascience.com/i-built-11-models-to-predict-the-2026-world-cup-they-crown-four-different-champions/)
+  (Towards Data Science) -- a survey of approaches to the same prediction
+  problem, including Elo- and Poisson-based models like the ones used here;
+  see [Adding more models](#adding-more-models) for how the other nine fit
+  into this codebase.
+- Dixon, M.J. & Coles, S.G. (1997). *Modelling Association Football Scores and
+  Inefficiencies in the Football Betting Market* -- the low-scoring correction
+  applied to the Poisson model (see [Methodology](#methodology)).
+- [openfootball/worldcup.json](https://github.com/openfootball/worldcup.json)
+  -- the bundled historical match data (CC0).
 
 ## License
 

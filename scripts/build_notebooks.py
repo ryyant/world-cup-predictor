@@ -656,6 +656,217 @@ def notebook_semifinals():
         "08", 5, "Semifinals", "semifinal", played=False)
 
 
+def notebook_knockout_scores():
+    """Historical analysis notebook: late-knockout scores, 2006-2022.
+
+    Not part of the per-phase prediction series -- it looks *backward* at how
+    quarterfinal-onward matches actually score, as an empirical reference for
+    the simulator's knockout machinery (Poisson scorelines -> scaled-down
+    extra time -> penalties).
+    """
+    return [
+        new_markdown_cell(
+            "# 90 - Knockout scores: quarterfinals onward, 2006-2026\n\n"
+            "How do late-knockout matches actually behave? This notebook takes "
+            "every match from the quarterfinals on -- quarterfinals, semifinals, "
+            "the third-place match and the final -- across the last five "
+            "*completed* World Cups (2006-2022, eight such matches each) plus "
+            "whatever the in-progress 2026 edition has already played from the "
+            "quarterfinals onward, and looks at the distribution of **full-time "
+            "(90-minute) scores** and of the scores **after extra time** for "
+            "ties that were level.\n\n"
+            "These matches are the empirical base rates that the simulator's "
+            "knockout machinery (Poisson scorelines, then extra time as a "
+            "scaled-down match, then a penalty lottery) is meant to reproduce, "
+            "so at the end we check its extra-time scaling assumption against "
+            "the data. Unplayed 2026 fixtures are skipped, so the sample grows "
+            "on its own as the tournament finishes and the data is refreshed."
+        ),
+        new_code_cell(
+            "import json\n\n"
+            "import matplotlib.pyplot as plt\n"
+            "import numpy as np\n"
+            "import pandas as pd\n\n"
+            "from wcpredictor.config import default_config\n"
+            "from wcpredictor.simulation.match import EXTRA_TIME_FRACTION\n\n"
+            "config = default_config()\n"
+            "plt.rcParams['figure.figsize'] = (9, 4.5)\n\n"
+            "SOURCE_DIR = config.wc2026_source_path.parent\n"
+            "YEARS = [2006, 2010, 2014, 2018, 2022, 2026]\n"
+            "COMPLETED = [y for y in YEARS if y != 2026]\n"
+            "# openfootball's round labels vary by year; canonicalise QF onward.\n"
+            "ROUND_LABELS = {\n"
+            "    'Quarterfinals': 'QF', 'Quarter-finals': 'QF', 'Quarter-final': 'QF',\n"
+            "    'Semifinals': 'SF', 'Semi-finals': 'SF', 'Semi-final': 'SF',\n"
+            "    'Third-place play-off': '3rd place',\n"
+            "    'Match for third place': '3rd place',\n"
+            "    'Final': 'Final',\n"
+            "}\n"
+            "STAGE_ORDER = ['QF', 'SF', '3rd place', 'Final']"
+        ),
+        new_markdown_cell(
+            "## The matches\n\n"
+            "Read straight from the vendored `data/source/*.worldcup.json` "
+            "files rather than `matches.csv`, because only the source JSON "
+            "keeps the full-time and after-extra-time scores apart: `score.ft` "
+            "is the 90-minute score and `score.et`, when present, the "
+            "cumulative score after 120 minutes (`score.p` records a "
+            "shootout). The *settled* score is the one on the scoreboard when "
+            "the tie was decided: after extra time where it was played, after "
+            "90 minutes otherwise. Fixtures with no full-time score yet (the "
+            "still-to-be-played 2026 rounds) are skipped."
+        ),
+        new_code_cell(
+            "rows = []\n"
+            "for year in YEARS:\n"
+            "    doc = json.loads((SOURCE_DIR / f'{year}.worldcup.json')\n"
+            "                     .read_text(encoding='utf-8'))\n"
+            "    matches = list(doc.get('matches', []))\n"
+            "    for rnd in doc.get('rounds', []):\n"
+            "        matches.extend(rnd.get('matches', []))\n"
+            "    for m in matches:\n"
+            "        stage = ROUND_LABELS.get((m.get('round') or '').strip())\n"
+            "        if stage is None:\n"
+            "            continue\n"
+            "        s = m.get('score') or {}\n"
+            "        ft, et, pens = s.get('ft'), s.get('et'), s.get('p')\n"
+            "        if ft is None:\n"
+            "            continue  # not played yet (2026 rounds still to come)\n"
+            "        fin = et or ft  # the settled score (see above)\n"
+            "        rows.append({'year': year, 'stage': stage,\n"
+            "                     'team1': m['team1'], 'team2': m['team2'],\n"
+            "                     'ft1': ft[0], 'ft2': ft[1],\n"
+            "                     'fin1': fin[0], 'fin2': fin[1],\n"
+            "                     'extra_time': et is not None,\n"
+            "                     'penalties': pens is not None})\n"
+            "df = pd.DataFrame(rows)\n"
+            "df['stage'] = pd.Categorical(df['stage'], STAGE_ORDER, ordered=True)\n"
+            "per_year = df.groupby('year').size()\n"
+            "assert (per_year.loc[COMPLETED] == 8).all(), \\\n"
+            "    'expected 8 matches per completed WC from the QF on'\n"
+            "print(f'{len(df)} matches across {len(YEARS)} World Cups '\n"
+            "      f'({per_year.get(2026, 0)} of them from the in-progress 2026):')\n"
+            "print(per_year.to_string())\n"
+            "df.head()"
+        ),
+        new_markdown_cell(
+            "## How often does 90 minutes fail to settle it?\n\n"
+            "In a knockout, a full-time draw *is* extra time, so the FT draw "
+            "rate doubles as the extra-time rate."
+        ),
+        new_code_cell(
+            "summary = (df.groupby('stage', observed=True)\n"
+            "             .agg(matches=('year', 'size'),\n"
+            "                  extra_time=('extra_time', 'sum'),\n"
+            "                  penalties=('penalties', 'sum')))\n"
+            "summary['ft_draw_rate'] = summary['extra_time'] / summary['matches']\n"
+            "print(f\"Overall: {df['extra_time'].mean():.0%} level after 90 minutes \"\n"
+            "      f\"({df['extra_time'].sum()} of {len(df)}); \"\n"
+            "      f\"{df['penalties'].sum()} decided on penalties.\")\n"
+            "summary"
+        ),
+        new_markdown_cell(
+            "## Full-time scorelines\n\n"
+            "Scorelines as winner-loser (venue is irrelevant at a neutral "
+            "tournament), draws in grey. Late knockouts are tight, low-scoring "
+            "affairs -- compare the group-stage goal distributions in notebook "
+            "01."
+        ),
+        new_code_cell(
+            "def scoreline(a, b):\n"
+            "    return f'{max(a, b)}-{min(a, b)}'\n\n"
+            "def by_goals(index):\n"
+            "    return sorted(index, key=lambda s: (sum(map(int, s.split('-'))), s))\n\n"
+            "ft_scores = df.apply(lambda r: scoreline(r['ft1'], r['ft2']), axis=1)\n"
+            "counts = ft_scores.value_counts().loc[by_goals(ft_scores.unique())]\n"
+            "is_draw = [s.split('-')[0] == s.split('-')[1] for s in counts.index]\n"
+            f"colors = [{NB_PALETTE['draw']!r} if d else {NB_PALETTE['home']!r} "
+            "for d in is_draw]\n"
+            "ax = counts.plot.bar(color=colors, rot=0)\n"
+            "ax.set_title(f'Full-time scorelines, QF onward, '\n"
+            "             f'{YEARS[0]}-{YEARS[-1]} (draws in grey)')\n"
+            "ax.set_xlabel('scoreline (winner-loser)'); ax.set_ylabel('matches')\n"
+            "plt.tight_layout(); plt.show()\n"
+            "print(f\"mean FT goals/match: {(df['ft1'] + df['ft2']).mean():.2f} \"\n"
+            "      f\"(vs {counts.sum()} matches)\")"
+        ),
+        new_markdown_cell(
+            "## ...and after extra time: the settled scorelines\n\n"
+            "The same distribution once the level ties have played their extra "
+            "30 minutes. Draw cells shrink but do not vanish -- a scoreline "
+            "still level after 120 minutes means the tie went to penalties."
+        ),
+        new_code_cell(
+            "fin_scores = df.apply(lambda r: scoreline(r['fin1'], r['fin2']), axis=1)\n"
+            "comp = (pd.DataFrame({'full time': ft_scores.value_counts(),\n"
+            "                      'after extra time': fin_scores.value_counts()})\n"
+            "        .fillna(0).astype(int))\n"
+            "comp = comp.loc[by_goals(comp.index)]\n"
+            f"ax = comp.plot.bar(color=[{NB_PALETTE['home']!r}, "
+            f"{NB_PALETTE['accent']!r}], rot=0)\n"
+            "ax.set_title('Scoreline distribution: 90 minutes vs settled')\n"
+            "ax.set_xlabel('scoreline (winner-loser)'); ax.set_ylabel('matches')\n"
+            "plt.tight_layout(); plt.show()\n"
+            "still_level = fin_scores[df['penalties']].value_counts()\n"
+            "print('Settled-score draws (decided on penalties):')\n"
+            "print(still_level.to_string())"
+        ),
+        new_markdown_cell("### Total goals, before and after extra time"),
+        new_code_cell(
+            "tg = (pd.DataFrame({'full time': (df['ft1'] + df['ft2']).value_counts(),\n"
+            "                    'settled': (df['fin1'] + df['fin2']).value_counts()})\n"
+            "      .fillna(0).astype(int).sort_index())\n"
+            f"ax = tg.plot.bar(color=[{NB_PALETTE['home']!r}, "
+            f"{NB_PALETTE['accent']!r}], rot=0)\n"
+            "ax.set_title(f'Total goals per match, QF onward '\n"
+            "             f'({YEARS[0]}-{YEARS[-1]})')\n"
+            "ax.set_xlabel('goals'); ax.set_ylabel('matches')\n"
+            "plt.tight_layout(); plt.show()"
+        ),
+        new_markdown_cell(
+            "## Does extra time score like a third of a match?\n\n"
+            "The simulator plays extra time as the same Poisson attack/defense "
+            "matchup scaled by `EXTRA_TIME_FRACTION` (30/90 of the expected "
+            "goals -- see `wcpredictor.simulation.match`). Check that "
+            "assumption against these tournaments: goals actually scored in "
+            "extra-time periods vs what a third of the observed 90-minute "
+            "scoring rate would predict."
+        ),
+        new_code_cell(
+            "et_games = df[df['extra_time']]\n"
+            "et_goals = ((et_games['fin1'] - et_games['ft1'])\n"
+            "            + (et_games['fin2'] - et_games['ft2']))\n"
+            "ft_rate = (df['ft1'] + df['ft2']).mean()\n"
+            "print(f'{len(et_games)} matches went to extra time; '\n"
+            "      f'{int(et_goals.sum())} goals were scored in those periods.')\n"
+            "print(f'observed goals per ET period:            {et_goals.mean():.2f}')\n"
+            "print(f'FT rate x EXTRA_TIME_FRACTION ({EXTRA_TIME_FRACTION:.2f}): '\n"
+            "      f'{ft_rate * EXTRA_TIME_FRACTION:.2f}')\n"
+            "se = et_goals.std(ddof=1) / np.sqrt(len(et_goals))\n"
+            "print(f'(+/-1 s.e. on the observed rate: {se:.2f} -- '\n"
+            "      f'{len(et_goals)} matches is a small sample)')\n"
+            "print(f'ET matches settled without penalties: '\n"
+            "      f'{1 - et_games[\"penalties\"].mean():.0%}')"
+        ),
+        new_markdown_cell(
+            "### Reading the result\n\n"
+            "Two caveats before over-interpreting any gap between the two "
+            "rates. The sample is tiny (a handful of extra-time matches per "
+            "tournament), so the standard error above can span the whole "
+            "difference. And matches that reach extra time are not a random "
+            "sample: they are ties between well-matched sides, played on "
+            "tired legs -- caution and fatigue push scoring down, while the "
+            "urgency of avoiding a shootout pushes it up, so the selection "
+            "effects cut both ways. If the observed rate lands near the "
+            "one-third scaling, that is direct empirical support for the "
+            "simulator's independent-Poisson extra time (deliberately "
+            "without the Dixon-Coles draw correction, which models 90-minute "
+            "dependence); a persistent gap in either direction would justify "
+            "fitting a separate extra-time intercept from exactly this data."
+        ),
+    ]
+
+
 def main():
     # Parse args first so `--help` (or a stray flag) exits cleanly instead of
     # falling through and OVERWRITING every notebook under notebooks/.
@@ -678,6 +889,9 @@ def main():
     build("06_round_of_16.ipynb", notebook_round_of_16())
     build("07_quarterfinals.ipynb", notebook_quarterfinals())
     build("08_semifinals.ipynb", notebook_semifinals())
+    # Reference/appendix analyses live in the 9x range, out of the phase
+    # series' way (the next phase notebook will be 09_final.ipynb).
+    build("90_knockout_scores.ipynb", notebook_knockout_scores())
     print("done")
 
 
