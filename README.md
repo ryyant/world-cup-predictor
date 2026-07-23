@@ -14,17 +14,17 @@ explored through Jupyter notebooks.
 The repo ships with **real World Cup data** so everything runs end to end out of
 the box. Match results come from
 [openfootball/worldcup.json](https://github.com/openfootball/worldcup.json) and
-cover every World Cup finals from 1930 through the already-played 2026 matches
-(the full group stage plus the knockout rounds through the quarterfinals), and
-the bundled group stage is the **actual 2026 draw**.
+cover every World Cup finals from 1930 through the **completed** 2026 tournament
+(the full group stage and every knockout round, up to and including the final
+Spain won), and the bundled group stage is the **actual 2026 draw**.
 
 > **Coverage note:** the source only includes World Cup *finals* (no qualifiers
 > or friendlies). Four teams make their World Cup debut in 2026 -- Cape Verde,
 > Curaçao, Jordan and Uzbekistan -- so they have no pre-2026 finals history and
 > their ratings rest entirely on their 2026 games. A team only falls back to the
-> models' *default* ratings when it has no matches at all; now that the 2026
-> group stage and first knockout rounds have been played, every qualifier has a
-> record, so none currently do. `notebooks/01_data_exploration.ipynb` recomputes
+> models' *default* ratings when it has no matches at all; now that the full
+> 2026 tournament has been played, every qualifier has a record, so none
+> currently do. `notebooks/01_data_exploration.ipynb` recomputes
 > that no-history list live against whatever data is bundled (it is empty as of
 > the currently vendored data). To fold in more matches, see
 > [Using your own data](#using-your-own-data).
@@ -37,7 +37,7 @@ world-cup-predictor/
 │   ├── raw/                  bundled CSVs (matches, teams, groups)
 │   ├── source/               vendored openfootball worldcup.json (per year)
 │   └── processed/            saved model artifacts (generated)
-├── notebooks/                analysis notebooks (01-08 + 9x appendices)
+├── notebooks/                analysis notebooks (01-09 + 9x appendices)
 ├── scripts/
 │   ├── fetch_worldcup_data.py build raw CSVs from openfootball data
 │   ├── generate_seed_data.py  regenerate synthetic CSVs (offline fallback)
@@ -77,23 +77,25 @@ wcpredict backtest                    # historical accuracy of both models
 ```
 
 By default `simulate` **conditions on the matches already played** (read from
-the vendored 2026 fixtures): the group stage and completed knockout rounds are
-locked in, and only the current bracket onward is rolled forward, so
-already-eliminated teams correctly show a 0% title chance. Example output
-mid-tournament (`wcpredict simulate --top 4`, at the semifinal stage):
+the vendored 2026 fixtures): every settled round is locked in and only what is
+still undecided is rolled forward, so eliminated teams correctly show a 0%
+title chance. The vendored data is now the **completed** tournament, so there is
+no bracket left to roll forward -- `simulate` rewinds to the final and projects
+that last match (`wcpredict simulate --top 2`):
 
 ```
-Conditioning on results through the semifinal: 4 teams still alive.
+The vendored 2026 tournament is complete; projecting the final as the live frontier.
+Conditioning on results through the final: 2 teams still alive. Simulating 10,000 times from the current bracket...
 
   #  Team             Grp     Win   Final    Semi   Last8     Adv
-  1  France             I   35.6%   55.0%  100.0%  100.0%  100.0%
-  2  Spain              H   26.7%   45.0%  100.0%  100.0%  100.0%
-  3  England            L   19.2%   51.2%  100.0%  100.0%  100.0%
-  4  Argentina          J   18.5%   48.8%  100.0%  100.0%  100.0%
+  1  Spain              H   60.4%  100.0%  100.0%  100.0%  100.0%
+  2  Argentina          J   39.6%  100.0%  100.0%  100.0%  100.0%
 ```
 
-Pass `--from-scratch` for the pre-tournament projection that replays the whole
-event (all 48 teams contend, ignoring who has since been knocked out).
+The model made Spain a clear favourite for the final, and Spain duly won it 1-0
+after extra time. Pass `--from-scratch` for the pre-tournament projection that
+replays the whole event (all 48 teams contend, ignoring who was later knocked
+out).
 
 ## Notebooks
 
@@ -105,9 +107,9 @@ jupyter lab notebooks/
 - `02_elo_ratings.ipynb` - build and visualize Elo ratings.
 - `03_poisson_model.ipynb` - attack/defense strengths, scoreline heatmaps, backtest.
 
-### Per-phase prediction notebooks (04-08)
+### Per-phase prediction notebooks (04-09)
 
-Notebooks `04`-`08` are a series, one per tournament phase, that answer "what
+Notebooks `04`-`09` are a series, one per tournament phase, that answer "what
 did we predict, and how right were we?" at each stage:
 
 - `04_group_stage.ipynb` - **pre-tournament**: per-fixture win/draw/loss odds
@@ -115,15 +117,18 @@ did we predict, and how right were we?" at each stage:
 - `05_round_of_32.ipynb` - the 16 R32 ties and everything downstream.
 - `06_round_of_16.ipynb` - the 8 R16 ties and downstream.
 - `07_quarterfinals.ipynb` - the 4 QF ties and downstream.
-- `08_semifinals.ipynb` - the 2 semifinal ties (the live frontier).
+- `08_semifinals.ipynb` - the 2 semifinal ties (both won by the underdog).
+- `09_final.ipynb` - the final itself, then the champion crowned: the settled
+  scoreline, the third-place match, and the title odds the model gave the
+  eventual winner going in.
 
-Two ideas run through all four:
+Two ideas run through every one:
 
 1. **Point-in-time training (no look-ahead).** Each notebook trains on *only*
    the matches played strictly before its round began (via
    `wcpredictor.data.phase_start_dates`), so a snapshot never "knows" a result
    it is about to predict. The training-set sizes step up round by round
-   (964 → 1036 → 1052 → 1060 → 1064 matches).
+   (964 → 1036 → 1052 → 1060 → 1064 → 1067 matches).
 2. **Conditioning + scoring.** Each round is projected with
    `load_tournament_state(config, as_of_stage=...)`, which *rewinds* the
    fixtures to the start of that round, followed by `sim.run_conditioned`. For
@@ -133,10 +138,11 @@ Two ideas run through all four:
    (accuracy / Brier / log-loss); the still-to-come round shows live
    predictions only.
 
-The series extends naturally as the tournament progresses: once the
-semifinals are played, add a `09_final.ipynb` by following the same recipe --
-set `as_of_stage` to the new round in `scripts/build_notebooks.py` and
-rebuild.
+The series was built to extend a round at a time as the tournament progressed,
+and `09_final.ipynb` now closes it out on the same recipe (`notebook_final` in
+`scripts/build_notebooks.py` reuses the shared knockout-phase builder with the
+final as the frontier, then appends the champion crowning). With the final
+played, the whole 2026 event is graded end to end.
 
 ### Reference analyses (9x)
 
@@ -248,7 +254,7 @@ the simulator then treats every settled round as fact (probability exactly 0 or
 1) and rolls dice only from the frontier onward. Eliminated teams get a 0%
 title chance, and the field narrows to the teams still alive. This is the
 default for the CLI `simulate` command and the knockout phase notebooks
-(05-08); the group-stage notebook (04) instead uses the from-scratch `run()`
+(05-09); the group-stage notebook (04) instead uses the from-scratch `run()`
 as its pre-tournament view. (Only the knockout
 phase is conditioned incrementally; a partially played group stage is not
 supported, since the 2026 group stage is complete.)
@@ -332,12 +338,13 @@ python scripts/generate_seed_data.py             # synthetic data (offline fallb
 python scripts/build_notebooks.py                # rebuild the notebooks
 ```
 
-> **Careful with `--refresh` mid-tournament:** while the 2026 finals are in
-> progress, re-downloading the source JSON pulls in whatever knockout results
-> have been played *since* the vendored snapshot -- including results the
-> model would otherwise be "predicting". That breaks reproducibility of any
-> predictions you've already published. Stick to the default (no `--refresh`,
-> uses the vendored snapshot) unless you specifically want the latest results.
+> **Note on `--refresh`:** the 2026 tournament is complete and the vendored
+> snapshot already holds every result, so `--refresh` is effectively a no-op
+> for it now. It mattered *during* the tournament: re-downloading then pulled
+> in knockout results played *since* the snapshot -- including ones a phase
+> notebook is meant to be "predicting" -- which breaks reproducibility of any
+> predictions you'd already published. Stick to the default (no `--refresh`,
+> uses the vendored snapshot) unless you deliberately want to re-pull.
 
 A live football API could be wired in behind `data/loader.py` by writing a
 fetcher that produces the same `matches.csv` schema.

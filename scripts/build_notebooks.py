@@ -434,7 +434,12 @@ def notebook_group_stage():
             "truly went through."
         ),
         new_code_cell(
-            "actual_adv = set(load_tournament_state(config).reached)  # reached R32+\n"
+            "# The 32 knockout qualifiers = every team that turns up in the R32.\n"
+            "# (Rewinding to the R32 also means this keeps working once the whole\n"
+            "# tournament is decided, when the default un-rewound view has no\n"
+            "# frontier left to return.)\n"
+            "actual_adv = set(load_tournament_state(\n"
+            "    config, as_of_stage='round_of_32').reached)\n"
             "adv = report.table[['team', 'p_advance']].copy()\n"
             "adv['advanced'] = adv['team'].isin(actual_adv).astype(float)\n"
             "p = adv['p_advance'].clip(1e-15, 1 - 1e-15)\n"
@@ -653,7 +658,62 @@ def notebook_quarterfinals():
 
 def notebook_semifinals():
     return _knockout_phase_notebook(
-        "08", 5, "Semifinals", "semifinal", played=False)
+        "08", 5, "Semifinals", "semifinal", played=True)
+
+
+def notebook_final():
+    """The final: the same recipe as the other knockout phases, then a climax.
+
+    Reuses ``_knockout_phase_notebook`` (with the final as the frontier, so a
+    team's ``p_winner`` *is* its probability of lifting the trophy) and appends
+    a champion-crowning cell that reads the real final, third-place match and
+    the model's pre-final title odds straight from the vendored fixtures.
+    """
+    cells = _knockout_phase_notebook("09", 6, "Final", "final", played=True)
+    cells += [
+        new_markdown_cell(
+            "## And the champions are...\n\n"
+            "The scorecard above grades the one prediction that matters most. "
+            "To close the series, read the real endgame straight from the "
+            "vendored fixtures -- the settled final scoreline (extra time and "
+            "penalties included), the third-place match, and the title odds the "
+            "model gave the eventual winner walking into the final."
+        ),
+        new_code_cell(
+            "import json\n"
+            "doc = json.loads(config.wc2026_source_path.read_text(encoding='utf-8'))\n"
+            "by_num = {m.get('num'): m for m in doc.get('matches', [])}\n\n"
+            "def settled(m):\n"
+            "    s = m.get('score') or {}\n"
+            "    et, ft, pens = s.get('et'), s.get('ft'), s.get('p')\n"
+            "    a, b = et or ft\n"
+            "    if pens is not None:\n"
+            "        note = f' (a.e.t., {pens[0]}-{pens[1]} pens)'\n"
+            "    elif et is not None:\n"
+            "        note = ' (a.e.t.)'\n"
+            "    else:\n"
+            "        note = ''\n"
+            "    return a, b, note\n\n"
+            "fm = by_num[104]\n"
+            "fa, fb, fnote = settled(fm)\n"
+            "champion = actual_knockout_ties(config)['final'][0].winner\n"
+            "runner_up = fm['team2'] if champion == fm['team1'] else fm['team1']\n"
+            "pre = float(probs[champion])\n"
+            "print(f\"Final: {fm['team1']} {fa}-{fb} {fm['team2']}{fnote}\")\n"
+            "print(f'\\N{TROPHY} World Cup 2026 champions: {champion}  "
+            "(runners-up: {runner_up})')\n"
+            "print(f'Going into the final the model gave {champion} a {pre:.0%} "
+            "title chance, {runner_up} {1 - pre:.0%}.')\n"
+            "tp = by_num.get(103)\n"
+            "if tp and (tp.get('score') or {}).get('ft'):\n"
+            "    ta, tb, tnote = settled(tp)\n"
+            "    third = tp['team1'] if ta >= tb else tp['team2']\n"
+            "    beaten = tp['team2'] if third == tp['team1'] else tp['team1']\n"
+            "    print(f'Third place: {third} {max(ta, tb)}-{min(ta, tb)} "
+            "{beaten}{tnote}')"
+        ),
+    ]
+    return cells
 
 
 def notebook_knockout_scores():
@@ -889,8 +949,9 @@ def main():
     build("06_round_of_16.ipynb", notebook_round_of_16())
     build("07_quarterfinals.ipynb", notebook_quarterfinals())
     build("08_semifinals.ipynb", notebook_semifinals())
+    build("09_final.ipynb", notebook_final())
     # Reference/appendix analyses live in the 9x range, out of the phase
-    # series' way (the next phase notebook will be 09_final.ipynb).
+    # series' way (the phase series ends at 09_final.ipynb above).
     build("90_knockout_scores.ipynb", notebook_knockout_scores())
     print("done")
 

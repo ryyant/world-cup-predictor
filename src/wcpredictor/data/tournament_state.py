@@ -118,14 +118,18 @@ def _match_num(match: dict) -> Optional[int]:
         return None
 
 
-def _ft(match: dict) -> Optional[Tuple[int, int]]:
-    ft = (match.get("score") or {}).get("ft")
-    if isinstance(ft, list) and len(ft) == 2:
+def _as_pair(value) -> Optional[Tuple[int, int]]:
+    """Coerce an openfootball ``[home, away]`` score list to an int pair."""
+    if isinstance(value, list) and len(value) == 2:
         try:
-            return int(ft[0]), int(ft[1])
+            return int(value[0]), int(value[1])
         except (TypeError, ValueError):
             return None
     return None
+
+
+def _ft(match: dict) -> Optional[Tuple[int, int]]:
+    return _as_pair((match.get("score") or {}).get("ft"))
 
 
 def _group_letter(match: dict) -> Optional[str]:
@@ -244,22 +248,30 @@ def _mask_from_stage(matches: List[dict], as_of_stage: str) -> None:
 def _winner_of(match: dict, advanced: Dict[int, str]) -> Optional[str]:
     """Winner of a *played* tie, or ``None`` if it has not been played.
 
-    Uses the full-time score when decisive. A level score means the tie was
-    settled in extra time or on penalties; the survivor is then whichever side
-    shows up (as a real team) in a later round -- captured in ``advanced``,
-    which maps a match number to the team that progressed from it.
+    Reads the *settled* score -- after extra time if it was played, otherwise
+    the full-time score -- and, when that is still level, the penalty shootout
+    (``score.p``). Only if none of those separate the sides does it fall back
+    to ``advanced``, which maps a match number to whichever team turned up (as
+    a real team) in a later round. That fallback is what let older files omit
+    extra-time/shootout detail, but it cannot resolve the *final* -- no round
+    follows it -- so a final decided beyond 90 minutes relies on ``score.et``
+    or ``score.p`` being recorded (as openfootball does).
     """
     t1, t2 = match.get("team1"), match.get("team2")
     if _is_placeholder(t1) or _is_placeholder(t2):
         return None
-    ft = _ft(match)
-    if ft is None:
-        return None
-    hg, ag = ft
+    score = match.get("score") or {}
+    settled = _as_pair(score.get("et")) or _ft(match)
+    if settled is None:
+        return None  # not played yet
+    hg, ag = settled
     if hg > ag:
         return t1
     if ag > hg:
         return t2
+    pens = _as_pair(score.get("p"))
+    if pens is not None and pens[0] != pens[1]:
+        return t1 if pens[0] > pens[1] else t2
     return advanced.get(_match_num(match))
 
 

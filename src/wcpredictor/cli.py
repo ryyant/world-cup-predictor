@@ -156,9 +156,20 @@ def simulate(n_sim, top, plot_path, from_scratch):
     if not from_scratch:
         try:
             state = load_tournament_state(config)
-        except (FileNotFoundError, TournamentStateError) as exc:
+        except FileNotFoundError as exc:
             click.echo(f"Not conditioning (simulating from scratch): {exc}",
                        err=True)
+        except TournamentStateError:
+            # No frontier left: the vendored tournament is fully decided. Rewind
+            # to the final so we still condition on everything already settled
+            # and project the last match, rather than replaying from scratch.
+            try:
+                state = load_tournament_state(config, as_of_stage="final")
+                click.echo("The vendored 2026 tournament is complete; "
+                           "projecting the final as the live frontier.")
+            except TournamentStateError as exc:
+                click.echo(f"Not conditioning (simulating from scratch): {exc}",
+                           err=True)
     if state is not None:
         round_name = state.frontier_stage.replace("_", " ")
         click.echo(

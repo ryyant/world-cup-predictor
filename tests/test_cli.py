@@ -42,8 +42,9 @@ def test_match_reports_both_models():
 def test_simulate_conditions_on_played_results_by_default():
     result = _run("simulate", "--n", "12", "--top", "5")
     assert result.exit_code == 0, result.output
-    # With the 2026 tournament under way, the default conditions on results
-    # already played rather than replaying the whole event from scratch.
+    # The vendored 2026 tournament is complete, so the default view has no
+    # frontier left; simulate rewinds to the final and still conditions on the
+    # settled results rather than replaying the whole event from scratch.
     assert "Conditioning on results" in result.output
     # The Monte Carlo standard-error footer must still render.
     assert "Monte Carlo" in result.output

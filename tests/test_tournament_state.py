@@ -44,18 +44,27 @@ def _group_round_robin(letter, teams, scores):
 
 
 # --------------------------------------------------------- the real fixtures
-def test_real_state_is_internally_consistent():
-    """The bundled 2026 file must parse into a coherent, playable frontier.
+def test_real_state_tournament_is_decided():
+    """The bundled 2026 file is now the *completed* tournament.
 
-    Written to survive the tournament progressing (frontier moving from the
-    QF to the SF, etc.) by asserting structural invariants, not a fixed round.
+    With every match played there is no frontier left, so the default
+    (no-rewind) view raises -- and the recorded champion is Spain.
+    """
+    with pytest.raises(TournamentStateError, match="already decided"):
+        load_tournament_state(default_config())
+    champion = actual_knockout_ties(default_config())["final"][0].winner
+    assert champion == "Spain"
+
+
+@pytest.mark.parametrize("stage", [s for s in STAGES if s != "winner"])
+def test_real_state_rewound_to_each_round_is_consistent(stage):
+    """Rewinding the completed 2026 fixtures to any knockout round reopens it as
+    a coherent, playable frontier -- the invariant the per-phase notebooks lean
+    on. Asserts structure, not a fixed round, so it holds at every stage.
     """
     config = default_config()
-    state = load_tournament_state(config)
-
-    # The frontier is a real, not-yet-won round.
-    assert state.frontier_stage in STAGES
-    assert state.frontier_stage != "winner"
+    state = load_tournament_state(config, as_of_stage=stage)
+    assert state.frontier_stage == stage
 
     alive = state.alive
     assert len(alive) == 2 * len(state.frontier)  # two teams per tie
@@ -66,17 +75,22 @@ def test_real_state_is_internally_consistent():
     assert len(state.remaining_stages) == int(math.log2(len(alive)))
     assert state.remaining_stages[-1] == "winner"
     # remaining stages are the tail of STAGES immediately after the frontier.
-    assert state.remaining_stages == STAGES[_STAGE_INDEX[state.frontier_stage] + 1:]
+    assert state.remaining_stages == STAGES[_STAGE_INDEX[stage] + 1:]
 
-    # Every alive team has reached (only) the frontier stage.
+    # Every alive team has reached (only) the frontier stage; anyone already
+    # out reached a strictly earlier round (or never made the knockout).
+    frontier_idx = _STAGE_INDEX[stage]
     for team in alive:
-        assert state.reached[team] == state.frontier_stage
+        assert state.reached[team] == stage
+    for team, reached in state.reached.items():
+        if team not in alive:
+            assert _STAGE_INDEX[reached] < frontier_idx
 
     # reached values are valid stages; the alive set is drawn from the 48.
     draw = set(load_groups(config)["team"])
     assert set(alive) <= draw
-    for team, stage in state.reached.items():
-        assert stage in STAGES
+    for team, reached in state.reached.items():
+        assert reached in STAGES
         assert team in draw
 
     # Group finishes are a clean 1-4 permutation within each of the 12 groups.
@@ -84,17 +98,6 @@ def test_real_state_is_internally_consistent():
     for _letter, sub in groups.groupby("group"):
         finishes = sorted(state.group_position[t] for t in sub["team"])
         assert finishes == [1, 2, 3, 4]
-
-
-def test_real_state_eliminated_teams_are_capped():
-    """Teams that already lost keep their reached stage but drop off later ones."""
-    state = load_tournament_state(default_config())
-    frontier_idx = _STAGE_INDEX[state.frontier_stage]
-    # Anyone not alive must have reached a stage strictly before the frontier
-    # (or never made the knockout at all).
-    for team, stage in state.reached.items():
-        if team not in state.alive:
-            assert _STAGE_INDEX[stage] < frontier_idx
 
 
 # ------------------------------------------------------------ synthetic docs
@@ -171,6 +174,30 @@ def test_raises_when_already_decided(tmp_path):
     ]
     with pytest.raises(TournamentStateError, match="already decided"):
         load_state(_write(tmp_path, matches))
+
+
+def test_final_winner_from_extra_time(tmp_path):
+    """A final level at 90' but won in extra time still yields a champion.
+
+    The final has no round after it, so the "who advanced later" fallback
+    cannot resolve it -- the settled (extra-time) score has to.
+    """
+    matches = [
+        {"num": 4, "round": "Final", "team1": "Alpha", "team2": "Delta",
+         "score": {"et": [1, 0], "ft": [0, 0]}},
+    ]
+    ties = actual_knockout_ties(_write(tmp_path, matches))
+    assert ties["final"][0].winner == "Alpha"
+
+
+def test_final_winner_from_penalties(tmp_path):
+    """A final still level after extra time is resolved by the shootout."""
+    matches = [
+        {"num": 4, "round": "Final", "team1": "Alpha", "team2": "Delta",
+         "score": {"p": [4, 2], "et": [1, 1], "ft": [1, 1]}},
+    ]
+    ties = actual_knockout_ties(_write(tmp_path, matches))
+    assert ties["final"][0].winner == "Alpha"
 
 
 # --------------------------------------------------------- as_of_stage rewind
